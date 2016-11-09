@@ -30,6 +30,7 @@ public class Prontuario implements Serializable {
     private Integer idade;
     private Integer peso;
     private Float altura;
+    private String comentario;
 
     public Long getId() {
         return id;
@@ -93,5 +94,13 @@ public class Prontuario implements Serializable {
 
     public void setAltura(Float altura) {
         this.altura = altura;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
     }
 }

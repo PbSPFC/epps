@@ -10,4 +10,6 @@
     <string name="novo_prontuario">Novo Prontuário</string>
     <string name="ver_prontuarios">Ver Protuários</string>
     <string name="sair">Sair</string>
+    <string name="ra">RA:</string>
+    <string name="cadastro_de_aluno">Cadastro de Aluno</string>
 </resources>

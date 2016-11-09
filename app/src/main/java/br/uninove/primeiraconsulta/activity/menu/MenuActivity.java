@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import br.uninove.primeiraconsulta.R;
 import br.uninove.primeiraconsulta.activity.PrimeiraConsulta;
+import br.uninove.primeiraconsulta.activity.cadastro.CadastroUsuarioActivity;
 import br.uninove.primeiraconsulta.entidade.Usuario;
 import br.uninove.primeiraconsulta.util.SessaoUsuario;
 import butterknife.Bind;
@@ -45,7 +47,15 @@ public class MenuActivity extends AppCompatActivity{
         tvNome.setText(usuarioSessao.getNome());
     }
 
-
+    @OnClick(R.id.bt_menu_cadastrar)
+    public void btCadastro(){
+        if(usuarioSessao.getStatus().getId() == 2){
+            Toast.makeText(this, "Você não tem permissão para cadastrar usuários!", Toast.LENGTH_SHORT).show();
+        }else{
+            Intent intent = new Intent(this, CadastroUsuarioActivity.class);
+            startActivity(intent);
+        }
+    }
 
     @OnClick(R.id.bt_menu_sair)
     public void sair(){

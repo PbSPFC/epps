@@ -1,6 +1,8 @@
-package br.uninove.primeiraconsulta.database;
+package br.uninove.primeiraconsulta.util;
 
 import android.content.Context;
+
+import br.uninove.primeiraconsulta.database.DataBase;
 
 /**
  * Created by PB on 09/11/2016.
@@ -8,8 +10,10 @@ import android.content.Context;
 
 public class DbFactory {
 
+    private static DataBase db;
+
     public static final DataBase getDB(Context context){
-        DataBase db = new DataBase(context);
+        db = new DataBase(context);
         return db;
     }
 

@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.menu.MenuActivity"></activity>
+        <activity android:name=".activity.cadastro.CadastroUsuarioActivity"></activity>
     </application>
 
 </manifest>
