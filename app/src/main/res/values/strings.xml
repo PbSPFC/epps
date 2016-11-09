@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Primeira Consulta</string>
+    <string name="action_settings">Settings</string>
+    <string name="crm_ra">CRM/RA:</string>
+    <string name="senha">Senha:</string>
+    <string name="conectar">Conectar-se</string>
+    <string name="status">Status</string>
+    <string name="nome">Nome:</string>
+</resources>

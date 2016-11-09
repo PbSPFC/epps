@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_primeira_consulta"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="br.uninove.primeiraconsulta.activity.PrimeiraConsultaFragment"
+    tools:showIn="@layout/activity_primeira_consulta">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/senha"
+        android:textSize="24sp"
+        tools:text="Senha:"
+        android:id="@+id/tv_senha"
+        android:layout_centerVertical="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/ed_ra"
+        android:layout_alignBottom="@+id/tv_ra"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:singleLine="true"
+        android:layout_toEndOf="@+id/tv_ra"
+        android:textSize="14sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/ed_senha"
+        android:layout_alignBottom="@+id/tv_senha"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:singleLine="true"
+        android:layout_toRightOf="@+id/tv_ra"
+        android:layout_toEndOf="@+id/tv_ra"
+        android:textSize="14sp"
+        android:layout_below="@+id/ed_ra" />
+
+    <Button
+        android:text="@string/conectar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:id="@+id/bt_login"
+        tools:text="Conectar-se"
+        android:layout_below="@+id/ed_senha"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/crm_ra"
+        android:textSize="24sp"
+        android:id="@+id/tv_ra"
+        android:layout_above="@+id/tv_senha"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp" />
+
+</RelativeLayout>
