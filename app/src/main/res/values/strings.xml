@@ -5,5 +5,9 @@
     <string name="senha">Senha:</string>
     <string name="conectar">Conectar-se</string>
     <string name="status">Status</string>
-    <string name="nome">Nome:</string>
+    <string name="nome">Nome do Usuário:</string>
+    <string name="cadastrar_aluno">Cadastrar Aluno</string>
+    <string name="novo_prontuario">Novo Prontuário</string>
+    <string name="ver_prontuarios">Ver Protuários</string>
+    <string name="sair">Sair</string>
 </resources>

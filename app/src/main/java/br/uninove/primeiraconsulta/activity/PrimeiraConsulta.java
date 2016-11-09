@@ -16,6 +16,7 @@ import br.uninove.primeiraconsulta.R;
 import br.uninove.primeiraconsulta.activity.menu.MenuActivity;
 import br.uninove.primeiraconsulta.entidade.Usuario;
 import br.uninove.primeiraconsulta.util.CheckLogin;
+import br.uninove.primeiraconsulta.util.SessaoUsuario;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -76,7 +77,7 @@ public class PrimeiraConsulta extends AppCompatActivity {
 
         if(usuario!=null){
             Intent intent = new Intent(this, MenuActivity.class);
-            intent.putExtra("usuarioSessao", usuario);
+            SessaoUsuario.setUsuarioSessao(usuario);
             startActivity(intent);
             finish();
         }else{
