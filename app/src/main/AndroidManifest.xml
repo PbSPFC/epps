@@ -20,6 +20,9 @@
         </activity>
         <activity android:name=".activity.menu.MenuActivity"></activity>
         <activity android:name=".activity.cadastro.CadastroUsuarioActivity"></activity>
+        <activity android:name=".activity.prontuario.NovoProntuarioActivity"></activity>
+        <activity android:name=".activity.prontuario.VerProntuarioActivity"></activity>
+        <activity android:name=".activity.prontuario.ListarProntuariosActivity"></activity>
     </application>
 
 </manifest>
