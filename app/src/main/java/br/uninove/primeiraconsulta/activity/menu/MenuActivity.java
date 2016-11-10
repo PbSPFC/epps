@@ -68,6 +68,8 @@ public class MenuActivity extends AppCompatActivity{
     public void sair(){
         SessaoUsuario.setUsuarioSessao(new Usuario());
         System.out.println(SessaoUsuario.getUsuarioSessao().getNome() + " Saiu");
+        Intent intent = new Intent(this, PrimeiraConsulta.class);
+        startActivity(intent);
         finish();
     }
 

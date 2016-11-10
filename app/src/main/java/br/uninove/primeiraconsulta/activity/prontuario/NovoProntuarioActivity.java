@@ -6,10 +6,13 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import br.uninove.primeiraconsulta.R;
 import br.uninove.primeiraconsulta.activity.menu.MenuActivity;
+import br.uninove.primeiraconsulta.entidade.Prontuario;
 import br.uninove.primeiraconsulta.entidade.Usuario;
+import br.uninove.primeiraconsulta.util.CheckNovoProntuario;
 import br.uninove.primeiraconsulta.util.SessaoUsuario;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -47,17 +50,35 @@ public class NovoProntuarioActivity extends AppCompatActivity {
 
     @OnClick(R.id.bt_novo_cadastrar)
     public void novoProntuario(){
-        String numProntuario = edNumProntuario.getText().toString();
-        String nomePaciente = edNomePaciente.getText().toString();
+
+        Prontuario prontuario = new Prontuario();
+        prontuario.setNumProntuario(edNumProntuario.getText().toString());
+        prontuario.setNomePaciente(edNomePaciente.getText().toString());
         Usuario usuario = SessaoUsuario.getUsuarioSessao();
+        prontuario.setIdUsuario(usuario.getId());
+        prontuario.setNomeMedico(usuario.getNome());
         String sexo = "Feminino";
         int sexoEscolha = rg.getCheckedRadioButtonId();
         if(sexoEscolha == R.id.rb_novo_masculino){sexo = "Masculino";}
-        Integer idade = Integer.parseInt(edIdade.getText().toString());
-        Integer peso = Integer.parseInt(edPeso.getText().toString());
-        Float altura = Float.parseFloat(edAltura.getText().toString());
-        String comentario = edComentario.getText().toString();
+        prontuario.setSexo(sexo);
+        String pIdade = edIdade.getText().toString();
+        if(!pIdade.isEmpty()){prontuario.setIdade(Integer.parseInt(pIdade));}
+        if(!edPeso.getText().toString().isEmpty()){prontuario.setPeso(Integer.parseInt(edPeso.getText().toString()));}
+        if(!edAltura.getText().toString().isEmpty()){prontuario.setAltura(Float.parseFloat(edAltura.getText().toString()));}
+        prontuario.setComentario(edComentario.getText().toString());
 
+        if(CheckNovoProntuario.checkCampos(prontuario, this)){
+
+            prontuario = CheckNovoProntuario.checkNumProntuario(prontuario, this);
+            if(prontuario != null) {
+                Toast.makeText(this, "Prontuario de N° " +prontuario.getNumProntuario()+" foi cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+                finish();
+            }else{
+                Toast.makeText(this, "Não foi possível cadastrar prontuário, número do prontuário já está registrado!", Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(this, "Algum campo foi preenchido incorretamente", Toast.LENGTH_SHORT).show();
+        }
 
 
 

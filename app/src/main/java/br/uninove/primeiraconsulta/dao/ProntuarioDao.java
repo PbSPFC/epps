@@ -11,6 +11,7 @@ import java.util.List;
 import br.uninove.primeiraconsulta.database.DbProntuario;
 import br.uninove.primeiraconsulta.database.DbUsuario;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
+import br.uninove.primeiraconsulta.entidade.Usuario;
 import br.uninove.primeiraconsulta.util.DbFactory;
 
 /**
@@ -48,8 +49,8 @@ public class ProntuarioDao {
         //Persistindo valores do objeto no BD
         values.put(numProntuario, prontuario.getNumProntuario());
         values.put(nomePaciente, prontuario.getNomePaciente());
-        values.put(usuarioId, prontuario.getUsuario().getId());
-        values.put(nomeMedico, prontuario.getUsuario().getNome());
+        values.put(usuarioId, prontuario.getIdUsuario());
+        values.put(nomeMedico, prontuario.getNomeMedico());
         values.put(sexo, prontuario.getSexo());
         values.put(idade, prontuario.getIdade());
         values.put(peso, prontuario.getPeso());
@@ -58,6 +59,8 @@ public class ProntuarioDao {
         //Verificando se ira fazer udpate ou insert
         if(prontuario.getId()==null) {
             db.insert(DbProntuario.PRONTUARIO_TB_NAME, null, values);
+            System.out.println("Nome do Médico: " + prontuario.getNomeMedico());
+            System.out.println("Id: " + prontuario.getIdUsuario());
         }else{
             db.update(DbProntuario.PRONTUARIO_TB_NAME, values, "id = ?", new String[]{prontuario.getId().toString()});
         }
@@ -67,7 +70,7 @@ public class ProntuarioDao {
     public static List<Prontuario> buscarTodosProntuarios(Context context){
         List<Prontuario> lista = new ArrayList<>();
 
-        String sql = "select * from " + DbUsuario.USUARIO_TB_NAME;
+        String sql = "select * from " + DbProntuario.PRONTUARIO_TB_NAME;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
@@ -78,8 +81,8 @@ public class ProntuarioDao {
                 prontuario.setId(cursor.getLong(ID));
                 prontuario.setNumProntuario(cursor.getString(NUM_PRONTUARIO));
                 prontuario.setNomePaciente(cursor.getString(NOME_PACIENTE));
-                prontuario.setUsuario(UsuarioDao.buscarUsuarioPorId(cursor.getLong(USUARIO_ID), context));
-                prontuario.getUsuario().setNome(cursor.getString(NOME_MEDICO));
+                prontuario.setIdUsuario(cursor.getLong(USUARIO_ID));
+                prontuario.setNomeMedico(cursor.getString(NOME_MEDICO));
                 prontuario.setSexo(cursor.getString(SEXO));
                 prontuario.setIdade(cursor.getInt(IDADE));
                 prontuario.setPeso(cursor.getInt(PESO));
@@ -102,4 +105,31 @@ public class ProntuarioDao {
         db.close();
     }
 
+    public static Prontuario buscaPorNumProntuario(String numPront, Context context){
+
+        String sql = "select * from " + DbProntuario.PRONTUARIO_TB_NAME + " where NUM_PRONTUARIO = " + numPront;
+        SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+
+        if(cursor.moveToFirst()){
+            do{
+                Prontuario prontuario = new Prontuario();
+                prontuario.setId(cursor.getLong(ID));
+                prontuario.setNumProntuario(cursor.getString(NUM_PRONTUARIO));
+                prontuario.setNomePaciente(cursor.getString(NOME_PACIENTE));
+                prontuario.setIdUsuario(cursor.getLong(USUARIO_ID));
+                prontuario.setNomeMedico(cursor.getString(NOME_MEDICO));
+                prontuario.setSexo(cursor.getString(SEXO));
+                prontuario.setIdade(cursor.getInt(IDADE));
+                prontuario.setPeso(cursor.getInt(PESO));
+                prontuario.setAltura(cursor.getFloat(ALTURA));
+                prontuario.setComentario(cursor.getString(COMENTARIO_FINAL));
+                db.close();
+                return prontuario;
+            }while(cursor.moveToNext());
+        }
+
+        db.close();
+        return null;
+    }
 }

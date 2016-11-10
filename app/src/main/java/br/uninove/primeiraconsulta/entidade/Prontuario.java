@@ -11,21 +11,11 @@ public class Prontuario implements Serializable {
     public Prontuario() {
     }
 
-    public Prontuario(Long id, String numProntuario, String nomePaciente, Usuario usuario, String sexo, Integer idade, Integer peso, Float altura) {
-        this.id = id;
-        this.numProntuario = numProntuario;
-        this.nomePaciente = nomePaciente;
-        this.usuario = usuario;
-        this.sexo = sexo;
-        this.idade = idade;
-        this.peso = peso;
-        this.altura = altura;
-    }
-
     private Long id;
     private String numProntuario;
     private String nomePaciente;
-    private Usuario usuario;
+    private Long idUsuario;
+    private String nomeMedico;
     private String sexo;
     private Integer idade;
     private Integer peso;
@@ -56,13 +46,22 @@ public class Prontuario implements Serializable {
         this.nomePaciente = nomePaciente;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Long getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
+
+    public String getNomeMedico() {
+        return nomeMedico;
+    }
+
+    public void setNomeMedico(String nomeMedico) {
+        this.nomeMedico = nomeMedico;
+    }
+
 
     public String getSexo() {
         return sexo;
