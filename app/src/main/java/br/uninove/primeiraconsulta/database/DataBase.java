@@ -19,7 +19,7 @@ public class DataBase extends SQLiteOpenHelper {
 
 
     private static final String NOME_DB = "PRIMEIRA_CONSULTA_DB";
-    private static final int VERSAO_DB = 7;
+    private static final int VERSAO_DB = 9;
 
     public DataBase(Context context) {
         super(context, NOME_DB, null, VERSAO_DB
@@ -34,6 +34,9 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL(DbStatus.STATUS_INSERT_ALUNO);
         db.execSQL(DbProntuario.CREATE_PRONTUARIO);
         db.execSQL(DbUsuario.USUARIO_INSERT);
+        db.execSQL(DbUsuario.USUARIO_INSERT_LUIS_FABIANO);
+        db.execSQL(DbUsuario.USUARIO_INSERT_BERMUDINHA_DO_PATRICK);
+        db.execSQL(DbUsuario.USUARIO_INSERT_REGIS_TADEU);
     }
 
     @Override

@@ -56,6 +56,7 @@ public class NovoProntuarioActivity extends AppCompatActivity {
         prontuario.setNomePaciente(edNomePaciente.getText().toString());
         Usuario usuario = SessaoUsuario.getUsuarioSessao();
         prontuario.setIdUsuario(usuario.getId());
+        prontuario.setRaUsuario(usuario.getRa());
         prontuario.setNomeMedico(usuario.getNome());
         String sexo = "Feminino";
         int sexoEscolha = rg.getCheckedRadioButtonId();

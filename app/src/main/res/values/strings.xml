@@ -13,4 +13,5 @@
     <string name="ra">RA:</string>
     <string name="cadastro_de_aluno">Cadastro de Aluno</string>
     <string name="novo_prontu_rio">Novo Prontuário</string>
+    <string name="editar_prontuario">Editar Prontuario</string>
 </resources>

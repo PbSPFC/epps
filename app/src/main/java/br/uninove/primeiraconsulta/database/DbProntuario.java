@@ -13,6 +13,7 @@ public class DbProntuario {
             "NUM_PRONTUARIO TEXT NOT NULL," +
             "NOME_PACIENTE TEXT NOT NULL," +
             "USUARIO_ID INTEGER NOT NULL," +
+            "USUARIO_RA TEXT NOT NULL," +
             "NOME_MEDICO TEXT NOT NULL," +
             "SEXO TEXT NOT NULL," +
             "IDADE INTEGER NOT NULL," +

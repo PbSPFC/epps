@@ -23,6 +23,7 @@
         <activity android:name=".activity.prontuario.NovoProntuarioActivity"></activity>
         <activity android:name=".activity.prontuario.VerProntuarioActivity"></activity>
         <activity android:name=".activity.prontuario.ListarProntuariosActivity"></activity>
+        <activity android:name=".activity.prontuario.EditarProntuarioActivity"></activity>
     </application>
 
 </manifest>

@@ -27,11 +27,26 @@ public class DbUsuario {
             "FOREIGN KEY(STATUS_ID) REFERENCES " + DbStatus.STATUS_TB_NAME +
             ")";
 
+    public static final String USUARIO_DROP_TB = "DROP TABLE IF EXISTS " + USUARIO_TB_NAME;
+
     public static final String USUARIO_INSERT = "INSERT INTO " + USUARIO_TB_NAME + "(RA, SENHA, NOME," +
             "STATUS_ID) VALUES" +
             "(" +
             "'123456', '123', 'Espadilha', 1" +
             ")";
-    public static final String USUARIO_DROP_TB = "DROP TABLE IF EXISTS " + USUARIO_TB_NAME;
-
+    public static final String USUARIO_INSERT_LUIS_FABIANO = "INSERT INTO " + USUARIO_TB_NAME + "(RA, SENHA, NOME," +
+            "STATUS_ID) VALUES" +
+            "(" +
+            "'321', '123', 'Luis Fabiano', 1" +
+            ")";
+    public static final String USUARIO_INSERT_BERMUDINHA_DO_PATRICK = "INSERT INTO " + USUARIO_TB_NAME + "(RA, SENHA, NOME," +
+            "STATUS_ID) VALUES" +
+            "(" +
+            "'1111', '123', 'Bermudinha Do Patrick', 1" +
+            ")";
+    public static final String USUARIO_INSERT_REGIS_TADEU = "INSERT INTO " + USUARIO_TB_NAME + "(RA, SENHA, NOME," +
+            "STATUS_ID) VALUES" +
+            "(" +
+            "'666', '123', 'Regis Tadeu', 1" +
+            ")";
 }

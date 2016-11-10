@@ -1,5 +1,6 @@
 package br.uninove.primeiraconsulta.activity.prontuario;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,12 @@ import butterknife.OnClick;
 
 public class ListarProntuariosActivity extends AppCompatActivity{
 
+    private static Context context;
+    public static Context getContext(){
+        return ListarProntuariosActivity.context;
+    }
+
+
     @Bind(R.id.lv_listar_lista)
     ListView listViewProntuario;
 
@@ -32,6 +39,7 @@ public class ListarProntuariosActivity extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ListarProntuariosActivity.context = getApplicationContext();
         setContentView(R.layout.activity_listar_prontuarios);
         ButterKnife.bind(this);
 

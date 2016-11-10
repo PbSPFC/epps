@@ -15,6 +15,7 @@ public class Prontuario implements Serializable {
     private String numProntuario;
     private String nomePaciente;
     private Long idUsuario;
+    private String raUsuario;
     private String nomeMedico;
     private String sexo;
     private Integer idade;
@@ -54,6 +55,14 @@ public class Prontuario implements Serializable {
         this.idUsuario = idUsuario;
     }
 
+    public String getRaUsuario() {
+        return raUsuario;
+    }
+
+    public void setRaUsuario(String raUsuario) {
+        this.raUsuario = raUsuario;
+    }
+
     public String getNomeMedico() {
         return nomeMedico;
     }
@@ -61,7 +70,6 @@ public class Prontuario implements Serializable {
     public void setNomeMedico(String nomeMedico) {
         this.nomeMedico = nomeMedico;
     }
-
 
     public String getSexo() {
         return sexo;

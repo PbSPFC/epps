@@ -17,7 +17,7 @@ public class CheckNovoProntuario {
     public static boolean checkCampos(Prontuario p, Context context) {
 
         if(!p.getNumProntuario().isEmpty() && !p.getNomePaciente().isEmpty() &&
-                p.getIdUsuario()!= null && !p.getNomeMedico().isEmpty() &&
+                p.getIdUsuario()!= null && !p.getRaUsuario().isEmpty() && !p.getNomeMedico().isEmpty() &&
                 !p.getSexo().isEmpty() && p.getIdade() != null && p.getPeso() != null &&
                 p.getAltura() != null){
             return true;
