@@ -99,6 +99,41 @@ public class ProntuarioDao {
         return lista;
     }
 
+    public static List<Prontuario> buscarTodosPorIdUsuario(Long idUsuario, Context context) {
+
+        List<Prontuario> lista = new ArrayList<>();
+
+        String sql = "select * from " + DbProntuario.PRONTUARIO_TB_NAME + " where USUARIO_ID = " + idUsuario;
+        SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+
+        if(cursor.moveToFirst()){
+            do{
+
+                Prontuario prontuario = new Prontuario();
+                prontuario.setId(cursor.getLong(ID));
+                prontuario.setNumProntuario(cursor.getString(NUM_PRONTUARIO));
+                prontuario.setNomePaciente(cursor.getString(NOME_PACIENTE));
+                prontuario.setIdUsuario(cursor.getLong(USUARIO_ID));
+                prontuario.setNomeMedico(cursor.getString(NOME_MEDICO));
+                prontuario.setSexo(cursor.getString(SEXO));
+                prontuario.setIdade(cursor.getInt(IDADE));
+                prontuario.setPeso(cursor.getInt(PESO));
+                prontuario.setAltura(cursor.getFloat(ALTURA));
+                prontuario.setComentario(cursor.getString(COMENTARIO_FINAL));
+
+                lista.add(prontuario);
+
+            }while(cursor.moveToNext());
+        }
+
+
+        db.close();
+        return lista;
+
+    }
+
+
     public static void excluirProntuario(Prontuario prontuario, Context context) {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         db.delete(DbProntuario.PRONTUARIO_TB_NAME, "id=?", new String[]{prontuario.getId() + ""});
@@ -132,4 +167,6 @@ public class ProntuarioDao {
         db.close();
         return null;
     }
+
+
 }

@@ -10,6 +10,7 @@ import android.widget.Toast;
 import br.uninove.primeiraconsulta.R;
 import br.uninove.primeiraconsulta.activity.PrimeiraConsulta;
 import br.uninove.primeiraconsulta.activity.cadastro.CadastroUsuarioActivity;
+import br.uninove.primeiraconsulta.activity.prontuario.ListarProntuariosActivity;
 import br.uninove.primeiraconsulta.activity.prontuario.NovoProntuarioActivity;
 import br.uninove.primeiraconsulta.entidade.Usuario;
 import br.uninove.primeiraconsulta.util.SessaoUsuario;
@@ -61,6 +62,12 @@ public class MenuActivity extends AppCompatActivity{
     @OnClick(R.id.bt_menu_novo_prontuario)
     public void novoProntuario(){
         Intent intent = new Intent(this, NovoProntuarioActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.bt_menu_listar_prontuarios)
+    public void listaDeProntuarios(){
+        Intent intent = new Intent(this, ListarProntuariosActivity.class);
         startActivity(intent);
     }
 
