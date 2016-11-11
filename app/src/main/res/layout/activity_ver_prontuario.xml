@@ -22,13 +22,19 @@
                 android:textAllCaps="true"
                 android:textSize="24sp" />
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <TextView
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView13"
+                android:textAlignment="center" />
+
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="Cadastrado por: "
+                    android:text="Cadastrado por:   "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtview3"
@@ -44,15 +50,14 @@
                     android:layout_weight="1"
                     android:textSize="18sp"
                     android:textAlignment="viewStart" />
-            </LinearLayout>
+            </GridLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="CRM/RA: "
+                    android:text="CRM/RA:   "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtview4"
@@ -67,15 +72,14 @@
                     android:id="@+id/tv_ver_ra"
                     android:layout_weight="1"
                     android:textSize="18sp" />
-            </LinearLayout>
+            </GridLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="N° Prontuário: "
+                    android:text="N° Prontuário:    "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtview2"
@@ -90,15 +94,14 @@
                     android:id="@+id/tv_ver_num_prontuario"
                     android:layout_weight="1"
                     android:textSize="18sp" />
-            </LinearLayout>
+            </GridLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="Paciente: "
+                    android:text="Paciente:    "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtview"
@@ -113,15 +116,15 @@
                     android:id="@+id/tv_ver_nome_paciente"
                     android:layout_weight="1"
                     android:textSize="18sp" />
-            </LinearLayout>
+            </GridLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <GridLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                 <TextView
-                    android:text="Sexo: "
+                    android:text="Sexo:    "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtview5"
@@ -136,15 +139,14 @@
                     android:id="@+id/tv_ver_sexo"
                     android:layout_weight="1"
                     android:textSize="18sp" />
-            </LinearLayout>
+            </GridLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="Idade: "
+                    android:text="Idade:    "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtview6"
@@ -159,15 +161,15 @@
                     android:id="@+id/tv_ver_idade"
                     android:layout_weight="1"
                     android:textSize="18sp" />
-            </LinearLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            </GridLayout>
+
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="Peso: "
+                    android:text="Peso:    "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtview7"
@@ -182,15 +184,14 @@
                     android:id="@+id/tv_ver_peso"
                     android:layout_weight="1"
                     android:textSize="18sp" />
-            </LinearLayout>
+            </GridLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="Altura:"
+                    android:text="Altura:   "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtview8"
@@ -205,15 +206,14 @@
                     android:id="@+id/tv_ver_altura"
                     android:layout_weight="1"
                     android:textSize="18sp" />
-            </LinearLayout>
+            </GridLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="Comentário: "
+                    android:text="Comentário:   "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtview9"
@@ -228,7 +228,14 @@
                     android:id="@+id/tv_ver_comentario"
                     android:layout_weight="1"
                     android:textSize="18sp" />
-            </LinearLayout>
+            </GridLayout>
+
+            <TextView
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView14"
+                android:textAlignment="center" />
 
             <Button
                 android:text="Voltar"
