@@ -3,15 +3,76 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <ScrollView
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:scrollbarStyle="insideOverlay"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
 
-        <include layout="@layout/include_novo_prontuario" />
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <include layout="@layout/include_novo_prontuario" android:layout_width="match_parent" />
+
+            <include layout="@layout/include_novo_estilo_de_vida" android:layout_width="match_parent" />
+
+            <include layout="@layout/include_novo_estilo_de_vida_2" android:layout_width="match_parent" />
+
+            <include layout="@layout/include_novo_estilo_de_vida_3" android:layout_width="match_parent" />
+
+            <include layout="@layout/include_novo_estilo_de_vida_4" android:layout_width="match_parent" />
+
+            <include layout="@layout/include_novo_estilo_de_vida_5" android:layout_width="match_parent" />
+
+            <include layout="@layout/include_novo_exame_fisico" android:layout_width="match_parent" />
+
+            <TextView
+                android:text="Comentário Final"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView11"
+                android:textStyle="normal|bold"
+                android:textSize="18sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/ed_novo_comentarioFinal"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:text="Cadastrar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bt_novo_cadastrar"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignLeft="@+id/tv_novo_1"
+                    android:layout_alignStart="@+id/tv_novo_1"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:text="Voltar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bt_novo_voltar"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignRight="@+id/tv_novo_1"
+                    android:layout_alignEnd="@+id/tv_novo_1"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+        </LinearLayout>
     </ScrollView>
 
 </RelativeLayout>

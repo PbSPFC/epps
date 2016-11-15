@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
     <TextView
         android:text="Prontuários"
@@ -15,8 +16,9 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lv_listar_lista" />
+        android:id="@+id/lv_listar_lista"
+        android:layout_weight="0.88"
+        android:layout_height="300dp" />
 
     <Button
         android:text="Voltar"

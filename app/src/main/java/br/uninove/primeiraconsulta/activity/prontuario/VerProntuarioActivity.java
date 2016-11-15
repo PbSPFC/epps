@@ -37,6 +37,8 @@ public class VerProntuarioActivity extends AppCompatActivity{
     TextView tvAltura;
     @Bind(R.id.tv_ver_comentario)
     TextView tvComentario;
+    @Bind(R.id.tv_ver_gordura)
+    TextView tvGordura;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,6 +59,7 @@ public class VerProntuarioActivity extends AppCompatActivity{
             tvPeso.setText(prontuario.getPeso().toString());
             tvAltura.setText(prontuario.getAltura().toString());
             tvComentario.setText(prontuario.getComentario());
+            tvGordura.setText(prontuario.getGordura());
         }
 
     }

@@ -20,6 +20,8 @@ public class DbProntuario {
             "PESO INTEGER NOT NULL," +
             "ALTURA REAL NOT NULL," +
             "COMENTARIO_FINAL TEXT," +
+            "GORDURA_OPT INTEGER," +
+            "GORDURA_RESULTADO TEXT," +
             "FOREIGN KEY(USUARIO_ID) REFERENCES "+DbUsuario.USUARIO_TB_NAME+"" +
             ")";
     public static final String PRONTUARIO_DROP_TB = "DROP TABLE IF EXISTS "+PRONTUARIO_TB_NAME;

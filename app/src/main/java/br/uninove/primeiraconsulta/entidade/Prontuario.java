@@ -21,7 +21,14 @@ public class Prontuario implements Serializable {
     private Integer idade;
     private Integer peso;
     private Float altura;
+
+    //Estilo de vida / Habitos.
+
+    private Integer gorduraOpt;
+    private String gordura;
+
     private String comentario;
+
 
     public Long getId() {
         return id;
@@ -109,5 +116,21 @@ public class Prontuario implements Serializable {
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+
+    public Integer getGorduraOpt() {
+        return gorduraOpt;
+    }
+
+    public void setGorduraOpt(Integer gorduraOpt) {
+        this.gorduraOpt = gorduraOpt;
+    }
+
+    public String getGordura() {
+        return gordura;
+    }
+
+    public void setGordura(String gordura) {
+        this.gordura = gordura;
     }
 }

@@ -19,7 +19,7 @@ public class DataBase extends SQLiteOpenHelper {
 
 
     private static final String NOME_DB = "PRIMEIRA_CONSULTA_DB";
-    private static final int VERSAO_DB = 9;
+    private static final int VERSAO_DB = 11;
 
     public DataBase(Context context) {
         super(context, NOME_DB, null, VERSAO_DB

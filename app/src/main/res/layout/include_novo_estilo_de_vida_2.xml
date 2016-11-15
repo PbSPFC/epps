@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Sódio: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView25"
+        android:textSize="18sp"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_sodio">
+
+        <RadioButton
+            android:text="Uso de tempero pronto, embutidos, industrializados, enlatados (diário) ou mais de 5g de sal por dia."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sodio_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Menos que 5g porém mais que 2g de sal por dia."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sodio_2"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Abaixo de 2g de sal por dia."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sodio_3"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="Açúcares/Doces: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView26"
+        android:textStyle="normal|bold"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_doces">
+
+        <RadioButton
+            android:text="Maior de 75g 5 vezes por semana."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_doces_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Menor de 75g 5 vezes por semana."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_doces_2"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="Refrigerantes/Sucos Artificiais: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView27"
+        android:textStyle="normal|bold"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_refri">
+
+        <RadioButton
+            android:text="Mais de 5 vezes por semana."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_refri_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Menos de 1 vezes por semana."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_refri_2"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="Ingestão de água: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView28"
+        android:textStyle="normal|bold"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_agua">
+
+        <RadioButton
+            android:text="De dois ou mais litros de água por dia."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_agua_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Menos de dois litros de água por dia."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_agua_2"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="Atividade Física: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView29"
+        android:textStyle="normal|bold"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_atividade_fisica">
+
+        <RadioButton
+            android:text="Menos de 10 minutos contínuos de exercício por semana."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_atividade_fisica_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Menos de 150 minutos exercícios por semana."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_atividade_fisica_2"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Mais de 150 minutos exercícios por semana."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_atividade_fisica_3"
+            android:layout_weight="1" />
+    </RadioGroup>
+</LinearLayout>

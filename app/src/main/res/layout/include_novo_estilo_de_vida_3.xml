@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Sono, avaliação do ronco:
+            "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView30"
+            android:textStyle="normal|bold"
+            android:textSize="18sp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:text="Qual a probabilidade de você cochilar ou dormir, e não apenas se sentir cansado, nas seguintes situações?"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView31"
+            android:textStyle="normal|bold"
+            android:textSize="14sp"
+            android:textAlignment="viewStart" />
+
+        <TextView
+            android:text="Considere o modo de vida que você tem levado recentemente. Mesmo que você não tenha feito algumas destas coisas recentemente, tente imaginar como elas o afetariam. Escolha o número mais apropriado para responder cada questão.
+            "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView32"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:text="0 = Nunca cochilaria."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView33" />
+
+        <TextView
+            android:text="1 = Pequena probabilidade de cochilar."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView34" />
+
+        <TextView
+            android:text="2 = Probabilidade média de cochilar."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView35" />
+
+        <TextView
+            android:text="3 = Grande probabilidade de cochilar.
+            "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView36" />
+
+    </LinearLayout>
+
+    <TextView
+        android:text="Sentado e lendo: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView38"
+        android:textStyle="normal|bold"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_sono_lendo"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_lendo_0"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_lendo_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_lendo_2"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_lendo_3"
+            android:layout_weight="1" />
+
+    </RadioGroup>
+
+    <TextView
+        android:text="Assistindo TV: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView404"
+        android:textStyle="normal|bold"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_sono_tv"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_tv_0"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_tv_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_tv_2"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_tv_3"
+            android:layout_weight="1" />
+
+    </RadioGroup>
+
+    <TextView
+        android:text="Sentado, quieto, em um lugar público (Ex: Teatro, Reunião, Palestra, etc): "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4044"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_sono_publico"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_publico_0"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_publico_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_publico_2"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_publico_3"
+            android:layout_weight="1" />
+
+    </RadioGroup>
+
+    <TextView
+        android:text="Andando de carro por uma hora sem parar, como passageiro: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView402"
+        android:textStyle="normal|bold"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_sono_carro"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_carro_0"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_carro_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_carro_2"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_carro_3"
+            android:layout_weight="1" />
+
+    </RadioGroup>
+
+    <TextView
+        android:text="Sentado quieto após o almoço sem bebida alcólica: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4055"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_sono_almoco"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_almoco_0"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_almoco_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_almoco_2"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_almoco_3"
+            android:layout_weight="1" />
+
+    </RadioGroup>
+
+    <TextView
+        android:text="Em um carro parado no trânsito por alguns minutos: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView40865"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_sono_transito"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_transito_0"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_transito_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_transito_2"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_sono_transito_3"
+            android:layout_weight="1" />
+
+    </RadioGroup>
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView49"
+        android:textAlignment="center" />
+
+
+</LinearLayout>

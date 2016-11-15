@@ -37,14 +37,16 @@ public class NovoProntuarioActivity extends AppCompatActivity {
     @Bind(R.id.ed_novo_comentarioFinal)
     EditText edComentario;
 
-    RadioGroup rg;
+    RadioGroup rgSexo;
+    RadioGroup rgGordura;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_novo_prontuario);
         ButterKnife.bind(this);
-        rg = (RadioGroup)findViewById(R.id.rg_novo_sexo_grupo);
+        rgSexo = (RadioGroup)findViewById(R.id.rg_novo_sexo_grupo);
+        rgGordura = (RadioGroup)findViewById(R.id.rg_novo_gordura);
 
     }
 
@@ -52,21 +54,36 @@ public class NovoProntuarioActivity extends AppCompatActivity {
     public void novoProntuario(){
 
         Prontuario prontuario = new Prontuario();
+
         prontuario.setNumProntuario(edNumProntuario.getText().toString());
         prontuario.setNomePaciente(edNomePaciente.getText().toString());
         Usuario usuario = SessaoUsuario.getUsuarioSessao();
         prontuario.setIdUsuario(usuario.getId());
         prontuario.setRaUsuario(usuario.getRa());
         prontuario.setNomeMedico(usuario.getNome());
+
         String sexo = "Feminino";
-        int sexoEscolha = rg.getCheckedRadioButtonId();
+        int sexoEscolha = rgSexo.getCheckedRadioButtonId();
         if(sexoEscolha == R.id.rb_novo_masculino){sexo = "Masculino";}
         prontuario.setSexo(sexo);
+
         String pIdade = edIdade.getText().toString();
         if(!pIdade.isEmpty()){prontuario.setIdade(Integer.parseInt(pIdade));}
         if(!edPeso.getText().toString().isEmpty()){prontuario.setPeso(Integer.parseInt(edPeso.getText().toString()));}
         if(!edAltura.getText().toString().isEmpty()){prontuario.setAltura(Float.parseFloat(edAltura.getText().toString()));}
+
         prontuario.setComentario(edComentario.getText().toString());
+
+        int gorduraEscolha = rgGordura.getCheckedRadioButtonId();
+        if(gorduraEscolha == R.id.rb_novo_gordura_1){
+            prontuario.setGorduraOpt(R.id.rb_editar_gordura_1);
+            prontuario.setGordura("7 vezes na semana ou mais: frango com pele, carne com gordura, miúdos, frituras (alta ingesta).");
+        } else if(gorduraEscolha == R.id.rb_novo_gordura_2){
+            prontuario.setGorduraOpt(R.id.rb_editar_gordura_2);
+            prontuario.setGordura("Abaixo de 7 vezes na semana (Ingesta adequada).");
+        } else {
+            prontuario.setGordura("");
+        }
 
         if(CheckNovoProntuario.checkCampos(prontuario, this)){
 

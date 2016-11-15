@@ -31,6 +31,8 @@ public class ProntuarioDao {
     public static final int PESO = 8;
     public static final int ALTURA = 9;
     public static final int COMENTARIO_FINAL = 10;
+    public static final int GORDURA_OPT = 11;
+    public static final int GORDURA_RESULTADO = 12;
 
     public static final String id = "id";
     public static final String numProntuario = "num_prontuario";
@@ -43,6 +45,8 @@ public class ProntuarioDao {
     public static final String peso = "peso";
     public static final String altura = "altura";
     public static final String comentarioFinal = "comentario_final";
+    public static final String gorduraOpt = "gordura_opt";
+    public static final String gorduraResul = "gordura_resultado";
 
     public static void salvar(Prontuario prontuario, Context context){
         //Instancia o Banco de Dados
@@ -59,6 +63,8 @@ public class ProntuarioDao {
         values.put(peso, prontuario.getPeso());
         values.put(altura, prontuario.getAltura());
         values.put(comentarioFinal, prontuario.getComentario());
+        values.put(gorduraOpt, prontuario.getGorduraOpt());
+        values.put(gorduraResul, prontuario.getGordura());
         //Verificando se ira fazer udpate ou insert
         if(prontuario.getId()==null) {
             db.insert(DbProntuario.PRONTUARIO_TB_NAME, null, values);
@@ -92,6 +98,8 @@ public class ProntuarioDao {
                 prontuario.setPeso(cursor.getInt(PESO));
                 prontuario.setAltura(cursor.getFloat(ALTURA));
                 prontuario.setComentario(cursor.getString(COMENTARIO_FINAL));
+                prontuario.setGorduraOpt(cursor.getInt(GORDURA_OPT));
+                prontuario.setGordura(cursor.getString(GORDURA_RESULTADO));
 
                 lista.add(prontuario);
 
@@ -126,6 +134,8 @@ public class ProntuarioDao {
                 prontuario.setPeso(cursor.getInt(PESO));
                 prontuario.setAltura(cursor.getFloat(ALTURA));
                 prontuario.setComentario(cursor.getString(COMENTARIO_FINAL));
+                prontuario.setGorduraOpt(cursor.getInt(GORDURA_OPT));
+                prontuario.setGordura(cursor.getString(GORDURA_RESULTADO));
 
                 lista.add(prontuario);
 
@@ -166,6 +176,8 @@ public class ProntuarioDao {
                 prontuario.setPeso(cursor.getInt(PESO));
                 prontuario.setAltura(cursor.getFloat(ALTURA));
                 prontuario.setComentario(cursor.getString(COMENTARIO_FINAL));
+                prontuario.setGorduraOpt(cursor.getInt(GORDURA_OPT));
+                prontuario.setGordura(cursor.getString(GORDURA_RESULTADO));
 
                 db.close();
                 return prontuario;

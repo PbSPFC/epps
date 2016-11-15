@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Tabagismo (Fagerstrom):
+        "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView37"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Tabagismo ativo: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView39"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/rg_novo_tabagismo">
+
+        <RadioButton
+            android:text="Sim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_sim"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Não"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_nao"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="Avaliação do grau de dependência: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView40"
+        android:textStyle="normal|bold"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="(Caso seja ativo)
+        "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView41"
+        android:textStyle="normal|bold"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="1 - Quanto tempo após acordar você fuma seu primeiro cigarro?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView42"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_tabagismo_1">
+
+        <RadioButton
+            android:text="Dentro de 5 minutos."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_1_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Entre 6 - 30 minutos."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_1_2"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Entre 31 - 60 minutos."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_1_3"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="2 - Você acha difícil não fumar em lugares proíbidos, como igrejas, ônibus, etc?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView43"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/rg_novo_tabagismo_2">
+
+        <RadioButton
+            android:text="Sim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_2_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Não"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_2_2"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="3 - Qual cigarro do dia traz mais satisfação?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView44"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/rg_novo_tabagismo_3">
+
+        <RadioButton
+            android:text="O primeiro do dia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_3_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Outros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_3_2"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Nenhum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_3_3"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="4 - Quantos cigarros você fuma por dia?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView45"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_tabagismo_4">
+
+        <RadioButton
+            android:text="Menos de 10."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_4_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="De 11 a 20."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_4_2"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="de 21 a 30."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_4_3"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Mais de 31."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_4_4"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="5 - Você fuma frequentemente pela manhã?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView46"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/rg_novo_tabagismo_5">
+
+        <RadioButton
+            android:text="Sim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_5_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Não"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_5_2"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="6 - Você fuma mesmo doente?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView47"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/rg_novo_tabagismo_6">
+
+        <RadioButton
+            android:text="Sim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_6_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Não"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_tabagismo_6_2"
+            android:layout_weight="1" />
+
+    </RadioGroup>
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView48"
+        android:layout_weight="1"
+        android:textAlignment="center" />
+
+</LinearLayout>

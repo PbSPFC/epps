@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Consumo de Álcool
+        "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView50"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="Você consome álcool?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView52"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/rg_editar_alcool">
+
+        <RadioButton
+            android:text="Sim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_editar_alcool_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Não"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_editar_alcool_2"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="Avaliaçao do grau de dependência de álcool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView53"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:textStyle="normal|bold" />
+    <TextView
+        android:text="(Caso 'Sim')
+        "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView55"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="Alguma vez você sentiu que deveria diminuir a quantidade de bebida, ou parar de beber?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView54"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/rg_editar_alcool_1">
+
+        <RadioButton
+            android:text="Sim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_editar_alcool_1_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Não"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_editar_alcool_1_2"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="As pessoas a/o aborrecem porque criticam o seu modo de beber?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView542"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/rg_editar_alcool_2">
+
+        <RadioButton
+            android:text="Sim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_editar_alcool_2_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Não"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_editar_alcool_2_2"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="Você se sente culpado ou chateado pela maneira que costuma beber?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView543"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/rg_editar_alcool_3">
+
+        <RadioButton
+            android:text="Sim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_editar_alcool_3_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Não"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_editar_alcool_3_2"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="Alguma vez você já, como primeira ação pela manhã, bebeu para acalmar os nervos ou para se livrar de uma ressaca?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView564"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/rg_editar_alcool_4">
+
+        <RadioButton
+            android:text="Sim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_editar_alcool_4_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Não"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_editar_alcool_4_2"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView56"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center" />
+
+</LinearLayout>

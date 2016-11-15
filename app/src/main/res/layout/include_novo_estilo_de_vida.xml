@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Estilo de Vida / Hábitos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView18"
+        android:textStyle="normal|bold"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView19"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="Dieta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView20"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView24"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Gordura / Colesterol: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView21"
+        android:textSize="18sp"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_gordura">
+
+        <RadioButton
+            android:text="7 vezes na semana ou mais: Frango com pele, carne com gordura, miúdos, frituras."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_gordura_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Abaixo de 7 vezes."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_gordura_2"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="Fibra: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView22"
+        android:textStyle="normal|bold"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_fibra">
+
+        <RadioButton
+            android:text="Menos de 5 porções de frutas, verduras e hortaliças por dia."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_fibra_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Recomendação da ingestão diária de 400 gramas de frutas e hortaliças (WHO, 2003), o que seria equivalente, aproximadamente, ao consumo diário de cinco porções desses alimentos."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_fibra_2"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <TextView
+        android:text="Cálcio: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView23"
+        android:textStyle="normal|bold"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_novo_calcio">
+
+        <RadioButton
+            android:text="Menos de 3 porções de laticínios por semana."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_calcio_1"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="3 porções ou mais por semana."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_novo_calcio_2"
+            android:layout_weight="1" />
+    </RadioGroup>
+</LinearLayout>

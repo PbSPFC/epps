@@ -18,8 +18,7 @@ public class CheckNovoProntuario {
 
         if(!p.getNumProntuario().isEmpty() && !p.getNomePaciente().isEmpty() &&
                 p.getIdUsuario()!= null && !p.getRaUsuario().isEmpty() && !p.getNomeMedico().isEmpty() &&
-                !p.getSexo().isEmpty() && p.getIdade() != null && p.getPeso() != null &&
-                p.getAltura() != null){
+                !p.getSexo().isEmpty() && p.getIdade() != null && p.getPeso() != null && p.getAltura() != null){
             return true;
         }
         return false;
@@ -39,6 +38,9 @@ public class CheckNovoProntuario {
 
     public static Prontuario nadaConsta(Prontuario p){
         if(p.getComentario().isEmpty()){
+            p.setComentario("Nada Consta!");
+        }
+        if(p.getGordura().isEmpty() || p.getGordura().equals("")){
             p.setComentario("Nada Consta!");
         }
 
