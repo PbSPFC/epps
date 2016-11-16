@@ -34,6 +34,10 @@ public class MenuActivity extends AppCompatActivity{
     @Bind(R.id.tv_menu_nome)
     TextView tvNome;
 
+    @Bind(R.id.tv_menu_email)
+    TextView tvEmail;
+
+
     Usuario usuarioSessao = SessaoUsuario.getUsuarioSessao();
 
     @Override
@@ -47,6 +51,7 @@ public class MenuActivity extends AppCompatActivity{
         tvRA.setText(usuarioSessao.getRa());
         tvStatus.setText(usuarioSessao.getStatus().getStatus());
         tvNome.setText(usuarioSessao.getNome());
+        tvEmail.setText(usuarioSessao.getEmail());
     }
 
     @OnClick(R.id.bt_menu_cadastrar)

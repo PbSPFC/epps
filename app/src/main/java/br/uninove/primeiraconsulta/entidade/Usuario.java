@@ -13,6 +13,7 @@ public class Usuario implements Serializable{
     private String senha;
     private String nome;
     private Status status;
+    private String email;
 
     public Long getId() {
         return id;
@@ -52,5 +53,13 @@ public class Usuario implements Serializable{
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

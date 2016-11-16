@@ -72,6 +72,35 @@ public class Prontuario implements Serializable {
     private Integer cigarroPontos;
     private String cigarro;
 
+    private Integer alcoolAtivoOpt;
+    private Integer alcoolOpt1;
+    private Integer alcoolOpt2;
+    private Integer alcoolOpt3;
+    private Integer alcoolOpt4;
+    private String alcool1;
+    private String alcool2;
+    private String alcool3;
+    private String alcool4;
+    private String alcool;
+
+    //Exame Fisico
+    private Integer sistole;
+    private Integer diastole;
+    private Float imc;
+    private Integer cervical;
+    private Integer cintura;
+    private Float quadril;
+    private Integer snellenDireita;
+    private Integer snellenEsquerda;
+
+    private String paResultado;
+    private String imcResultado;
+    private String cervicalResultado;
+    private String cinturaResultado;
+    private String quadrilResultado;
+    private String snellenResultado;
+
+
     private String comentario;
 
 
@@ -473,5 +502,197 @@ public class Prontuario implements Serializable {
 
     public void setCigarro(String cigarro) {
         this.cigarro = cigarro;
+    }
+
+    public Integer getAlcoolAtivoOpt() {
+        return alcoolAtivoOpt;
+    }
+
+    public void setAlcoolAtivoOpt(Integer alcoolAtivoOpt) {
+        this.alcoolAtivoOpt = alcoolAtivoOpt;
+    }
+
+    public Integer getAlcoolOpt1() {
+        return alcoolOpt1;
+    }
+
+    public void setAlcoolOpt1(Integer alcoolOpt1) {
+        this.alcoolOpt1 = alcoolOpt1;
+    }
+
+    public Integer getAlcoolOpt2() {
+        return alcoolOpt2;
+    }
+
+    public void setAlcoolOpt2(Integer alcoolOpt2) {
+        this.alcoolOpt2 = alcoolOpt2;
+    }
+
+    public Integer getAlcoolOpt3() {
+        return alcoolOpt3;
+    }
+
+    public void setAlcoolOpt3(Integer alcoolOpt3) {
+        this.alcoolOpt3 = alcoolOpt3;
+    }
+
+    public Integer getAlcoolOpt4() {
+        return alcoolOpt4;
+    }
+
+    public void setAlcoolOpt4(Integer alcoolOpt4) {
+        this.alcoolOpt4 = alcoolOpt4;
+    }
+
+    public String getAlcool1() {
+        return alcool1;
+    }
+
+    public void setAlcool1(String alcool1) {
+        this.alcool1 = alcool1;
+    }
+
+    public String getAlcool2() {
+        return alcool2;
+    }
+
+    public void setAlcool2(String alcool2) {
+        this.alcool2 = alcool2;
+    }
+
+    public String getAlcool3() {
+        return alcool3;
+    }
+
+    public void setAlcool3(String alcool3) {
+        this.alcool3 = alcool3;
+    }
+
+    public String getAlcool4() {
+        return alcool4;
+    }
+
+    public void setAlcool4(String alcool4) {
+        this.alcool4 = alcool4;
+    }
+
+    public String getAlcool() {
+        return alcool;
+    }
+
+    public void setAlcool(String alcool) {
+        this.alcool = alcool;
+    }
+
+    public Integer getSistole() {
+        return sistole;
+    }
+
+    public void setSistole(Integer sistole) {
+        this.sistole = sistole;
+    }
+
+    public Integer getDiastole() {
+        return diastole;
+    }
+
+    public void setDiastole(Integer diastole) {
+        this.diastole = diastole;
+    }
+
+    public Float getImc() {
+        return imc;
+    }
+
+    public void setImc(Float imc) {
+        this.imc = imc;
+    }
+
+    public Integer getCervical() {
+        return cervical;
+    }
+
+    public void setCervical(Integer cervical) {
+        this.cervical = cervical;
+    }
+
+    public Integer getCintura() {
+        return cintura;
+    }
+
+    public void setCintura(Integer cintura) {
+        this.cintura = cintura;
+    }
+
+    public Float getQuadril() {
+        return quadril;
+    }
+
+    public void setQuadril(Float quadril) {
+        this.quadril = quadril;
+    }
+
+    public Integer getSnellenDireita() {
+        return snellenDireita;
+    }
+
+    public void setSnellenDireita(Integer snellenDireita) {
+        this.snellenDireita = snellenDireita;
+    }
+
+    public Integer getSnellenEsquerda() {
+        return snellenEsquerda;
+    }
+
+    public void setSnellenEsquerda(Integer snellenEsquerda) {
+        this.snellenEsquerda = snellenEsquerda;
+    }
+
+    public String getPaResultado() {
+        return paResultado;
+    }
+
+    public void setPaResultado(String paResultado) {
+        this.paResultado = paResultado;
+    }
+
+    public String getImcResultado() {
+        return imcResultado;
+    }
+
+    public void setImcResultado(String imcResultado) {
+        this.imcResultado = imcResultado;
+    }
+
+    public String getCervicalResultado() {
+        return cervicalResultado;
+    }
+
+    public void setCervicalResultado(String cervicalResultado) {
+        this.cervicalResultado = cervicalResultado;
+    }
+
+    public String getCinturaResultado() {
+        return cinturaResultado;
+    }
+
+    public void setCinturaResultado(String cinturaResultado) {
+        this.cinturaResultado = cinturaResultado;
+    }
+
+    public String getQuadrilResultado() {
+        return quadrilResultado;
+    }
+
+    public void setQuadrilResultado(String quadrilResultado) {
+        this.quadrilResultado = quadrilResultado;
+    }
+
+    public String getSnellenResultado() {
+        return snellenResultado;
+    }
+
+    public void setSnellenResultado(String snellenResultado) {
+        this.snellenResultado = snellenResultado;
     }
 }

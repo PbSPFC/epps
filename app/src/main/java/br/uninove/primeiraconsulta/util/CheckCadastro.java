@@ -26,9 +26,19 @@ public class CheckCadastro {
         return true;
     }
 
+    public static boolean checkEmail(String email, Context context) {
+        List<Usuario> listaUsuarios = UsuarioDao.buscarTodosUsuarios(context);
+        for (Usuario u:listaUsuarios) {
+            if(email.equals(u.getEmail())){
+                return false;
+            }
+        }
+        return true;
+    }
 
-    public static boolean checkCampoInvalido(String nome, String ra, String senha, Context context) {
-        if(!nome.isEmpty() && !ra.isEmpty() && !senha.isEmpty()){
+
+    public static boolean checkCampoInvalido(String nome, String ra, String senha, String email, Context context) {
+        if(!nome.isEmpty() && !ra.isEmpty() && !senha.isEmpty() && !email.isEmpty()){
 
             Usuario usuario = new Usuario();
             usuario.setRa(ra);
@@ -37,6 +47,7 @@ public class CheckCadastro {
             Status status = new Status();
             status.setId(new Long(2));
             usuario.setStatus(status);
+            usuario.setEmail(email);
 
             UsuarioDao.salvar(usuario, context);
 

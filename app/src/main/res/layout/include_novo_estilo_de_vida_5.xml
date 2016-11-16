@@ -24,7 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/rg_novo_alcool">
+        android:id="@+id/rg_novo_alcool"
+        android:checkedButton="@+id/rb_novo_alcool_2">
 
         <RadioButton
             android:text="Sim"

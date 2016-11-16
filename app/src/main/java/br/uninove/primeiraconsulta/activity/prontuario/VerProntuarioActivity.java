@@ -73,7 +73,46 @@ public class VerProntuarioActivity extends AppCompatActivity{
     TextView tvCigarroPontos;
     @Bind(R.id.tv_ver_cigarro)
     TextView tvCigarro;
+    @Bind(R.id.tv_ver_alcool_1)
+    TextView tvAlcool1;
+    @Bind(R.id.tv_ver_alcool_2)
+    TextView tvAlcool2;
+    @Bind(R.id.tv_ver_alcool_3)
+    TextView tvAlcool3;
+    @Bind(R.id.tv_ver_alcool_4)
+    TextView tvAlcool4;
+    @Bind(R.id.tv_ver_alcool)
+    TextView tvAlcool;
 
+    @Bind(R.id.tv_ver_sistole)
+    TextView tvSistole;
+    @Bind(R.id.tv_ver_diastole)
+    TextView tvDiastole;
+    @Bind(R.id.tv_ver_imc)
+    TextView tvImc;
+    @Bind(R.id.tv_ver_circ_cervical)
+    TextView tvCervical;
+    @Bind(R.id.tv_ver_circ_cintura)
+    TextView tvCintura;
+    @Bind(R.id.tv_ver_quadril)
+    TextView tvQuadril;
+    @Bind(R.id.tv_ver_snellen_direita)
+    TextView tvSnellenDireita;
+    @Bind(R.id.tv_ver_snellen_esquerda)
+    TextView tvSnellenEsquerda;
+
+    @Bind(R.id.tv_ver_pa_resultado)
+    TextView tvPaResultado;
+    @Bind(R.id.tv_ver_imc_resultado)
+    TextView tvImcResultado;
+    @Bind(R.id.tv_ver_circ_cervical_resultado)
+    TextView tvCervicalResultado;
+    @Bind(R.id.tv_ver_circ_cintura_resultado)
+    TextView tvCinturaResultado;
+    @Bind(R.id.tv_ver_quadril_resultado)
+    TextView tvQuadrilResultado;
+    @Bind(R.id.tv_ver_snellen_resultado)
+    TextView tvSnellenResultado;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -112,6 +151,27 @@ public class VerProntuarioActivity extends AppCompatActivity{
             tvCigarro6.setText(prontuario.getCigarro6());
             tvCigarroPontos.setText(prontuario.getCigarroPontos().toString());
             tvCigarro.setText(prontuario.getCigarro());
+            tvAlcool1.setText(prontuario.getAlcool1());
+            tvAlcool2.setText(prontuario.getAlcool2());
+            tvAlcool3.setText(prontuario.getAlcool3());
+            tvAlcool4.setText(prontuario.getAlcool4());
+            tvAlcool.setText(prontuario.getAlcool());
+
+            tvSistole.setText(prontuario.getSistole().toString());
+            tvDiastole.setText(prontuario.getDiastole().toString());
+            tvImc.setText(prontuario.getImc().toString());
+            tvCervical.setText(prontuario.getCervical().toString());
+            tvCintura.setText(prontuario.getCintura().toString());
+            tvQuadril.setText(prontuario.getQuadril().toString());
+            tvSnellenDireita.setText(prontuario.getSnellenDireita().toString());
+            tvSnellenEsquerda.setText(prontuario.getSnellenEsquerda().toString());
+
+            tvPaResultado.setText(prontuario.getPaResultado());
+            tvImcResultado.setText(prontuario.getImcResultado());
+            tvCervicalResultado.setText(prontuario.getCervicalResultado());
+            tvCinturaResultado.setText(prontuario.getCinturaResultado());
+            tvQuadrilResultado.setText(prontuario.getQuadrilResultado());
+            tvSnellenResultado.setText(prontuario.getSnellenResultado());
         }
 
     }

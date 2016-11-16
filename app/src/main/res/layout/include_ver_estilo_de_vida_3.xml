@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Consumo de Álcool: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teaaaxtVieww76"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Alguma vez você sentiu que deveria diminuir a quantidade de bebida, ou parar de beber?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViaadsadsaew42"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_alcool_1" />
+
+    <TextView
+        android:text="As pessoas a/o aborrecem porque criticam o seu modo de beber?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textVasasfieasw43"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_alcool_2"/>
+
+    <TextView
+        android:text="Você se sente culpado ou chateado pela maneira que costuma beber?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViaasasew4asd4"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_alcool_3"/>
+
+    <TextView
+        android:text="Alguma vez você já, como primeira ação pela manhã, bebeu para acalmar os nervos ou para se livrar de uma ressaca?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewsfasasdaas45"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_alcool_4"/>
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:text="Resultado: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textaaaassaView82"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_ver_alcool" />
+    </TableRow>
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textVieagaadasaa87"
+        android:textAlignment="center" />
+
+
+</LinearLayout>

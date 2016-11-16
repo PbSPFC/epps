@@ -25,6 +25,7 @@ public class CheckLogin {
                 usuario.setNome(u.getNome());
                 usuario.setSenha(u.getSenha());
                 usuario.setStatus(u.getStatus());
+                usuario.setEmail(u.getEmail());
                 return usuario;
             }
         }

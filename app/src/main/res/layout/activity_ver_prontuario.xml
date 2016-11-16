@@ -36,6 +36,10 @@
 
             <include layout="@layout/include_ver_estilo_de_vida_2" android:layout_width="match_parent" />
 
+            <include layout="@layout/include_ver_estilo_de_vida_3" android:layout_width="match_parent" />
+
+            <include layout="@layout/include_ver_exame_fisico" android:layout_width="match_parent" />
+
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">

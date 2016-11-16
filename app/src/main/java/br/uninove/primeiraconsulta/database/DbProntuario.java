@@ -59,6 +59,30 @@ public class DbProntuario {
             "CIGARRO_6 TEXT," +
             "CIGARRO_PONTOS INTEGER," +
             "CIGARRO TEXT," +
+            "ALCOOL_ATIVO_OPT INTEGER," +
+            "ALCOOL_OPT_1 INTEGER," +
+            "ALCOOL_OPT_2 INTEGER," +
+            "ALCOOL_OPT_3 INTEGER," +
+            "ALCOOL_OPT_4 INTEGER," +
+            "ALCOOL_1 TEXT," +
+            "ALCOOL_2 TEXT," +
+            "ALCOOL_3 TEXT," +
+            "ALCOOL_4 TEXT," +
+            "ALCOOL TEXT," +
+            "SISTOLE INTEGER," +
+            "DIASTOLE INTEGER," +
+            "IMC REAL," +
+            "CERVICAL INTEGER," +
+            "CINTURA INTEGER," +
+            "QUADRIL REAL," +
+            "SNELLEN_DIREITA INTEGER," +
+            "SNELLEN_ESQUERDA INTEGER," +
+            "PA_RESULTADO TEXT," +
+            "IMC_RESULTADO TEXT," +
+            "CERVICAL_RESULTADO TEXT," +
+            "CINTURA_RESULTADO TEXT," +
+            "QUADRIL_RESULTADO TEXT," +
+            "SNELLEN_RESULTADO TEXT," +
             "FOREIGN KEY(USUARIO_ID) REFERENCES "+DbUsuario.USUARIO_TB_NAME+"" +
             ")";
     public static final String PRONTUARIO_DROP_TB = "DROP TABLE IF EXISTS "+PRONTUARIO_TB_NAME;

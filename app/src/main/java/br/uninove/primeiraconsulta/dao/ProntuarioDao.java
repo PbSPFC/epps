@@ -70,6 +70,30 @@ public class ProntuarioDao {
     public static final int CIGARRO_6 = 47;
     public static final int CIGARRO_PONTOS = 48;
     public static final int CIGARRO = 49;
+    public static final int ALCOOL_ATIVO_OPT = 50;
+    public static final int ALCOOL_OPT_1 = 51;
+    public static final int ALCOOL_OPT_2 = 52;
+    public static final int ALCOOL_OPT_3 = 53;
+    public static final int ALCOOL_OPT_4 = 54;
+    public static final int ALCOOL_1 = 55;
+    public static final int ALCOOL_2 = 56;
+    public static final int ALCOOL_3 = 57;
+    public static final int ALCOOL_4 = 58;
+    public static final int ALCOOL = 59;
+    public static final int SISTOLE = 60;
+    public static final int DIASTOLE = 61;
+    public static final int IMC = 62;
+    public static final int CERVICAL = 63;
+    public static final int CINTURA = 64;
+    public static final int QUADRIL = 65;
+    public static final int SNELLEN_DIREITA = 66;
+    public static final int SNELLEN_ESQUERDA = 67;
+    public static final int PA_RESULTADO = 68;
+    public static final int IMC_RESULTADO = 69;
+    public static final int CERVICAL_RESULTADO = 70;
+    public static final int CINTURA_RESULTADO = 71;
+    public static final int QUADRIL_RESULTADO = 72;
+    public static final int SNELLEN_RESULTADO = 73;
 
 
     public static final String id = "id";
@@ -122,6 +146,30 @@ public class ProntuarioDao {
     public static final String cigarro6 = "cigarro_6";
     public static final String cigarroPontos = "cigarro_pontos";
     public static final String cigarro = "cigarro";
+    public static final String alcoolAtivoOpt = "alcool_ativo_opt";
+    public static final String alcoolOpt1 = "alcool_opt_1";
+    public static final String alcoolOpt2 = "alcool_opt_2";
+    public static final String alcoolOpt3 = "alcool_opt_3";
+    public static final String alcoolOpt4 = "alcool_opt_4";
+    public static final String alcool1 = "alcool_1";
+    public static final String alcool2 = "alcool_2";
+    public static final String alcool3 = "alcool_3";
+    public static final String alcool4 = "alcool_4";
+    public static final String alcool = "alcool";
+    public static final String sistole = "sistole";
+    public static final String diastole = "diastole";
+    public static final String imc = "imc";
+    public static final String cervical = "cervical";
+    public static final String cintura = "cintura";
+    public static final String quadril = "quadril";
+    public static final String snellenDireita = "snellen_direita";
+    public static final String snellenEsquerda = "snellen_esquerda";
+    public static final String paResultado = "pa_resultado";
+    public static final String imcResultado = "imc_resultado";
+    public static final String cervicalResultado = "cervical_resultado";
+    public static final String cinturaresultado = "cintura_resultado";
+    public static final String quadrilResultado = "quadril_resultado";
+    public static final String snellenResultado = "snellen_resultado";
 
     public static void salvar(Prontuario prontuario, Context context){
         //Instancia o Banco de Dados
@@ -177,6 +225,31 @@ public class ProntuarioDao {
         values.put(cigarro6, prontuario.getCigarro6());
         values.put(cigarroPontos, prontuario.getCigarroPontos());
         values.put(cigarro, prontuario.getCigarro());
+        values.put(alcoolAtivoOpt, prontuario.getAlcoolAtivoOpt());
+        values.put(alcoolOpt1, prontuario.getAlcoolOpt1());
+        values.put(alcoolOpt2, prontuario.getAlcoolOpt2());
+        values.put(alcoolOpt3, prontuario.getAlcoolOpt3());
+        values.put(alcoolOpt4, prontuario.getAlcoolOpt4());
+        values.put(alcool1, prontuario.getAlcool1());
+        values.put(alcool2, prontuario.getAlcool2());
+        values.put(alcool3, prontuario.getAlcool3());
+        values.put(alcool4, prontuario.getAlcool4());
+        values.put(alcool, prontuario.getAlcool());
+        values.put(sistole,prontuario.getSistole());
+        values.put(diastole,prontuario.getDiastole());
+        values.put(imc,prontuario.getImc());
+        values.put(cervical,prontuario.getCervical());
+        values.put(cintura,prontuario.getCintura());
+        values.put(quadril,prontuario.getQuadril());
+        values.put(snellenDireita,prontuario.getSnellenDireita());
+        values.put(snellenEsquerda,prontuario.getSnellenEsquerda());
+        values.put(paResultado,prontuario.getPaResultado());
+        values.put(imcResultado,prontuario.getImcResultado());
+        values.put(cervicalResultado,prontuario.getCervicalResultado());
+        values.put(cinturaresultado,prontuario.getCinturaResultado());
+        values.put(quadrilResultado,prontuario.getQuadrilResultado());
+        values.put(snellenResultado,prontuario.getSnellenResultado());
+
 
         //Verificando se ira fazer udpate ou insert
         if(prontuario.getId()==null) {
@@ -250,6 +323,30 @@ public class ProntuarioDao {
                 prontuario.setCigarro6(cursor.getString(CIGARRO_6));
                 prontuario.setCigarroPontos(cursor.getInt(CIGARRO_PONTOS));
                 prontuario.setCigarro(cursor.getString(CIGARRO));
+                prontuario.setAlcoolAtivoOpt(cursor.getInt(ALCOOL_ATIVO_OPT));
+                prontuario.setAlcoolOpt1(cursor.getInt(ALCOOL_OPT_1));
+                prontuario.setAlcoolOpt2(cursor.getInt(ALCOOL_OPT_2));
+                prontuario.setAlcoolOpt3(cursor.getInt(ALCOOL_OPT_3));
+                prontuario.setAlcoolOpt4(cursor.getInt(ALCOOL_OPT_4));
+                prontuario.setAlcool1(cursor.getString(ALCOOL_1));
+                prontuario.setAlcool2(cursor.getString(ALCOOL_2));
+                prontuario.setAlcool3(cursor.getString(ALCOOL_3));
+                prontuario.setAlcool4(cursor.getString(ALCOOL_4));
+                prontuario.setAlcool(cursor.getString(ALCOOL));
+                prontuario.setSistole(cursor.getInt(SISTOLE));
+                prontuario.setDiastole(cursor.getInt(DIASTOLE));
+                prontuario.setImc(cursor.getFloat(IMC));
+                prontuario.setCervical(cursor.getInt(CERVICAL));
+                prontuario.setCintura(cursor.getInt(CINTURA));
+                prontuario.setQuadril(cursor.getFloat(QUADRIL));
+                prontuario.setSnellenDireita(cursor.getInt(SNELLEN_DIREITA));
+                prontuario.setSnellenEsquerda(cursor.getInt(SNELLEN_ESQUERDA));
+                prontuario.setPaResultado(cursor.getString(PA_RESULTADO));
+                prontuario.setImcResultado(cursor.getString(IMC_RESULTADO));
+                prontuario.setCervicalResultado(cursor.getString(CERVICAL_RESULTADO));
+                prontuario.setCinturaResultado(cursor.getString(CINTURA_RESULTADO));
+                prontuario.setQuadrilResultado(cursor.getString(QUADRIL_RESULTADO));
+                prontuario.setSnellenResultado(cursor.getString(SNELLEN_RESULTADO));
 
                 lista.add(prontuario);
 
@@ -323,6 +420,30 @@ public class ProntuarioDao {
                 prontuario.setCigarro6(cursor.getString(CIGARRO_6));
                 prontuario.setCigarroPontos(cursor.getInt(CIGARRO_PONTOS));
                 prontuario.setCigarro(cursor.getString(CIGARRO));
+                prontuario.setAlcoolAtivoOpt(cursor.getInt(ALCOOL_ATIVO_OPT));
+                prontuario.setAlcoolOpt1(cursor.getInt(ALCOOL_OPT_1));
+                prontuario.setAlcoolOpt2(cursor.getInt(ALCOOL_OPT_2));
+                prontuario.setAlcoolOpt3(cursor.getInt(ALCOOL_OPT_3));
+                prontuario.setAlcoolOpt4(cursor.getInt(ALCOOL_OPT_4));
+                prontuario.setAlcool1(cursor.getString(ALCOOL_1));
+                prontuario.setAlcool2(cursor.getString(ALCOOL_2));
+                prontuario.setAlcool3(cursor.getString(ALCOOL_3));
+                prontuario.setAlcool4(cursor.getString(ALCOOL_4));
+                prontuario.setAlcool(cursor.getString(ALCOOL));
+                prontuario.setSistole(cursor.getInt(SISTOLE));
+                prontuario.setDiastole(cursor.getInt(DIASTOLE));
+                prontuario.setImc(cursor.getFloat(IMC));
+                prontuario.setCervical(cursor.getInt(CERVICAL));
+                prontuario.setCintura(cursor.getInt(CINTURA));
+                prontuario.setQuadril(cursor.getFloat(QUADRIL));
+                prontuario.setSnellenDireita(cursor.getInt(SNELLEN_DIREITA));
+                prontuario.setSnellenEsquerda(cursor.getInt(SNELLEN_ESQUERDA));
+                prontuario.setPaResultado(cursor.getString(PA_RESULTADO));
+                prontuario.setImcResultado(cursor.getString(IMC_RESULTADO));
+                prontuario.setCervicalResultado(cursor.getString(CERVICAL_RESULTADO));
+                prontuario.setCinturaResultado(cursor.getString(CINTURA_RESULTADO));
+                prontuario.setQuadrilResultado(cursor.getString(QUADRIL_RESULTADO));
+                prontuario.setSnellenResultado(cursor.getString(SNELLEN_RESULTADO));
 
                 lista.add(prontuario);
 
@@ -402,6 +523,30 @@ public class ProntuarioDao {
                 prontuario.setCigarro6(cursor.getString(CIGARRO_6));
                 prontuario.setCigarroPontos(cursor.getInt(CIGARRO_PONTOS));
                 prontuario.setCigarro(cursor.getString(CIGARRO));
+                prontuario.setAlcoolAtivoOpt(cursor.getInt(ALCOOL_ATIVO_OPT));
+                prontuario.setAlcoolOpt1(cursor.getInt(ALCOOL_OPT_1));
+                prontuario.setAlcoolOpt2(cursor.getInt(ALCOOL_OPT_2));
+                prontuario.setAlcoolOpt3(cursor.getInt(ALCOOL_OPT_3));
+                prontuario.setAlcoolOpt4(cursor.getInt(ALCOOL_OPT_4));
+                prontuario.setAlcool1(cursor.getString(ALCOOL_1));
+                prontuario.setAlcool2(cursor.getString(ALCOOL_2));
+                prontuario.setAlcool3(cursor.getString(ALCOOL_3));
+                prontuario.setAlcool4(cursor.getString(ALCOOL_4));
+                prontuario.setAlcool(cursor.getString(ALCOOL));
+                prontuario.setSistole(cursor.getInt(SISTOLE));
+                prontuario.setDiastole(cursor.getInt(DIASTOLE));
+                prontuario.setImc(cursor.getFloat(IMC));
+                prontuario.setCervical(cursor.getInt(CERVICAL));
+                prontuario.setCintura(cursor.getInt(CINTURA));
+                prontuario.setQuadril(cursor.getFloat(QUADRIL));
+                prontuario.setSnellenDireita(cursor.getInt(SNELLEN_DIREITA));
+                prontuario.setSnellenEsquerda(cursor.getInt(SNELLEN_ESQUERDA));
+                prontuario.setPaResultado(cursor.getString(PA_RESULTADO));
+                prontuario.setImcResultado(cursor.getString(IMC_RESULTADO));
+                prontuario.setCervicalResultado(cursor.getString(CERVICAL_RESULTADO));
+                prontuario.setCinturaResultado(cursor.getString(CINTURA_RESULTADO));
+                prontuario.setQuadrilResultado(cursor.getString(QUADRIL_RESULTADO));
+                prontuario.setSnellenResultado(cursor.getString(SNELLEN_RESULTADO));
 
                 db.close();
                 return prontuario;

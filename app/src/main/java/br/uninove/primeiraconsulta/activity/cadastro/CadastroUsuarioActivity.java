@@ -29,6 +29,10 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
     @Bind(R.id.ed_cad_senha)
     EditText edSenha;
 
+    @Bind(R.id.ed_cad_email)
+    EditText edEmail;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,19 +45,23 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         String nome = edNome.getText().toString();
         String ra = edRa.getText().toString();
         String senha = edSenha.getText().toString();
+        String email = edEmail.getText().toString();
 
         if(CheckCadastro.checkRa(ra, this)){
 
-            if(CheckCadastro.checkCampoInvalido(nome, ra, senha, this)){
-                Toast.makeText(this, nome + " foi cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, MenuActivity.class);
-                startActivity(intent);
-                finish();
+            if(CheckCadastro.checkEmail(email, this)) {
+
+                if (CheckCadastro.checkCampoInvalido(nome, ra, senha, email, this)) {
+                    Toast.makeText(this, nome + " foi cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+                    finish();
+
+                } else {
+                    Toast.makeText(this, "Algum campo está inválido!", Toast.LENGTH_SHORT).show();
+                }
 
             }else{
-                Toast.makeText(this, "Algum campo está inválido!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Esse E-mail já está cadastrado!", Toast.LENGTH_SHORT).show();
             }
-
         }else{
             Toast.makeText(this, "Esse RA já está cadastrado!", Toast.LENGTH_SHORT).show();
         }

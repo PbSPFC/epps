@@ -24,19 +24,18 @@
         android:textAlignment="center" />
 
     <TextView
-        android:text="PA: "
+        android:text="Pressão Arterial: "
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView57"
-        android:textStyle="normal|bold"
-        android:textAlignment="viewStart" />
+        android:textStyle="normal|bold" />
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <TextView
-            android:text="(Sistole)"
+            android:text="Sistole: "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView58"
@@ -56,7 +55,7 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:text="(Diastole)"
+            android:text="Diastole: "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView59"
@@ -151,10 +150,10 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:ems="10"
             android:id="@+id/ed_novo_quadril"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:inputType="numberDecimal" />
 
     </TableRow>
 

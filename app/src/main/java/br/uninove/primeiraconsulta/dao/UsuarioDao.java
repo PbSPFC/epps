@@ -22,13 +22,17 @@ public class UsuarioDao {
     public static final int RA = 1;
     public static final int SENHA = 2;
     public static final int NOME = 3;
-    public static final int STATUS_ID = 4;
+    public static final int EMAIL = 4;
+    public static final int STATUS_ID = 5;
+
 
     public static final String id = "id";
     public static final String ra = "ra";
     public static final String senha = "senha";
     public static final String nome = "nome";
+    public static final String email = "email";
     public static final String statusId = "status_id";
+
 
 
     public static void salvar(Usuario usuario, Context context){
@@ -39,6 +43,7 @@ public class UsuarioDao {
         values.put(ra, usuario.getRa());
         values.put(senha, usuario.getSenha());
         values.put(nome, usuario.getNome());
+        values.put(email, usuario.getEmail());
         values.put(statusId, usuario.getStatus().getId());
         //Verificando se ira fazer udpate ou insert
         if(usuario.getId()==null) {
@@ -63,7 +68,9 @@ public class UsuarioDao {
                 usuario.setRa(cursor.getString(RA));
                 usuario.setSenha(cursor.getString(SENHA));
                 usuario.setNome(cursor.getString(NOME));
+                usuario.setEmail(cursor.getString(EMAIL));
                 usuario.setStatus(StatusDao.buscaStatusPorId(cursor.getLong(STATUS_ID), context));
+
 
                 db.close();
                 return usuario;
@@ -90,6 +97,7 @@ public class UsuarioDao {
                 usuario.setRa(cursor.getString(RA));
                 usuario.setSenha(cursor.getString(SENHA));
                 usuario.setNome(cursor.getString(NOME));
+                usuario.setEmail(cursor.getString(EMAIL));
                 usuario.setStatus(StatusDao.buscaStatusPorId(cursor.getLong(STATUS_ID), context));
 
                 lista.add(usuario);
