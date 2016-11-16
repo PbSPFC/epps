@@ -39,6 +39,41 @@ public class VerProntuarioActivity extends AppCompatActivity{
     TextView tvComentario;
     @Bind(R.id.tv_ver_gordura)
     TextView tvGordura;
+    @Bind(R.id.tv_ver_fibra)
+    TextView tvFibra;
+    @Bind(R.id.tv_ver_calcio)
+    TextView tvCalcio;
+    @Bind(R.id.tv_ver_sodio)
+    TextView tvSodio;
+    @Bind(R.id.tv_ver_acucar)
+    TextView tvAcucar;
+    @Bind(R.id.tv_ver_refri)
+    TextView tvRefri;
+    @Bind(R.id.tv_ver_agua)
+    TextView tvAgua;
+    @Bind(R.id.tv_ver_at_fisica)
+    TextView tvAtFisica;
+    @Bind(R.id.tv_ver_sono_pontos)
+    TextView tvSonoPontos;
+    @Bind(R.id.tv_ver_sono)
+    TextView tvSono;
+    @Bind(R.id.tv_ver_cigarro_1)
+    TextView tvCigarro1;
+    @Bind(R.id.tv_ver_cigarro_2)
+    TextView tvCigarro2;
+    @Bind(R.id.tv_ver_cigarro_3)
+    TextView tvCigarro3;
+    @Bind(R.id.tv_ver_cigarro_4)
+    TextView tvCigarro4;
+    @Bind(R.id.tv_ver_cigarro_5)
+    TextView tvCigarro5;
+    @Bind(R.id.tv_ver_cigarro_6)
+    TextView tvCigarro6;
+    @Bind(R.id.tv_ver_cigarro_pontos)
+    TextView tvCigarroPontos;
+    @Bind(R.id.tv_ver_cigarro)
+    TextView tvCigarro;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,6 +95,23 @@ public class VerProntuarioActivity extends AppCompatActivity{
             tvAltura.setText(prontuario.getAltura().toString());
             tvComentario.setText(prontuario.getComentario());
             tvGordura.setText(prontuario.getGordura());
+            tvFibra.setText(prontuario.getFibra());
+            tvCalcio.setText(prontuario.getCalcio());
+            tvSodio.setText(prontuario.getSodio());
+            tvAcucar.setText(prontuario.getAcucar());
+            tvRefri.setText(prontuario.getRefri());
+            tvAgua.setText(prontuario.getAgua());
+            tvAtFisica.setText(prontuario.getAtFisica());
+            tvSonoPontos.setText(prontuario.getSonoPontos().toString());
+            tvSono.setText(prontuario.getSono());
+            tvCigarro1.setText(prontuario.getCigarro1());
+            tvCigarro2.setText(prontuario.getCigarro2());
+            tvCigarro3.setText(prontuario.getCigarro3());
+            tvCigarro4.setText(prontuario.getCigarro4());
+            tvCigarro5.setText(prontuario.getCigarro5());
+            tvCigarro6.setText(prontuario.getCigarro6());
+            tvCigarroPontos.setText(prontuario.getCigarroPontos().toString());
+            tvCigarro.setText(prontuario.getCigarro());
         }
 
     }

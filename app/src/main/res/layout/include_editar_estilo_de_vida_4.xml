@@ -24,7 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/rg_editar_tabagismo">
+        android:id="@+id/rg_editar_tabagismo"
+        android:checkedButton="@+id/rb_editar_tabagismo_nao">
 
         <RadioButton
             android:text="Sim"
@@ -89,6 +90,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/rb_editar_tabagismo_1_3"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Após 60 minutos."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_editar_tabagismo_1_4"
             android:layout_weight="1" />
     </RadioGroup>
 

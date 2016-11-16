@@ -24,8 +24,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView31"
             android:textStyle="normal|bold"
-            android:textSize="14sp"
-            android:textAlignment="viewStart" />
+            android:textSize="14sp" />
 
         <TextView
             android:text="Considere o modo de vida que você tem levado recentemente. Mesmo que você não tenha feito algumas destas coisas recentemente, tente imaginar como elas o afetariam. Escolha o número mais apropriado para responder cada questão.
@@ -73,7 +72,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rg_novo_sono_lendo"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:checkedButton="@+id/rb_novo_sono_lendo_0">
 
         <RadioButton
             android:text="0"
@@ -116,7 +116,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rg_novo_sono_tv"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:checkedButton="@+id/rb_novo_sono_tv_0">
 
         <RadioButton
             android:text="0"
@@ -159,7 +160,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rg_novo_sono_publico"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:checkedButton="@+id/rb_novo_sono_publico_0">
 
         <RadioButton
             android:text="0"
@@ -202,7 +204,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rg_novo_sono_carro"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:checkedButton="@+id/rb_novo_sono_carro_0">
 
         <RadioButton
             android:text="0"
@@ -245,7 +248,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rg_novo_sono_almoco"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:checkedButton="@+id/rb_novo_sono_almoco_0">
 
         <RadioButton
             android:text="0"
@@ -288,7 +292,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rg_novo_sono_transito"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:checkedButton="@+id/rb_novo_sono_transito_0">
 
         <RadioButton
             android:text="0"

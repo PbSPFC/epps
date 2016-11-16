@@ -20,22 +20,164 @@
         android:id="@+id/textView74"
         android:textAlignment="center" />
 
-    <TableRow
+    <TextView
+        android:text="Gordura / Colesterol: "
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:id="@+id/textView75"
+        android:textStyle="normal|bold" />
 
-        <TextView
-            android:text="Gordura / Colesterol: "
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView75"
-            android:textStyle="normal|bold" />
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_gordura" />
 
-        <TextView
-            android:text="gordura_colesterol"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_ver_gordura" />
-    </TableRow>
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView84"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Fibra: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView77"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_fibra" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView7x4"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Cálcio: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView79"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_calcio" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewa74"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Sódio: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView81"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_sodio" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewb74"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Açúcares / doces: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView83"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_acucar" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewc74"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Refrigerantes / Sucos artificiais: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView85"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_refri" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViexw74"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Ingestão de água: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView88"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_agua" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textdView74"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Atividade Física: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView90"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_at_fisica" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textcView74"
+        android:textAlignment="center" />
 
 </LinearLayout>

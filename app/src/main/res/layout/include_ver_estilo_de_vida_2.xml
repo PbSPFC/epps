@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Sono, avaliação do ronco: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView76"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textAlignment="center" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:text="Resultado: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView82"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_ver_sono" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:text="Pontos no Epworth: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView80"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_ver_sono_pontos" />
+    </TableRow>
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView87"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Tabagismo, avaliação do grau de dependência: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textVieww76"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="1 - Quanto tempo após acordar você fuma seu primeiro cigarro?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViasaew42"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_cigarro_1" />
+
+    <TextView
+        android:text="2 - Você acha difícil não fumar em lugares proíbidos, como igrejas, ônibus, etc?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textVieasw43"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_cigarro_2"/>
+
+    <TextView
+        android:text="3 - Qual cigarro do dia traz mais satisfação?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4asd4"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_cigarro_3"/>
+
+    <TextView
+        android:text="4 - Quantos cigarros você fuma por dia?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewasdaas45"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_cigarro_4"/>
+
+    <TextView
+        android:text="5 - Você fuma frequentemente pela manhã?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViasd46"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_cigarro_5"/>
+
+    <TextView
+        android:text="6 - Você fuma mesmo doente?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textVasfw47"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_cigarro_6"/>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:text="Resultado: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textasaView82"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_ver_cigarro" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:text="Pontos no Fagestrom: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textVieadadasdw80"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_ver_cigarro_pontos" />
+    </TableRow>
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textVieagaaa87"
+        android:textAlignment="center" />
+
+</LinearLayout>
