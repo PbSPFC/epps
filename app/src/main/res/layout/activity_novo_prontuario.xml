@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/background_gradient">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,35 +16,190 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <include layout="@layout/include_novo_prontuario" android:layout_width="match_parent" />
+            <TextView
+                android:text="@string/novo_prontuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_novo_1"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
+                android:textStyle="normal|bold"
+                android:textAllCaps="true"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:fontFamily="sans-serif"
+                android:textColor="@android:color/background_light" />
 
-            <include layout="@layout/include_novo_estilo_de_vida" android:layout_width="match_parent" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
 
-            <include layout="@layout/include_novo_estilo_de_vida_2" android:layout_width="match_parent" />
-
-            <include layout="@layout/include_novo_estilo_de_vida_3" android:layout_width="match_parent" />
-
-            <include layout="@layout/include_novo_estilo_de_vida_4" android:layout_width="match_parent" />
-
-            <include layout="@layout/include_novo_estilo_de_vida_5" android:layout_width="match_parent" />
-
-            <include layout="@layout/include_novo_exame_fisico" android:layout_width="match_parent" />
+                <include layout="@layout/include_novo_prontuario" android:layout_width="match_parent"
+                    />
+            </LinearLayout>
 
             <TextView
-                android:text="Comentário Final"
+                android:text="Estilo de Vida / Hábitos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView11"
+                android:id="@+id/textView18"
                 android:textStyle="normal|bold"
+                android:textAllCaps="true"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light" />
+
+            <TextView
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView19"
                 android:textSize="18sp" />
 
-            <EditText
+            <TextView
+                android:text="Dieta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:ems="10"
-                android:id="@+id/ed_novo_comentarioFinal"
-                android:textSize="14sp" />
+                android:id="@+id/textView20"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/background_light" />
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/layout_border">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <include layout="@layout/include_novo_estilo_de_vida" android:layout_width="match_parent" />
+
+                        <include layout="@layout/include_novo_estilo_de_vida_2" android:layout_width="match_parent" />
+
+                        <include layout="@layout/include_novo_estilo_de_vida_3" android:layout_width="match_parent" />
+
+                        <include layout="@layout/include_novo_estilo_de_vida_4" android:layout_width="match_parent" />
+
+                        <include layout="@layout/include_novo_estilo_de_vida_5" android:layout_width="match_parent" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:text="Exame Físico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textVieeeeew51"
+                android:textStyle="normal|bold"
+                android:textAllCaps="true"
+                android:textAlignment="center"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
+                android:textSize="24sp"
+                android:textColor="@android:color/background_light" />
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/layout_border">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <include layout="@layout/include_novo_exame_fisico" android:layout_width="match_parent" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/layout_border">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:text="Comentário Final"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView11"
+                            android:textStyle="normal|bold"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textMultiLine"
+                            android:ems="10"
+                            android:id="@+id/ed_novo_comentarioFinal"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -55,20 +211,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/bt_novo_cadastrar"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignLeft="@+id/tv_novo_1"
-                    android:layout_alignStart="@+id/tv_novo_1"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/button01"/>
 
                 <Button
                     android:text="Voltar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/bt_novo_voltar"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignRight="@+id/tv_novo_1"
-                    android:layout_alignEnd="@+id/tv_novo_1"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/button01"/>
 
             </LinearLayout>
 

@@ -3,25 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="Exame Físico"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView51"
-        android:textStyle="normal|bold"
-        android:textAllCaps="true"
-        android:textAlignment="center"
-        android:textSize="24sp" />
 
-
-
-    <TextView
-        android:text=""
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView65"
-        android:textSize="14sp"
-        android:textAlignment="center" />
 
     <TextView
         android:text="Pressão Arterial: "
@@ -45,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:ems="10"
+            android:ems="3"
             android:id="@+id/ed_editar_sistole"
             android:textSize="14sp" />
     </TableRow>
@@ -65,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:ems="10"
+            android:ems="3"
             android:id="@+id/ed_editar_diastole"
             android:textSize="14sp" />
     </TableRow>
@@ -93,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:ems="10"
+            android:ems="3"
             android:id="@+id/ed_editar_circ_cervical"
             android:textSize="14sp" />
 
@@ -122,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:ems="10"
+            android:ems="3"
             android:id="@+id/ed_editar_circ_cintura"
             android:textSize="14sp" />
 
@@ -150,7 +132,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="3"
             android:id="@+id/ed_editar_quadril"
             android:textSize="14sp"
             android:inputType="numberDecimal" />
@@ -187,7 +169,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:ems="10"
+            android:ems="3"
             android:id="@+id/ed_editar_snellen_direita"
             android:textSize="14sp" />
     </TableRow>
@@ -207,7 +189,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:ems="10"
+            android:ems="3"
             android:id="@+id/ed_editar_snellen_esquerda"
             android:textSize="14sp" />
     </TableRow>

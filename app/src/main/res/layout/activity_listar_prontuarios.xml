@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@drawable/background_gradient">
 
     <TextView
         android:text="Prontuários"
@@ -10,15 +11,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView"
         android:textStyle="normal|bold"
-        android:textAllCaps="true"
+        android:textAllCaps="false"
         android:textAlignment="center"
-        android:textSize="24sp" />
+        android:textSize="36sp"
+        android:fontFamily="cursive"
+        android:textColor="@android:color/background_light" />
 
     <ListView
         android:layout_width="match_parent"
         android:id="@+id/lv_listar_lista"
         android:layout_weight="0.88"
-        android:layout_height="300dp" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/layout_border"/>
 
     <Button
         android:text="Voltar"
@@ -26,7 +32,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/bt_listar_voltar"
         android:textAlignment="center"
-        style="@android:style/Widget.Material.Light.Button.Inset"
-        android:elevation="0dp" />
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:background="@drawable/button01"/>
 
 </LinearLayout>

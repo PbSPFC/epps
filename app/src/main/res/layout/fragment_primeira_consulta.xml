@@ -6,74 +6,122 @@
     android:layout_height="match_parent"
     tools:context="br.uninove.primeiraconsulta.activity.PrimeiraConsultaFragment"
     tools:showIn="@layout/activity_primeira_consulta"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background_gradient">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="130dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/crm_ra"
-                    android:textSize="24sp"
-                    android:id="@+id/tv_ra"
-                    android:textStyle="normal|bold"
-                    android:textAllCaps="false" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/ed_ra"
-                    android:textSize="14sp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/senha"
-                    android:textSize="24sp"
-                    tools:text="Senha:"
-                    android:id="@+id/tv_senha"
-                    android:textStyle="normal|bold"
-                    android:textAllCaps="false" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:ems="10"
-                    android:id="@+id/ed_senha"
-                    android:textSize="14sp" />
-
-            </TableRow>
-
-            <Button
-                android:text="@string/conectar"
+            <TextView
+                android:text="Primeira Consulta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/bt_login"
+                android:id="@+id/textView86"
+                android:textAlignment="center"
+                android:fontFamily="cursive"
+                android:layout_marginTop="25dp"
+                android:textSize="42sp"
+                android:textColor="@android:color/background_light" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:layout_marginTop="50dp"
-                tools:text="Conectar-se"
-                style="@android:style/Widget.Holo.Light.Button" />
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:elevation="6dp"
+                android:background="@drawable/layout_border">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/crm_ra"
+                            android:textSize="24sp"
+                            android:id="@+id/tv_ra"
+                            android:textStyle="normal|bold"
+                            android:textAllCaps="false"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/senha"
+                            android:textSize="24sp"
+                            tools:text="Senha:"
+                            android:id="@+id/tv_senha"
+                            android:textStyle="normal|bold"
+                            android:textAllCaps="false"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/ed_ra"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:ems="10"
+                            android:id="@+id/ed_senha"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp">
+
+                <Button
+                    android:text="@string/conectar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bt_login"
+                    android:layout_marginTop="50dp"
+                    tools:text="Conectar-se"
+                    style="@android:style/Widget.Holo.Light.Button"
+                    android:background="@drawable/button01" />
+
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 

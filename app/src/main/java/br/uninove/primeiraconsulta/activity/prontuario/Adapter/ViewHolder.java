@@ -54,8 +54,8 @@ public class ViewHolder {
         ListarProntuariosActivity.getContext().startActivity(intent);
     }
 
-    @OnClick(R.id.bt_lista_gerar_txt)
-    public void btGerar(){
+    @OnClick(R.id.bt_lista_email)
+    public void btEmail(){
         Toast.makeText(ListarProntuariosActivity.getContext(), "Tela não foi implementada ainda, tente novamente no futuro."
                 , Toast.LENGTH_SHORT).show();
     }

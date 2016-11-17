@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background_gradient">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,92 +23,97 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
+                android:layout_marginRight="20dp"
+                android:background="@drawable/layout_border">
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp">
 
-                    <TextView
-                        android:text="CRM/RA: "
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_menu_1"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold"
-                        android:textAllCaps="true" />
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:text="TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_menu_ra"
-                        android:textSize="18sp" />
-                </TableRow>
+                        <TextView
+                            android:text="CRM/RA: "
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_menu_1"
+                            android:textSize="18sp"
+                            android:textStyle="normal|bold"
+                            android:textAllCaps="true" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                        <TextView
+                            android:text="Nome: "
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_menu_3"
+                            android:textSize="18sp"
+                            android:textStyle="normal|bold"
+                            android:textAllCaps="true" />
 
-                    <TextView
-                        android:text="Nome: "
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_menu_3"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold"
-                        android:textAllCaps="true" />
+                        <TextView
+                            android:text="Status: "
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_menu_2"
+                            tools:text="Status: "
+                            android:textSize="18sp"
+                            android:textStyle="normal|bold"
+                            android:textAllCaps="true" />
 
-                    <TextView
-                        android:text="TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_menu_nome"
-                        android:textSize="18sp" />
-                </TableRow>
+                        <TextView
+                            android:text="E-Mail: "
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_menu_5"
+                            android:textSize="18sp"
+                            android:textStyle="normal|bold"
+                            android:textAllCaps="true" />
+                    </LinearLayout>
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:text="Status: "
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_menu_2"
-                        tools:text="Status: "
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold"
-                        android:textAllCaps="true" />
+                        <TextView
+                            android:text="TextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_menu_ra"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:text="TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_menu_status"
-                        android:textSize="18sp" />
-                </TableRow>
+                        <TextView
+                            android:text="TextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_menu_nome"
+                            android:textSize="18sp" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                        <TextView
+                            android:text="TextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_menu_status"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:text="E-Mail: "
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_menu_5"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold"
-                        android:textAllCaps="true" />
+                        <TextView
+                            android:text="TextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_menu_email"
+                            android:textSize="18sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:text="TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_menu_email"
-                        android:textSize="18sp" />
-                </TableRow>
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -122,28 +128,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/bt_menu_cadastrar"
-                    android:layout_marginTop="38dp" />
+                    android:layout_marginTop="38dp"
+                    android:background="@drawable/button01"/>
 
                 <Button
                     android:text="@string/novo_prontuario"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/bt_menu_novo_prontuario"
-                    android:layout_marginTop="14dp" />
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/button01" />
 
                 <Button
                     android:text="@string/ver_prontuarios"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/bt_menu_listar_prontuarios"
-                    android:layout_marginTop="16dp" />
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/button01"/>
 
                 <Button
                     android:text="@string/sair"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/bt_menu_sair"
-                    android:layout_marginTop="16dp" />
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/button01"/>
             </LinearLayout>
 
         </LinearLayout>

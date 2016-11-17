@@ -10,7 +10,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:background="@drawable/background_gradient">
 
             <TextView
                 android:text="Prontuário"
@@ -20,47 +21,183 @@
                 android:textAlignment="center"
                 android:textStyle="normal|bold"
                 android:textAllCaps="true"
-                android:textSize="24sp" />
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="24sp"
+                android:textColor="@android:color/background_light" />
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/layout_border">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <include layout="@layout/include_ver_prontuario" android:layout_width="match_parent" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
 
             <TextView
-                android:text=""
+                android:text="Estilo de Vida / Hábitos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView13"
-                android:textAlignment="center" />
+                android:id="@+id/textView72"
+                android:textAlignment="center"
+                android:textStyle="normal|bold"
+                android:textAllCaps="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="24sp"
+                android:textColor="@android:color/background_light" />
 
-
-            <include layout="@layout/include_ver_prontuario" android:layout_width="match_parent" />
-
-            <include layout="@layout/include_ver_estilo_de_vida" android:layout_width="match_parent" />
-
-            <include layout="@layout/include_ver_estilo_de_vida_2" android:layout_width="match_parent" />
-
-            <include layout="@layout/include_ver_estilo_de_vida_3" android:layout_width="match_parent" />
-
-            <include layout="@layout/include_ver_exame_fisico" android:layout_width="match_parent" />
-
-            <GridLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
 
-                <TextView
-                    android:text="Comentário: "
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtview9"
-                    android:layout_weight="1"
-                    android:textSize="18sp"
-                    android:textStyle="normal|bold" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/layout_border">
 
-                <TextView
-                    android:text="LUISFABIANO"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_ver_comentario"
-                    android:layout_weight="1"
-                    android:textSize="18sp" />
-            </GridLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <include layout="@layout/include_ver_estilo_de_vida" android:layout_width="match_parent" />
+
+                        <include layout="@layout/include_ver_estilo_de_vida_2" android:layout_width="match_parent" />
+
+                        <include layout="@layout/include_ver_estilo_de_vida_3" android:layout_width="match_parent" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:text="Exame Físico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textVieeeeew51"
+                android:textStyle="normal|bold"
+                android:textAllCaps="true"
+                android:textAlignment="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="24sp"
+                android:textColor="@android:color/background_light" />
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/layout_border">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <include layout="@layout/include_ver_exame_fisico" android:layout_width="match_parent" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/layout_border">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:text="Comentário: "
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/txtview9"
+                                android:layout_weight="1"
+                                android:textSize="18sp"
+                                android:textStyle="normal|bold" />
+
+                            <TextView
+                                android:text="LUISFABIANO"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tv_ver_comentario"
+                                android:layout_weight="1"
+                                android:textSize="18sp" />
+                        </GridLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
 
             <TextView
                 android:text=""
@@ -73,7 +210,12 @@
                 android:text="Voltar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/bt_ver_voltar" />
+                android:id="@+id/bt_ver_voltar"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="75dp"
+                android:layout_marginRight="75dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button01"/>
 
         </LinearLayout>
     </ScrollView>

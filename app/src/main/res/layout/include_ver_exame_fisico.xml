@@ -2,25 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:text="Exame Físico"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textVieeeeew51"
-        android:textStyle="normal|bold"
-        android:textAllCaps="true"
-        android:textAlignment="center"
-        android:textSize="24sp" />
 
-
-
-    <TextView
-        android:text=""
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textVieeeeew65"
-        android:textSize="14sp"
-        android:textAlignment="center" />
 
     <TextView
         android:text="Pressão Arterial: "
