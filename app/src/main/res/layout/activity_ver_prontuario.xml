@@ -149,55 +149,60 @@
             </LinearLayout>
 
 
-            <LinearLayout
-                android:orientation="vertical"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp">
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/layout_border">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp">
 
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginBottom="10dp">
+                        android:background="@drawable/layout_border">
 
-                        <GridLayout
+                        <LinearLayout
+                            android:orientation="vertical"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp">
 
-                            <TextView
-                                android:text="Comentário: "
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/txtview9"
-                                android:layout_weight="1"
-                                android:textSize="18sp"
-                                android:textStyle="normal|bold" />
+                            <GridLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
 
-                            <TextView
-                                android:text="LUISFABIANO"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/tv_ver_comentario"
-                                android:layout_weight="1"
-                                android:textSize="18sp" />
-                        </GridLayout>
+                                <TextView
+                                    android:text="Comentário: "
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/txtview9"
+                                    android:layout_weight="1"
+                                    android:textSize="18sp"
+                                    android:textStyle="normal|bold" />
+
+                                <TextView
+                                    android:text="LUISFABIANO"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/tv_ver_comentario"
+                                    android:layout_weight="1"
+                                    android:textSize="18sp" />
+                            </GridLayout>
+                        </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
 
-            </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
 
             <TextView
                 android:text=""

@@ -8,6 +8,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import br.uninove.primeiraconsulta.R;
+import br.uninove.primeiraconsulta.dao.EstiloDeVidaDao;
+import br.uninove.primeiraconsulta.dao.ExameFisicoDao;
+import br.uninove.primeiraconsulta.entidade.EstiloDeVida;
+import br.uninove.primeiraconsulta.entidade.ExameFisico;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -25,8 +29,6 @@ public class VerProntuarioActivity extends AppCompatActivity{
     TextView tvNomeUsuario;
     @Bind(R.id.tv_ver_ra)
     TextView tvRa;
-    @Bind(R.id.tv_ver_nome_paciente)
-    TextView tvPaciente;
     @Bind(R.id.tv_ver_sexo)
     TextView tvSexo;
     @Bind(R.id.tv_ver_idade)
@@ -124,54 +126,59 @@ public class VerProntuarioActivity extends AppCompatActivity{
         Bundle bundle = intent.getExtras();
         if(bundle!=null){
             Prontuario prontuario =(Prontuario) bundle.get("prontuario");
+            EstiloDeVida estiloDeVida = EstiloDeVidaDao.buscarPorId(prontuario.getIdEstiloDeVida(), this);
+            ExameFisico exameFisico = ExameFisicoDao.buscarPorId(prontuario.getIdExameFisico(), this);
+
             tvNumPronturario.setText(prontuario.getNumProntuario());
             tvNomeUsuario.setText(prontuario.getNomeMedico());
             tvRa.setText(prontuario.getRaUsuario());
-            tvPaciente.setText(prontuario.getNomePaciente());
             tvSexo.setText(prontuario.getSexo());
             tvIdade.setText(prontuario.getIdade().toString());
             tvPeso.setText(prontuario.getPeso().toString());
             tvAltura.setText(prontuario.getAltura().toString());
             tvComentario.setText(prontuario.getComentario());
-            tvGordura.setText(prontuario.getGordura());
-            tvFibra.setText(prontuario.getFibra());
-            tvCalcio.setText(prontuario.getCalcio());
-            tvSodio.setText(prontuario.getSodio());
-            tvAcucar.setText(prontuario.getAcucar());
-            tvRefri.setText(prontuario.getRefri());
-            tvAgua.setText(prontuario.getAgua());
-            tvAtFisica.setText(prontuario.getAtFisica());
-            tvSonoPontos.setText(prontuario.getSonoPontos().toString());
-            tvSono.setText(prontuario.getSono());
-            tvCigarro1.setText(prontuario.getCigarro1());
-            tvCigarro2.setText(prontuario.getCigarro2());
-            tvCigarro3.setText(prontuario.getCigarro3());
-            tvCigarro4.setText(prontuario.getCigarro4());
-            tvCigarro5.setText(prontuario.getCigarro5());
-            tvCigarro6.setText(prontuario.getCigarro6());
-            tvCigarroPontos.setText(prontuario.getCigarroPontos().toString());
-            tvCigarro.setText(prontuario.getCigarro());
-            tvAlcool1.setText(prontuario.getAlcool1());
-            tvAlcool2.setText(prontuario.getAlcool2());
-            tvAlcool3.setText(prontuario.getAlcool3());
-            tvAlcool4.setText(prontuario.getAlcool4());
-            tvAlcool.setText(prontuario.getAlcool());
 
-            tvSistole.setText(prontuario.getSistole().toString());
-            tvDiastole.setText(prontuario.getDiastole().toString());
-            tvImc.setText(prontuario.getImc().toString());
-            tvCervical.setText(prontuario.getCervical().toString());
-            tvCintura.setText(prontuario.getCintura().toString());
-            tvQuadril.setText(prontuario.getQuadril().toString());
-            tvSnellenDireita.setText(prontuario.getSnellenDireita().toString());
-            tvSnellenEsquerda.setText(prontuario.getSnellenEsquerda().toString());
 
-            tvPaResultado.setText(prontuario.getPaResultado());
-            tvImcResultado.setText(prontuario.getImcResultado());
-            tvCervicalResultado.setText(prontuario.getCervicalResultado());
-            tvCinturaResultado.setText(prontuario.getCinturaResultado());
-            tvQuadrilResultado.setText(prontuario.getQuadrilResultado());
-            tvSnellenResultado.setText(prontuario.getSnellenResultado());
+
+            tvGordura.setText(estiloDeVida.getGordura());
+            tvFibra.setText(estiloDeVida.getFibra());
+            tvCalcio.setText(estiloDeVida.getCalcio());
+            tvSodio.setText(estiloDeVida.getSodio());
+            tvAcucar.setText(estiloDeVida.getAcucar());
+            tvRefri.setText(estiloDeVida.getRefri());
+            tvAgua.setText(estiloDeVida.getAgua());
+            tvAtFisica.setText(estiloDeVida.getAtFisica());
+            tvSonoPontos.setText(estiloDeVida.getSonoPontos().toString());
+            tvSono.setText(estiloDeVida.getSono());
+            tvCigarro1.setText(estiloDeVida.getCigarro1());
+            tvCigarro2.setText(estiloDeVida.getCigarro2());
+            tvCigarro3.setText(estiloDeVida.getCigarro3());
+            tvCigarro4.setText(estiloDeVida.getCigarro4());
+            tvCigarro5.setText(estiloDeVida.getCigarro5());
+            tvCigarro6.setText(estiloDeVida.getCigarro6());
+            tvCigarroPontos.setText(estiloDeVida.getCigarroPontos().toString());
+            tvCigarro.setText(estiloDeVida.getCigarro());
+            tvAlcool1.setText(estiloDeVida.getAlcool1());
+            tvAlcool2.setText(estiloDeVida.getAlcool2());
+            tvAlcool3.setText(estiloDeVida.getAlcool3());
+            tvAlcool4.setText(estiloDeVida.getAlcool4());
+            tvAlcool.setText(estiloDeVida.getAlcool());
+
+            tvSistole.setText(exameFisico.getSistole().toString());
+            tvDiastole.setText(exameFisico.getDiastole().toString());
+            tvImc.setText(exameFisico.getImc().toString());
+            tvCervical.setText(exameFisico.getCervical().toString());
+            tvCintura.setText(exameFisico.getCintura().toString());
+            tvQuadril.setText(exameFisico.getQuadril().toString());
+            tvSnellenDireita.setText(exameFisico.getSnellenDireita().toString());
+            tvSnellenEsquerda.setText(exameFisico.getSnellenEsquerda().toString());
+
+            tvPaResultado.setText(exameFisico.getPaResultado());
+            tvImcResultado.setText(exameFisico.getImcResultado());
+            tvCervicalResultado.setText(exameFisico.getCervicalResultado());
+            tvCinturaResultado.setText(exameFisico.getCinturaResultado());
+            tvQuadrilResultado.setText(exameFisico.getQuadrilResultado());
+            tvSnellenResultado.setText(exameFisico.getSnellenResultado());
         }
 
     }

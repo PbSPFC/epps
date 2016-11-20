@@ -21,22 +21,6 @@ android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textSize="18sp" />
 
-        <TextView
-            android:text="Nome do Paciente:"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_novo1"
-            android:textStyle="normal|bold"
-            android:textSize="18sp" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="30"
-            android:id="@+id/ed_novo_nome_paciente"
-            android:textSize="14sp" />
-
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >

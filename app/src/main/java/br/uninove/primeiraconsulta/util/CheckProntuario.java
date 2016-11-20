@@ -4,8 +4,11 @@ import android.content.Context;
 
 import java.util.List;
 
+import br.uninove.primeiraconsulta.dao.EstiloDeVidaDao;
+import br.uninove.primeiraconsulta.dao.ExameFisicoDao;
 import br.uninove.primeiraconsulta.dao.ProntuarioDao;
-import br.uninove.primeiraconsulta.database.DbProntuario;
+import br.uninove.primeiraconsulta.entidade.EstiloDeVida;
+import br.uninove.primeiraconsulta.entidade.ExameFisico;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
 
 /**
@@ -16,7 +19,7 @@ public class CheckProntuario {
 
     public static boolean checkCampos(Prontuario p, Context context) {
 
-        if(!p.getNumProntuario().isEmpty() && !p.getNomePaciente().isEmpty() &&
+        if(!p.getNumProntuario().isEmpty() &&
                 p.getIdUsuario()!= null && !p.getRaUsuario().isEmpty() && !p.getNomeMedico().isEmpty() &&
                 !p.getSexo().isEmpty() && p.getIdade() != null && p.getPeso() != null && p.getAltura() != null){
             return true;
@@ -24,32 +27,59 @@ public class CheckProntuario {
         return false;
     }
 
-    public static Prontuario checkNumProntuario(Prontuario p, Context context) {
+    public static Prontuario checkNumProntuario(Prontuario p, EstiloDeVida estiloDeVida, ExameFisico exameFisico, Context context) {
         List<Prontuario> prontuarioLista = ProntuarioDao.buscarTodosProntuarios(context);
         for (Prontuario pron : prontuarioLista) {
             if(p.getNumProntuario().equals(pron.getNumProntuario())){
                 return null;
             }
         }
-        p = nadaConsta(p);
+
+        p = nadaConstaProntuario(p);
+        estiloDeVida = nadaConstaEstiloDeVida(estiloDeVida);
+        EstiloDeVidaDao.salvar(estiloDeVida, context);
+        ExameFisicoDao.salvar(exameFisico, context);
+
+        estiloDeVida = EstiloDeVidaDao.buscarPorNumProntuario(p, context);
+        exameFisico = ExameFisicoDao.buscarPorNumProntuario(p, context);
+
+        p.setIdEstiloDeVida(estiloDeVida.getId());
+        System.out.println("Id Estilo de Vida: " + p.getIdEstiloDeVida());
+        p.setIdExameFisico(exameFisico.getId());
+        System.out.println("Id Exame Fisico: " + p.getIdExameFisico());
+
         ProntuarioDao.salvar(p, context);
+
+        prontuarioLista = ProntuarioDao.buscarTodosProntuarios(context);
+        for (Prontuario pron : prontuarioLista) {
+            if(p.getNumProntuario().equals(pron.getNumProntuario())){
+                p = pron;
+            }
+        }
+
         return p;
     }
 
-    public static Prontuario nadaConsta(Prontuario p){
+    public static Prontuario nadaConstaProntuario(Prontuario p){
         if(p.getComentario().isEmpty()){p.setComentario("Nada Consta.");}
-        if(p.getGordura().isEmpty() || p.getGordura().equals("")){p.setGordura("Nada Consta.");}
-        if(p.getFibra().isEmpty() || p.getFibra().equals("")){p.setFibra("Nada Consta.");}
-        if(p.getCalcio().isEmpty() || p.getCalcio().equals("")){p.setCalcio("Nada Consta.");}
-        if(p.getSodio().isEmpty() || p.getSodio().equals("")){p.setSodio("Nada Consta.");}
-        if(p.getAcucar().isEmpty() || p.getAcucar().equals("")){p.setAcucar("Nada Consta.");}
-        if(p.getRefri().isEmpty() || p.getRefri().equals("")){p.setRefri("Nada Consta.");}
-        if(p.getAgua().isEmpty() || p.getAgua().equals("")){p.setAgua("Nada Consta.");}
-        if(p.getAtFisica().isEmpty() || p.getAtFisica().equals("")){p.setAtFisica("Nada Consta.");}
-        if(p.getSono().isEmpty() || p.getSono().equals("")){p.setSono("Nada Consta.");}
 
         return p;
     }
+
+    public static EstiloDeVida nadaConstaEstiloDeVida(EstiloDeVida estiloDeVida){
+        if(estiloDeVida.getGordura().isEmpty() || estiloDeVida.getGordura().equals("")){estiloDeVida.setGordura("Nada Consta.");}
+        if(estiloDeVida.getFibra().isEmpty() || estiloDeVida.getFibra().equals("")){estiloDeVida.setFibra("Nada Consta.");}
+        if(estiloDeVida.getCalcio().isEmpty() || estiloDeVida.getCalcio().equals("")){estiloDeVida.setCalcio("Nada Consta.");}
+        if(estiloDeVida.getSodio().isEmpty() || estiloDeVida.getSodio().equals("")){estiloDeVida.setSodio("Nada Consta.");}
+        if(estiloDeVida.getAcucar().isEmpty() || estiloDeVida.getAcucar().equals("")){estiloDeVida.setAcucar("Nada Consta.");}
+        if(estiloDeVida.getRefri().isEmpty() || estiloDeVida.getRefri().equals("")){estiloDeVida.setRefri("Nada Consta.");}
+        if(estiloDeVida.getAgua().isEmpty() || estiloDeVida.getAgua().equals("")){estiloDeVida.setAgua("Nada Consta.");}
+        if(estiloDeVida.getAtFisica().isEmpty() || estiloDeVida.getAtFisica().equals("")){estiloDeVida.setAtFisica("Nada Consta.");}
+        if(estiloDeVida.getSono().isEmpty() || estiloDeVida.getSono().equals("")){estiloDeVida.setSono("Nada Consta.");}
+
+        return estiloDeVida;
+    }
+
 
     public static Float getImc(Integer peso, Float altura){
         Float imc = peso / (altura*altura);

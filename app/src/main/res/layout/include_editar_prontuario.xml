@@ -14,22 +14,6 @@ android:layout_height="wrap_content"
         android:layout_marginBottom="10dp">
 
 
-
-
-        <TextView
-            android:text="Nome do Paciente:"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_editar1"
-            android:textStyle="normal|bold"
-            android:textSize="18sp" />
-
-        <TextView
-            android:text="Nome_Paciente"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_editar_nome_paciente" />
-
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >

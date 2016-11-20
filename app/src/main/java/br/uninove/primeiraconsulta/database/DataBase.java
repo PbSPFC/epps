@@ -19,7 +19,7 @@ public class DataBase extends SQLiteOpenHelper {
 
 
     private static final String NOME_DB = "PRIMEIRA_CONSULTA_DB";
-    private static final int VERSAO_DB = 21;
+    private static final int VERSAO_DB = 25;
 
     public DataBase(Context context) {
         super(context, NOME_DB, null, VERSAO_DB
@@ -33,6 +33,8 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL(DbStatus.STATUS_INSERT_PROFESSOR);
         db.execSQL(DbStatus.STATUS_INSERT_ALUNO);
         db.execSQL(DbProntuario.CREATE_PRONTUARIO);
+        db.execSQL(DbEstiloDeVida.CREATE_ESTILO_DE_VIDA);
+        db.execSQL(DbExameFisico.CREATE_EXAME_FISICO);
         db.execSQL(DbUsuario.USUARIO_INSERT);
         db.execSQL(DbUsuario.USUARIO_INSERT_LUIS_FABIANO);
         db.execSQL(DbUsuario.USUARIO_INSERT_BERMUDINHA_DO_PATRICK);
@@ -43,6 +45,8 @@ public class DataBase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL(DbStatus.STATUS_DROP_TB);
         db.execSQL(DbUsuario.USUARIO_DROP_TB);
+        db.execSQL(DbEstiloDeVida.ESTILO_DE_VIDA_DROP_TB);
+        db.execSQL(DbExameFisico.EXAME_FISICO_DROP_TB);
         db.execSQL(DbProntuario.PRONTUARIO_DROP_TB);
 
         onCreate(db);

@@ -10,7 +10,11 @@ import br.uninove.primeiraconsulta.activity.menu.MenuActivity;
 import br.uninove.primeiraconsulta.activity.prontuario.EditarProntuarioActivity;
 import br.uninove.primeiraconsulta.activity.prontuario.ListarProntuariosActivity;
 import br.uninove.primeiraconsulta.activity.prontuario.VerProntuarioActivity;
+import br.uninove.primeiraconsulta.dao.EstiloDeVidaDao;
+import br.uninove.primeiraconsulta.dao.ExameFisicoDao;
 import br.uninove.primeiraconsulta.dao.ProntuarioDao;
+import br.uninove.primeiraconsulta.entidade.EstiloDeVida;
+import br.uninove.primeiraconsulta.entidade.ExameFisico;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -25,8 +29,6 @@ public class ViewHolder {
 
     @Bind(R.id.tv_lista_num_prontuario)
     TextView numProntuario;
-    @Bind(R.id.tv_lista_paciente)
-    TextView nomePaciente;
 
     @OnClick(R.id.bt_lista_ver)
     public void btVer(){
@@ -38,7 +40,10 @@ public class ViewHolder {
 
     @OnClick(R.id.bt_lista_excluir)
     public void btExcluir(){
-        ProntuarioDao.excluirProntuario(prontuarioHolder, ListarProntuariosActivity.getContext());
+        EstiloDeVida estiloDeVida = EstiloDeVidaDao.buscarPorNumProntuario(prontuarioHolder, ListarProntuariosActivity.getContext());
+        ExameFisico exameFisico = ExameFisicoDao.buscarPorNumProntuario(prontuarioHolder, ListarProntuariosActivity.getContext());
+
+        ProntuarioDao.excluirProntuario(prontuarioHolder, estiloDeVida, exameFisico, ListarProntuariosActivity.getContext());
         Toast.makeText(ListarProntuariosActivity.getContext(), "Prontuario de N°" + prontuarioHolder.getNumProntuario() + "" +
                 " foi excluído com sucesso!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(ListarProntuariosActivity.getContext(), MenuActivity.class);

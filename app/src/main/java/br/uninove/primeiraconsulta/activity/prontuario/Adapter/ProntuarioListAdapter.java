@@ -47,17 +47,6 @@ public class ProntuarioListAdapter extends ArrayAdapter<Prontuario> {
         holder.prontuarioHolder = prontuario;
         if(prontuario!=null) {
             holder.numProntuario.setText(prontuario.getNumProntuario());
-            holder.nomePaciente.setText(prontuario.getNomePaciente());
-            /*holder.btEditar.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View view) {
-                    System.out.print(prontuario.getNomePaciente());
-
-                }
-            });*/
-
-
-
         }
         return convertView;
     }
