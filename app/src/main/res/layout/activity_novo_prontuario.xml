@@ -53,12 +53,18 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:background="@drawable/layout_border_tab"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp">
 
                     <TabWidget
                         android:id="@android:id/tabs"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button01"/>
 
                     <FrameLayout
                         android:id="@android:id/tabcontent"
@@ -71,6 +77,8 @@
                             android:layout_height="match_parent"
                             android:orientation="vertical">
 
+                            <include layout="@layout/include_novo_anamnese" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -79,8 +87,7 @@
                             android:layout_height="match_parent"
                             android:orientation="vertical">
 
-                            <include layout="@layout/include_novo_estilo_de_vida_full"
-                                android:layout_width="match_parent" />
+                            <include layout="@layout/include_novo_estilo_de_vida_full" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -89,13 +96,51 @@
                             android:layout_height="match_parent"
                             android:orientation="vertical">
 
-                            <include layout="@layout/include_novo_exame_fisico_full"
-                                android:layout_width="match_parent" />
+                            <include layout="@layout/include_novo_exame_fisico_full" />
                         </LinearLayout>
                     </FrameLayout>
                 </LinearLayout>
             </TabHost>
 
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/layout_border">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp">
+
+
+                        <TextView
+                            android:text="Lista de Problemas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView78"
+                            android:textAlignment="center"
+                            android:textStyle="normal|bold"
+                            android:textSize="18sp" />
+
+                        <include layout="@layout/include_novo_lista_problemas" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"

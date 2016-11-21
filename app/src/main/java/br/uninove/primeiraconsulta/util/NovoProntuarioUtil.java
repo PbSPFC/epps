@@ -4,6 +4,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 
 import br.uninove.primeiraconsulta.R;
+import br.uninove.primeiraconsulta.entidade.Anamnese;
 import br.uninove.primeiraconsulta.entidade.EstiloDeVida;
 import br.uninove.primeiraconsulta.entidade.ExameFisico;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
@@ -527,5 +528,15 @@ public class NovoProntuarioUtil {
         }
 
         return estiloDeVida;
+    }
+
+    public static Anamnese getNovoAnamnese(Anamnese anamnese, EditText edQueixa, EditText edHistoriaDoenca, EditText edInterrogatorio, EditText edPercepcao) {
+
+        anamnese.setQueixa(edQueixa.getText().toString());
+        anamnese.setHistoriaDoenca(edHistoriaDoenca.getText().toString());
+        anamnese.setInterrogatorio(edInterrogatorio.getText().toString());
+        anamnese.setPercepcao(edPercepcao.getText().toString());
+
+        return anamnese;
     }
 }

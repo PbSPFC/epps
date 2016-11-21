@@ -10,8 +10,10 @@ import java.util.List;
 
 import br.uninove.primeiraconsulta.database.DbProntuario;
 import br.uninove.primeiraconsulta.database.DbUsuario;
+import br.uninove.primeiraconsulta.entidade.Anamnese;
 import br.uninove.primeiraconsulta.entidade.EstiloDeVida;
 import br.uninove.primeiraconsulta.entidade.ExameFisico;
+import br.uninove.primeiraconsulta.entidade.ListaProblemas;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
 import br.uninove.primeiraconsulta.entidade.Usuario;
 import br.uninove.primeiraconsulta.util.DbFactory;
@@ -43,6 +45,7 @@ public class ProntuarioDao {
         values.put(comentarioFinal, prontuario.getComentario());
         values.put(idEstiloDeVida, prontuario.getIdEstiloDeVida());
         values.put(idExameFisico, prontuario.getIdExameFisico());
+        values.put(idAnamnese, prontuario.getIdAnamnese());
 
 
         //Verificando se ira fazer udpate ou insert
@@ -82,6 +85,7 @@ public class ProntuarioDao {
                 prontuario.setComentario(cursor.getString(COMENTARIO_FINAL));
                 prontuario.setIdEstiloDeVida(cursor.getLong(ID_ESTILO_DE_VIDA));
                 prontuario.setIdExameFisico(cursor.getLong(ID_EXAME_FISICO));
+                prontuario.setIdAnamnese(cursor.getLong(ID_ANAMNESE));
 
                 lista.add(prontuario);
 
@@ -94,10 +98,12 @@ public class ProntuarioDao {
     }
 
 
-    public static void excluirProntuario(Prontuario prontuario, EstiloDeVida estiloDeVida, ExameFisico exameFisico, Context context) {
+    public static void excluirProntuario(Prontuario prontuario, EstiloDeVida estiloDeVida, ExameFisico exameFisico, Anamnese anamnese, List<ListaProblemas> listaProblemases, Context context) {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         ExameFisicoDao.excluirExameFisico(exameFisico, context);
         EstiloDeVidaDao.excluirEstiloDeVida(estiloDeVida, context);
+        AnamneseDao.excluirAnamnese(anamnese, context);
+        ListaProblemasDao.excluirListaProblemasNumProntuario(prontuario, context);
 
         db.delete(DbProntuario.PRONTUARIO_TB_NAME, "id=?", new String[]{prontuario.getId() + ""});
         db.close();
@@ -116,6 +122,7 @@ public class ProntuarioDao {
     public static final int COMENTARIO_FINAL = 9;
     public static final int ID_ESTILO_DE_VIDA = 10;
     public static final int ID_EXAME_FISICO = 11;
+    public static final int ID_ANAMNESE = 12;
 
 
 
@@ -131,6 +138,7 @@ public class ProntuarioDao {
     public static final String comentarioFinal = "comentario_final";
     public static final String idEstiloDeVida = "id_estilo_de_vida";
     public static final String idExameFisico = "id_exame_fisico";
+    public static final String idAnamnese = "ID_ANAMNESE";
 
 
 

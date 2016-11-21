@@ -21,10 +21,12 @@ public class DbProntuario {
             "COMENTARIO_FINAL TEXT," +
             "ID_ESTILO_DE_VIDA INTEGER NOT NULL," +
             "ID_EXAME_FISICO INTEGER NOT NULL," +
+            "ID_ANAMNESE INTEGER NOT NULL," +
 
             "FOREIGN KEY(USUARIO_ID) REFERENCES "+DbUsuario.USUARIO_TB_NAME+"," +
             "FOREIGN KEY(ID_ESTILO_DE_VIDA) REFERENCES "+DbEstiloDeVida.ESTILO_DE_VIDA_TB_NAME+"," +
-            "FOREIGN KEY(ID_EXAME_FISICO) REFERENCES "+DbExameFisico.EXAME_FISICO_TB_NAME+"" +
+            "FOREIGN KEY(ID_EXAME_FISICO) REFERENCES "+DbExameFisico.EXAME_FISICO_TB_NAME+", " +
+            "FOREIGN KEY(ID_ANAMNESE) REFERENCES "+DbAnamnese.ANAMNESE_TB_NAME+"" +
             ")";
     public static final String PRONTUARIO_DROP_TB = "DROP TABLE IF EXISTS "+PRONTUARIO_TB_NAME;
 

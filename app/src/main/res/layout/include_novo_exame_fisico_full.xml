@@ -3,34 +3,27 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="Exame Físico"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textVieeeeew51"
-        android:textStyle="normal|bold"
-        android:textAllCaps="true"
-        android:textAlignment="center"
-        android:layout_marginTop="18dp"
-        android:layout_marginBottom="18dp"
-        android:textSize="24sp"
-        android:textColor="@android:color/background_light" />
-
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/layout_border">
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:text="Exame Físico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textVieeeeew51"
+                android:textStyle="normal|bold"
+                android:textAllCaps="true"
+                android:textAlignment="center"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
+                android:textSize="24sp"
+                android:textColor="@android:color/background_light" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -41,9 +34,27 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp">
 
-                <include layout="@layout/include_novo_exame_fisico"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/layout_border">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <include layout="@layout/include_novo_exame_fisico"/>
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
+
 
 </LinearLayout>

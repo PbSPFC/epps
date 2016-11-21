@@ -14,6 +14,7 @@ public class Prontuario implements Serializable {
     private Long id;
     private Long idEstiloDeVida;
     private Long idExameFisico;
+    private Long idAnamnese;
     private String numProntuario;
     private Long idUsuario;
     private String raUsuario;
@@ -34,6 +35,14 @@ public class Prontuario implements Serializable {
 
     public Long getIdEstiloDeVida() {
         return idEstiloDeVida;
+    }
+
+    public Long getIdAnamnese() {
+        return idAnamnese;
+    }
+
+    public void setIdAnamnese(Long idAnamnese) {
+        this.idAnamnese = idAnamnese;
     }
 
     public void setIdEstiloDeVida(Long idEstiloDeVida) {

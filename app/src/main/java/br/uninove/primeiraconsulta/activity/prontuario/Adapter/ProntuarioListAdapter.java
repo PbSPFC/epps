@@ -5,17 +5,12 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.List;
 
 import br.uninove.primeiraconsulta.R;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
-import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by PB on 10/11/2016.
@@ -31,16 +26,16 @@ public class ProntuarioListAdapter extends ArrayAdapter<Prontuario> {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final ViewHolder holder;
+        final ViewHolderProntuarioList holder;
 
         if (convertView == null) {
             convertView = View.inflate(getContext(), R.layout.list_listar_prontuarios, null);
-            holder = new ViewHolder();
+            holder = new ViewHolderProntuarioList();
             ButterKnife.bind(holder, convertView);
 
             convertView.setTag(holder);
         } else {
-            holder = (ViewHolder) convertView.getTag();
+            holder = (ViewHolderProntuarioList) convertView.getTag();
         }
 
         final Prontuario prontuario = getItem(position);

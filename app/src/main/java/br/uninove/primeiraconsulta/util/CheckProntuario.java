@@ -4,11 +4,15 @@ import android.content.Context;
 
 import java.util.List;
 
+import br.uninove.primeiraconsulta.dao.AnamneseDao;
 import br.uninove.primeiraconsulta.dao.EstiloDeVidaDao;
 import br.uninove.primeiraconsulta.dao.ExameFisicoDao;
+import br.uninove.primeiraconsulta.dao.ListaProblemasDao;
 import br.uninove.primeiraconsulta.dao.ProntuarioDao;
+import br.uninove.primeiraconsulta.entidade.Anamnese;
 import br.uninove.primeiraconsulta.entidade.EstiloDeVida;
 import br.uninove.primeiraconsulta.entidade.ExameFisico;
+import br.uninove.primeiraconsulta.entidade.ListaProblemas;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
 
 /**
@@ -27,7 +31,7 @@ public class CheckProntuario {
         return false;
     }
 
-    public static Prontuario checkNumProntuario(Prontuario p, EstiloDeVida estiloDeVida, ExameFisico exameFisico, Context context) {
+    public static Prontuario checkNumProntuario(Prontuario p, EstiloDeVida estiloDeVida, ExameFisico exameFisico, Anamnese anamnese, List<ListaProblemas> listaProblemas, Context context) {
         List<Prontuario> prontuarioLista = ProntuarioDao.buscarTodosProntuarios(context);
         for (Prontuario pron : prontuarioLista) {
             if(p.getNumProntuario().equals(pron.getNumProntuario())){
@@ -37,16 +41,23 @@ public class CheckProntuario {
 
         p = nadaConstaProntuario(p);
         estiloDeVida = nadaConstaEstiloDeVida(estiloDeVida);
+        anamnese = nadaConstaAnamnese(anamnese);
         EstiloDeVidaDao.salvar(estiloDeVida, context);
         ExameFisicoDao.salvar(exameFisico, context);
+        AnamneseDao.salvar(anamnese, context);
+
+        listaProblemas = nadaConstaListaProb(listaProblemas);
+        ListaProblemasDao.salvar(listaProblemas, p, context);
 
         estiloDeVida = EstiloDeVidaDao.buscarPorNumProntuario(p, context);
         exameFisico = ExameFisicoDao.buscarPorNumProntuario(p, context);
+        anamnese = AnamneseDao.buscarPorNumProntuario(p, context);
 
         p.setIdEstiloDeVida(estiloDeVida.getId());
         System.out.println("Id Estilo de Vida: " + p.getIdEstiloDeVida());
         p.setIdExameFisico(exameFisico.getId());
         System.out.println("Id Exame Fisico: " + p.getIdExameFisico());
+        p.setIdAnamnese(anamnese.getId());
 
         ProntuarioDao.salvar(p, context);
 
@@ -58,6 +69,26 @@ public class CheckProntuario {
         }
 
         return p;
+    }
+
+    public static List<ListaProblemas> nadaConstaListaProb(List<ListaProblemas> listaProblemas) {
+
+        for (ListaProblemas lp : listaProblemas) {
+            if(lp.getDescricao().isEmpty()){lp.setDescricao("Nada Consta.");}
+            if(lp.getAcao().isEmpty()){lp.setAcao("Nada Consta.");}
+        }
+
+        return listaProblemas;
+    }
+
+    public static Anamnese nadaConstaAnamnese(Anamnese anamnese) {
+
+        if(anamnese.getQueixa().isEmpty()){anamnese.setQueixa("Nada Consta.");}
+        if(anamnese.getHistoriaDoenca().isEmpty()){anamnese.setHistoriaDoenca("Nada Consta.");}
+        if(anamnese.getInterrogatorio().isEmpty()){anamnese.setInterrogatorio("Nada Consta.");}
+        if(anamnese.getPercepcao().isEmpty()){anamnese.setPercepcao("Nada Consta.");}
+
+        return anamnese;
     }
 
     public static Prontuario nadaConstaProntuario(Prontuario p){

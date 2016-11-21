@@ -13,30 +13,32 @@
             android:orientation="vertical" >
 
             <TextView
-                android:text="Estilo de Vida / Hábitos"
+                android:id="@+id/textView18"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView18"
-                android:textStyle="normal|bold"
+                android:layout_marginTop="18dp"
+                android:text="Estilo de Vida / Hábitos"
+                android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textSize="24sp"
-                android:textAlignment="center"
+                android:textStyle="normal|bold"
                 android:textColor="@android:color/background_light" />
 
             <TextView
-                android:text=""
+                android:id="@+id/textView19"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView19"
+                android:text=""
                 android:textSize="18sp" />
 
             <TextView
-                android:text="Dieta"
+                android:id="@+id/textView20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView20"
-                android:textSize="24sp"
+                android:text="Dieta"
+                android:layout_marginBottom="18dp"
                 android:textAlignment="center"
+                android:textSize="24sp"
                 android:textStyle="normal|bold"
                 android:textColor="@android:color/background_light" />
 
@@ -64,21 +66,21 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp">
 
-                        <include layout="@layout/include_novo_estilo_de_vida" />
+                        <include layout="@layout/include_editar_estilo_de_vida"/>
 
-                        <include layout="@layout/include_novo_estilo_de_vida_2" />
+                        <include layout="@layout/include_editar_estilo_de_vida_2"/>
 
-                        <include layout="@layout/include_novo_estilo_de_vida_3" />
+                        <include layout="@layout/include_editar_estilo_de_vida_3"/>
 
-                        <include layout="@layout/include_novo_estilo_de_vida_4" />
+                        <include layout="@layout/include_editar_estilo_de_vida_4"/>
 
-                        <include layout="@layout/include_novo_estilo_de_vida_5" />
+                        <include layout="@layout/include_editar_estilo_de_vida_5"/>
                     </LinearLayout>
-
                 </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
 
 </LinearLayout>

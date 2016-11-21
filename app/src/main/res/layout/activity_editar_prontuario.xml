@@ -42,90 +42,65 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp">
 
-                <include layout="@layout/include_editar_prontuario" android:layout_width="match_parent" />
+                <include layout="@layout/include_editar_prontuario"/>
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:text="Estilo de Vida / Hábitos"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textSize="24sp"
-                android:textStyle="normal|bold"
-                android:textColor="@android:color/background_light" />
 
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Dieta"
-                android:layout_marginBottom="18dp"
-                android:textAlignment="center"
-                android:textSize="24sp"
-                android:textStyle="normal|bold"
-                android:textColor="@android:color/background_light" />
-
-
-            <LinearLayout
-                android:orientation="vertical"
+            <TabHost
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp">
+                android:id="@+id/tab_editar_prontuario">
 
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/layout_border">
+                    android:orientation="vertical"
+                    android:background="@drawable/layout_border_tab"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp">
 
-                    <LinearLayout
-                        android:orientation="vertical"
+                    <TabWidget
+                        android:id="@android:id/tabs"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginBottom="10dp">
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button01"/>
 
-                        <include layout="@layout/include_editar_estilo_de_vida" android:layout_width="match_parent" />
+                    <FrameLayout
+                        android:id="@android:id/tabcontent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                        <include layout="@layout/include_editar_estilo_de_vida_2" android:layout_width="match_parent" />
+                        <LinearLayout
+                            android:id="@+id/tab_editar_anamnese"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-                        <include layout="@layout/include_editar_estilo_de_vida_3" android:layout_width="match_parent" />
+                            <include layout="@layout/include_editar_anamnese" />
+                        </LinearLayout>
 
-                        <include layout="@layout/include_editar_estilo_de_vida_4" android:layout_width="match_parent" />
+                        <LinearLayout
+                            android:id="@+id/tab_editar_estilo_de_vida"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-                        <include layout="@layout/include_editar_estilo_de_vida_5" android:layout_width="match_parent" />
-                    </LinearLayout>
+                            <include layout="@layout/include_editar_estilo_de_vida_full" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/tab_editar_exame_fisico"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <include layout="@layout/include_editar_exame_fisico_full" />
+                        </LinearLayout>
+                    </FrameLayout>
                 </LinearLayout>
-
-            </LinearLayout>
-
-            <TextView
-                android:text="Exame Físico"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView51"
-                android:layout_marginTop="18dp"
-                android:layout_marginBottom="18dp"
-                android:textStyle="normal|bold"
-                android:textAllCaps="true"
-                android:textAlignment="center"
-                android:textSize="24sp"
-                android:textColor="@android:color/background_light" />
+            </TabHost>
 
 
             <LinearLayout
@@ -136,13 +111,11 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp">
-
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/layout_border">
-
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
@@ -152,8 +125,20 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp">
 
-                        <include layout="@layout/include_editar_exame_fisico" android:layout_width="match_parent" />
+
+                        <TextView
+                            android:text="Lista de Problemas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView78"
+                            android:textAlignment="center"
+                            android:textStyle="normal|bold"
+                            android:textSize="18sp" />
+
+                        <include layout="@layout/include_editar_lista_problemas" />
+
                     </LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
 

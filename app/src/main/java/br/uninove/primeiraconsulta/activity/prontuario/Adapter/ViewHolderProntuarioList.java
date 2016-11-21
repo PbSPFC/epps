@@ -5,16 +5,22 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import br.uninove.primeiraconsulta.R;
 import br.uninove.primeiraconsulta.activity.menu.MenuActivity;
 import br.uninove.primeiraconsulta.activity.prontuario.EditarProntuarioActivity;
 import br.uninove.primeiraconsulta.activity.prontuario.ListarProntuariosActivity;
 import br.uninove.primeiraconsulta.activity.prontuario.VerProntuarioActivity;
+import br.uninove.primeiraconsulta.dao.AnamneseDao;
 import br.uninove.primeiraconsulta.dao.EstiloDeVidaDao;
 import br.uninove.primeiraconsulta.dao.ExameFisicoDao;
+import br.uninove.primeiraconsulta.dao.ListaProblemasDao;
 import br.uninove.primeiraconsulta.dao.ProntuarioDao;
+import br.uninove.primeiraconsulta.entidade.Anamnese;
 import br.uninove.primeiraconsulta.entidade.EstiloDeVida;
 import br.uninove.primeiraconsulta.entidade.ExameFisico;
+import br.uninove.primeiraconsulta.entidade.ListaProblemas;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -23,7 +29,7 @@ import butterknife.OnClick;
  * Created by PB on 10/11/2016.
  */
 
-public class ViewHolder {
+public class ViewHolderProntuarioList {
 
     public Prontuario prontuarioHolder;
 
@@ -42,8 +48,10 @@ public class ViewHolder {
     public void btExcluir(){
         EstiloDeVida estiloDeVida = EstiloDeVidaDao.buscarPorNumProntuario(prontuarioHolder, ListarProntuariosActivity.getContext());
         ExameFisico exameFisico = ExameFisicoDao.buscarPorNumProntuario(prontuarioHolder, ListarProntuariosActivity.getContext());
+        Anamnese anamnese = AnamneseDao.buscarPorNumProntuario(prontuarioHolder, ListarProntuariosActivity.getContext());
+        List<ListaProblemas> listaProblemases = ListaProblemasDao.buscarPorNumProntuario(prontuarioHolder, ListarProntuariosActivity.getContext());
 
-        ProntuarioDao.excluirProntuario(prontuarioHolder, estiloDeVida, exameFisico, ListarProntuariosActivity.getContext());
+        ProntuarioDao.excluirProntuario(prontuarioHolder, estiloDeVida, exameFisico, anamnese, listaProblemases, ListarProntuariosActivity.getContext());
         Toast.makeText(ListarProntuariosActivity.getContext(), "Prontuario de N°" + prontuarioHolder.getNumProntuario() + "" +
                 " foi excluído com sucesso!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(ListarProntuariosActivity.getContext(), MenuActivity.class);
