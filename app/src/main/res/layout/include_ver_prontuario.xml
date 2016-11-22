@@ -23,8 +23,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/tv_ver_nome_usuario"
             android:layout_weight="1"
-            android:textSize="18sp"
-            android:textAlignment="viewStart" />
+            android:textSize="18sp" />
     </GridLayout>
 
     <GridLayout
@@ -75,6 +74,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:text="Data de Criação: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView101"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_ver_data" />
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Última Edição: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView103"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_ver_data_edicao" />
     </GridLayout>
 
     <GridLayout

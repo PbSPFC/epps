@@ -60,7 +60,9 @@ public class DbEstiloDeVida {
             "ALCOOL_2 TEXT," +
             "ALCOOL_3 TEXT," +
             "ALCOOL_4 TEXT," +
-            "ALCOOL TEXT" +
+            "ALCOOL TEXT," +
+            "SEXUALMENTE_ATIVO TEXT," +
+            "SEXUALMENTE_ATIVO_OPT INTEGER" +
             ")";
     public static final String ESTILO_DE_VIDA_DROP_TB = "DROP TABLE IF EXISTS "+ESTILO_DE_VIDA_TB_NAME;
 

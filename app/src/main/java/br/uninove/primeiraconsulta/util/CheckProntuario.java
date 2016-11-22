@@ -107,6 +107,7 @@ public class CheckProntuario {
         if(estiloDeVida.getAgua().isEmpty() || estiloDeVida.getAgua().equals("")){estiloDeVida.setAgua("Nada Consta.");}
         if(estiloDeVida.getAtFisica().isEmpty() || estiloDeVida.getAtFisica().equals("")){estiloDeVida.setAtFisica("Nada Consta.");}
         if(estiloDeVida.getSono().isEmpty() || estiloDeVida.getSono().equals("")){estiloDeVida.setSono("Nada Consta.");}
+        if(estiloDeVida.getSexualmenteAtivo().isEmpty() || estiloDeVida.getSexualmenteAtivo().equals("")){estiloDeVida.setSexualmenteAtivo("Nada Consta.");}
 
         return estiloDeVida;
     }

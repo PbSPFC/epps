@@ -62,7 +62,7 @@
                         android:layout_width="match_parent"
                         android:orientation="vertical"
                         android:background="@drawable/layout_border"
-                        android:layout_height="200dp">
+                        android:layout_height="wrap_content">
 
                         <EditText
                             android:layout_width="match_parent"
@@ -94,7 +94,7 @@
                         android:layout_width="match_parent"
                         android:orientation="vertical"
                         android:background="@drawable/layout_border"
-                        android:layout_height="200dp">
+                        android:layout_height="wrap_content">
 
                         <EditText
                             android:layout_width="match_parent"
@@ -125,7 +125,7 @@
                         android:layout_width="match_parent"
                         android:orientation="vertical"
                         android:background="@drawable/layout_border"
-                        android:layout_height="200dp">
+                        android:layout_height="wrap_content">
 
                         <EditText
                             android:layout_width="match_parent"
@@ -154,7 +154,7 @@
                         android:layout_width="match_parent"
                         android:orientation="vertical"
                         android:background="@drawable/layout_border"
-                        android:layout_height="200dp">
+                        android:layout_height="wrap_content">
 
                         <EditText
                             android:layout_width="match_parent"

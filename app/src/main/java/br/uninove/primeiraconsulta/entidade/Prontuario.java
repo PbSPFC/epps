@@ -24,6 +24,8 @@ public class Prontuario implements Serializable {
     private Integer peso;
     private Float altura;
     private String comentario;
+    private String data;
+    private String dataEdicao;
 
     public Long getId() {
         return id;
@@ -127,5 +129,21 @@ public class Prontuario implements Serializable {
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getDataEdicao() {
+        return dataEdicao;
+    }
+
+    public void setDataEdicao(String dataEdicao) {
+        this.dataEdicao = dataEdicao;
     }
 }

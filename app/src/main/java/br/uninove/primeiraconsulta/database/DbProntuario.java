@@ -22,6 +22,8 @@ public class DbProntuario {
             "ID_ESTILO_DE_VIDA INTEGER NOT NULL," +
             "ID_EXAME_FISICO INTEGER NOT NULL," +
             "ID_ANAMNESE INTEGER NOT NULL," +
+            "DATA TEXT," +
+            "DATA_EDICAO TEXT," +
 
             "FOREIGN KEY(USUARIO_ID) REFERENCES "+DbUsuario.USUARIO_TB_NAME+"," +
             "FOREIGN KEY(ID_ESTILO_DE_VIDA) REFERENCES "+DbEstiloDeVida.ESTILO_DE_VIDA_TB_NAME+"," +

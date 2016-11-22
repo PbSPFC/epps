@@ -44,7 +44,7 @@ public class NovoProntuarioUtil {
     }
 
 
-    public static ExameFisico getNovoExameFisico(ExameFisico exameFisico, EditText edSistole, EditText edDiastole, Prontuario prontuario, EditText edCervical, EditText edCintura, EditText edQuadril, EditText edSnellenDireita, EditText edSnellenEsquerda) {
+    public static ExameFisico getNovoExameFisico(ExameFisico exameFisico, EditText edSistole, EditText edDiastole, Prontuario prontuario, EditText edCervical, EditText edCintura, EditText edQuadril, EditText edSnellenDireita, EditText edSnellenEsquerda, EditText edExameComentario) {
 
         if (!edSistole.getText().toString().isEmpty()){exameFisico.setSistole(Integer.parseInt(edSistole.getText().toString()));}
         if (!edDiastole.getText().toString().isEmpty()){exameFisico.setDiastole(Integer.parseInt(edDiastole.getText().toString()));}
@@ -120,11 +120,18 @@ public class NovoProntuarioUtil {
             }
         }
 
+        if(edExameComentario.getText().toString().isEmpty()){
+            exameFisico.setComentario("Nada Consta!");
+        } else {
+            exameFisico.setComentario(edExameComentario.getText().toString());
+        }
+
+
         return exameFisico;
     }
 
 
-    public static EstiloDeVida getNovoEstiloDeVida(EstiloDeVida estiloDeVida, RadioGroup rgGordura, RadioGroup rgFibra, RadioGroup rgCalcio, RadioGroup rgSodio, RadioGroup rgAcucar, RadioGroup rgRefri, RadioGroup rgAgua, RadioGroup rgAtFisica, RadioGroup rgSonoOpt1, RadioGroup rgSonoOpt2, RadioGroup rgSonoOpt3, RadioGroup rgSonoOpt4, RadioGroup rgSonoOpt5, RadioGroup rgSonoOpt6, RadioGroup rgCigarroAtivo, RadioGroup rgCigarro1, RadioGroup rgCigarro2, RadioGroup rgCigarro3, RadioGroup rgCigarro4, RadioGroup rgCigarro5, RadioGroup rgCigarro6, RadioGroup rgAlcoolAtivo, RadioGroup rgAlcool1, RadioGroup rgAlcool2, RadioGroup rgAlcool3, RadioGroup rgAlcool4) {
+    public static EstiloDeVida getNovoEstiloDeVida(EstiloDeVida estiloDeVida, RadioGroup rgGordura, RadioGroup rgFibra, RadioGroup rgCalcio, RadioGroup rgSodio, RadioGroup rgAcucar, RadioGroup rgRefri, RadioGroup rgAgua, RadioGroup rgAtFisica, RadioGroup rgSonoOpt1, RadioGroup rgSonoOpt2, RadioGroup rgSonoOpt3, RadioGroup rgSonoOpt4, RadioGroup rgSonoOpt5, RadioGroup rgSonoOpt6, RadioGroup rgCigarroAtivo, RadioGroup rgCigarro1, RadioGroup rgCigarro2, RadioGroup rgCigarro3, RadioGroup rgCigarro4, RadioGroup rgCigarro5, RadioGroup rgCigarro6, RadioGroup rgAlcoolAtivo, RadioGroup rgAlcool1, RadioGroup rgAlcool2, RadioGroup rgAlcool3, RadioGroup rgAlcool4, RadioGroup rgSexualmenteAtivo) {
 
         int gorduraEscolha = rgGordura.getCheckedRadioButtonId();
         if (gorduraEscolha == R.id.rb_novo_gordura_1) {
@@ -225,6 +232,17 @@ public class NovoProntuarioUtil {
             estiloDeVida.setAtFisica("Mais de 150 minutos exercicíos por semana. (Ativo)");
         } else {
             estiloDeVida.setAtFisica("");
+        }
+
+        int sexualmenteAtivo = rgSexualmenteAtivo.getCheckedRadioButtonId();
+        if (sexualmenteAtivo == R.id.rb_novo_sexualmente_ativo_sim) {
+            estiloDeVida.setSexualmenteAtivoOpt(R.id.rb_editar_sexualmente_ativo_sim);
+            estiloDeVida.setSexualmenteAtivo("Sim.");
+        } else if (sexualmenteAtivo == R.id.rb_novo_sexualmente_ativo_nao) {
+            estiloDeVida.setSexualmenteAtivoOpt(R.id.rb_editar_agua_2);
+            estiloDeVida.setSexualmenteAtivo("Não.");
+        } else {
+            estiloDeVida.setSexualmenteAtivo("");
         }
 
 

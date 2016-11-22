@@ -71,6 +71,8 @@ public class EstiloDeVida implements Serializable{
     private String alcool3;
     private String alcool4;
     private String alcool;
+    private String sexualmenteAtivo;
+    private Integer sexualmenteAtivoOpt;
 
     public Long getId() {
         return id;
@@ -478,5 +480,21 @@ public class EstiloDeVida implements Serializable{
 
     public void setAlcool(String alcool) {
         this.alcool = alcool;
+    }
+
+    public String getSexualmenteAtivo() {
+        return sexualmenteAtivo;
+    }
+
+    public void setSexualmenteAtivo(String sexualmenteAtivo) {
+        this.sexualmenteAtivo = sexualmenteAtivo;
+    }
+
+    public Integer getSexualmenteAtivoOpt() {
+        return sexualmenteAtivoOpt;
+    }
+
+    public void setSexualmenteAtivoOpt(Integer sexualmenteAtivoOpt) {
+        this.sexualmenteAtivoOpt = sexualmenteAtivoOpt;
     }
 }

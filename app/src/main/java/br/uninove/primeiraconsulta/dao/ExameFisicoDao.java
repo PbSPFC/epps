@@ -42,6 +42,7 @@ public class ExameFisicoDao {
         values.put(cinturaresultado,exameFisico.getCinturaResultado());
         values.put(quadrilResultado,exameFisico.getQuadrilResultado());
         values.put(snellenResultado,exameFisico.getSnellenResultado());
+        values.put(comentario,exameFisico.getComentario());
 
 
         //Verificando se ira fazer udpate ou insert
@@ -84,6 +85,7 @@ public class ExameFisicoDao {
                 exameFisico.setCinturaResultado(cursor.getString(CINTURA_RESULTADO));
                 exameFisico.setQuadrilResultado(cursor.getString(QUADRIL_RESULTADO));
                 exameFisico.setSnellenResultado(cursor.getString(SNELLEN_RESULTADO));
+                exameFisico.setComentario(cursor.getString(COMENTARIO));
 
                 lista.add(exameFisico);
 
@@ -125,6 +127,7 @@ public class ExameFisicoDao {
                 exameFisico.setCinturaResultado(cursor.getString(CINTURA_RESULTADO));
                 exameFisico.setQuadrilResultado(cursor.getString(QUADRIL_RESULTADO));
                 exameFisico.setSnellenResultado(cursor.getString(SNELLEN_RESULTADO));
+                exameFisico.setComentario(cursor.getString(COMENTARIO));
 
                 lista.add(exameFisico);
 
@@ -169,6 +172,7 @@ public class ExameFisicoDao {
                 exameFisico.setCinturaResultado(cursor.getString(CINTURA_RESULTADO));
                 exameFisico.setQuadrilResultado(cursor.getString(QUADRIL_RESULTADO));
                 exameFisico.setSnellenResultado(cursor.getString(SNELLEN_RESULTADO));
+                exameFisico.setComentario(cursor.getString(COMENTARIO));
                 db.close();
                 return exameFisico;
             }while(cursor.moveToNext());
@@ -202,6 +206,7 @@ public class ExameFisicoDao {
     public static final int CINTURA_RESULTADO = 13;
     public static final int QUADRIL_RESULTADO = 14;
     public static final int SNELLEN_RESULTADO = 15;
+    public static final int COMENTARIO = 16;
 
     public static final String id = "id";
     public static final String numProntuario = "num_prontuario";
@@ -219,5 +224,6 @@ public class ExameFisicoDao {
     public static final String cinturaresultado = "cintura_resultado";
     public static final String quadrilResultado = "quadril_resultado";
     public static final String snellenResultado = "snellen_resultado";
+    public static final String comentario = "comentario";
 
 }

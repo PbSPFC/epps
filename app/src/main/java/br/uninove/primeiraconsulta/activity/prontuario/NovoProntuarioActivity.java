@@ -26,6 +26,7 @@ import br.uninove.primeiraconsulta.entidade.ListaProblemas;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
 import br.uninove.primeiraconsulta.entidade.Usuario;
 import br.uninove.primeiraconsulta.util.CheckProntuario;
+import br.uninove.primeiraconsulta.util.DataUtil;
 import br.uninove.primeiraconsulta.util.ListaProblemasUtil;
 import br.uninove.primeiraconsulta.util.NovoProntuarioUtil;
 import br.uninove.primeiraconsulta.util.SessaoUsuario;
@@ -73,6 +74,8 @@ public class NovoProntuarioActivity extends AppCompatActivity {
     RadioGroup rgAgua;
     RadioGroup rgAtFisica;
 
+    RadioGroup rgSexualmenteAtivo;
+
     RadioGroup rgSonoOpt1;
     RadioGroup rgSonoOpt2;
     RadioGroup rgSonoOpt3;
@@ -108,6 +111,9 @@ public class NovoProntuarioActivity extends AppCompatActivity {
     EditText edSnellenDireita;
     @Bind(R.id.ed_novo_snellen_esquerda)
     EditText edSnellenEsquerda;
+
+    @Bind(R.id.ed_novo_exame_comentario)
+    EditText edExameComentario;
 
     @Bind(R.id.ed_novo_queixa)
     EditText edQueixa;
@@ -227,6 +233,8 @@ public class NovoProntuarioActivity extends AppCompatActivity {
         rgAgua = (RadioGroup) findViewById(R.id.rg_novo_agua);
         rgAtFisica = (RadioGroup) findViewById(R.id.rg_novo_atividade_fisica);
 
+        rgSexualmenteAtivo = (RadioGroup) findViewById(R.id.rg_novo_sexualmente_ativo);
+
         rgSonoOpt1 = (RadioGroup) findViewById(R.id.rg_novo_sono_lendo);
         rgSonoOpt2 = (RadioGroup) findViewById(R.id.rg_novo_sono_tv);
         rgSonoOpt3 = (RadioGroup) findViewById(R.id.rg_novo_sono_publico);
@@ -275,7 +283,7 @@ public class NovoProntuarioActivity extends AppCompatActivity {
 
         //EXAME FISICO INICIO
 
-        exameFisico = NovoProntuarioUtil.getNovoExameFisico(exameFisico, edSistole, edDiastole, prontuario, edCervical, edCintura, edQuadril, edSnellenDireita, edSnellenEsquerda);
+        exameFisico = NovoProntuarioUtil.getNovoExameFisico(exameFisico, edSistole, edDiastole, prontuario, edCervical, edCintura, edQuadril, edSnellenDireita, edSnellenEsquerda, edExameComentario);
 
 
         //EXAME FISICO FIM
@@ -284,7 +292,7 @@ public class NovoProntuarioActivity extends AppCompatActivity {
         estiloDeVida = NovoProntuarioUtil.getNovoEstiloDeVida(estiloDeVida, rgGordura, rgFibra, rgCalcio, rgSodio, rgAcucar,
                 rgRefri, rgAgua, rgAtFisica, rgSonoOpt1, rgSonoOpt2, rgSonoOpt3, rgSonoOpt4, rgSonoOpt5, rgSonoOpt6, rgCigarroAtivo,
                 rgCigarro1, rgCigarro2, rgCigarro3, rgCigarro4, rgCigarro5, rgCigarro6, rgAlcoolAtivo, rgAlcool1, rgAlcool2, rgAlcool3,
-                rgAlcool4);
+                rgAlcool4, rgSexualmenteAtivo);
 
 
         //ESTILO DE VIDA/HABITOS FIM
@@ -314,6 +322,8 @@ public class NovoProntuarioActivity extends AppCompatActivity {
 
 
         prontuario.setComentario(edComentario.getText().toString());
+        prontuario.setData(DataUtil.getDate());
+        prontuario.setDataEdicao("");
 
         if (CheckProntuario.checkCampos(prontuario, this)) {
 

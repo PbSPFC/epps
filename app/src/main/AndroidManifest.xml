@@ -19,11 +19,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.menu.MenuActivity"></activity>
-        <activity android:name=".activity.cadastro.CadastroUsuarioActivity"></activity>
-        <activity android:name=".activity.prontuario.NovoProntuarioActivity"></activity>
+        <activity android:name=".activity.cadastro.CadastroUsuarioActivity"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".activity.prontuario.NovoProntuarioActivity"
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity android:name=".activity.prontuario.VerProntuarioActivity"></activity>
         <activity android:name=".activity.prontuario.ListarProntuariosActivity"></activity>
-        <activity android:name=".activity.prontuario.EditarProntuarioActivity"></activity>
+        <activity android:name=".activity.prontuario.EditarProntuarioActivity"
+            android:windowSoftInputMode="stateHidden"></activity>
     </application>
 
 </manifest>

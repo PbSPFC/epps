@@ -313,6 +313,34 @@
             android:textSize="14sp" />
     </TableRow>
 
+
+    <TextView
+        android:text="Comentário: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView97"
+        android:layout_marginTop="10dp"
+        android:textStyle="normal|bold" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_border">
+
+        <TextView
+            android:text=""
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_ver_exame_comentario"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+
+
+
     <TextView
         android:text=""
         android:layout_width="match_parent"
@@ -320,4 +348,5 @@
         android:id="@+id/textVieeeeew70"
         android:textSize="14sp"
         android:textAlignment="center" />
+
 </LinearLayout>

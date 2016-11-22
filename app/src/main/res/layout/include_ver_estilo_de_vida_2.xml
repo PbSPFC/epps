@@ -4,11 +4,26 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:text="Paciente é sexualmente ativo?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView95"
+        android:textStyle="normal|bold"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ver_sexualmente_ativo" />
+
+    <TextView
         android:text="Sono, avaliação do ronco: "
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView76"
         android:textStyle="normal|bold"
+        android:layout_marginTop="20dp"
         android:textSize="18sp"
         android:textAlignment="center" />
 

@@ -25,6 +25,7 @@ import br.uninove.primeiraconsulta.entidade.ListaProblemas;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
 import br.uninove.primeiraconsulta.util.CheckListaProntuario;
 import br.uninove.primeiraconsulta.util.CheckProntuario;
+import br.uninove.primeiraconsulta.util.DataUtil;
 import br.uninove.primeiraconsulta.util.EditarProntuarioUtil;
 import br.uninove.primeiraconsulta.util.ListaProblemasUtil;
 import br.uninove.primeiraconsulta.util.NovoProntuarioUtil;
@@ -55,6 +56,10 @@ public class EditarProntuarioActivity extends AppCompatActivity {
     EditText edComentario;
     @Bind(R.id.tv_editar_sexo)
     TextView tvSexo;
+    @Bind(R.id.tv_editar_data)
+    TextView tvData;
+    @Bind(R.id.tv_editar_data_edicao)
+    TextView tvDataEdicao;
 
     RadioGroup rgGordura;
     RadioGroup rgFibra;
@@ -64,6 +69,8 @@ public class EditarProntuarioActivity extends AppCompatActivity {
     RadioGroup rgRefri;
     RadioGroup rgAgua;
     RadioGroup rgAtFisica;
+
+    RadioGroup rgSexualmenteAtivo;
 
     RadioGroup rgSonoOpt1;
     RadioGroup rgSonoOpt2;
@@ -100,6 +107,9 @@ public class EditarProntuarioActivity extends AppCompatActivity {
     EditText edSnellenDireita;
     @Bind(R.id.ed_editar_snellen_esquerda)
     EditText edSnellenEsquerda;
+
+    @Bind(R.id.ed_editar_exame_comentario)
+    EditText edExameComentario;
 
     @Bind(R.id.ed_editar_queixa)
     EditText edQueixa;
@@ -222,6 +232,8 @@ public class EditarProntuarioActivity extends AppCompatActivity {
 
             tvNumProntuario.setText(prontuario.getNumProntuario());
             tvSexo.setText(prontuario.getSexo());
+            tvData.setText(prontuario.getData());
+            tvDataEdicao.setText(prontuario.getDataEdicao());
             edIdade.setText(prontuario.getIdade().toString());
             edPeso.setText(prontuario.getPeso().toString());
             edAltura.setText(prontuario.getAltura().toString());
@@ -239,6 +251,7 @@ public class EditarProntuarioActivity extends AppCompatActivity {
             edQuadril.setText(exameFisico.getQuadril().toString());
             edSnellenDireita.setText(exameFisico.getSnellenDireita().toString());
             edSnellenEsquerda.setText(exameFisico.getSnellenEsquerda().toString());
+            edExameComentario.setText(exameFisico.getComentario());
 
             edDescricao1.setText(listaProblemas.get(0).getDescricao().toString());
             edDescricao2.setText(listaProblemas.get(1).getDescricao().toString());
@@ -289,6 +302,11 @@ public class EditarProntuarioActivity extends AppCompatActivity {
             if (estiloDeVida.getAtFisicaOpt() != null) {
                 rgAtFisica.check(estiloDeVida.getAtFisicaOpt());
             }
+            rgSexualmenteAtivo = (RadioGroup) findViewById(R.id.rg_editar_sexualmente_ativo);
+            if (estiloDeVida.getSexualmenteAtivoOpt() != null) {
+                rgSexualmenteAtivo.check(estiloDeVida.getSexualmenteAtivoOpt());
+            }
+
             //Sono Opts
             rgSonoOpt1 = (RadioGroup) findViewById(R.id.rg_editar_sono_lendo);
             if (estiloDeVida.getSonoOpt1() != null) {
@@ -381,7 +399,7 @@ public class EditarProntuarioActivity extends AppCompatActivity {
         //ANAMNESE FIM
         //EXAME FISICO INICIO
 
-        exameFisico = EditarProntuarioUtil.getEditarExameFisico(exameFisico, edSistole, edDiastole, prontuario, edCervical, edCintura, edQuadril, edSnellenDireita, edSnellenEsquerda);
+        exameFisico = EditarProntuarioUtil.getEditarExameFisico(exameFisico, edSistole, edDiastole, prontuario, edCervical, edCintura, edQuadril, edSnellenDireita, edSnellenEsquerda, edExameComentario);
 
         //EXAME FISICO FIM
         //ESTILO DE VIDA/HABITOS INICIO
@@ -389,7 +407,7 @@ public class EditarProntuarioActivity extends AppCompatActivity {
         estiloDeVida = EditarProntuarioUtil.getEstiloDeVida(estiloDeVida, rgGordura, rgFibra, rgCalcio, rgSodio, rgAcucar,
                 rgRefri, rgAgua, rgAtFisica, rgSonoOpt1, rgSonoOpt2, rgSonoOpt3, rgSonoOpt4, rgSonoOpt5, rgSonoOpt6, rgCigarroAtivo,
                 rgCigarro1, rgCigarro2, rgCigarro3, rgCigarro4, rgCigarro5, rgCigarro6, rgAlcoolAtivo, rgAlcool1, rgAlcool2, rgAlcool3,
-                rgAlcool4);
+                rgAlcool4, rgSexualmenteAtivo);
 
         //ESTILO DE VIDA/HABITOS FIM
 
@@ -414,6 +432,7 @@ public class EditarProntuarioActivity extends AppCompatActivity {
         //LISTA DE PROBLEMAS INICIO
 
         prontuario.setComentario(edComentario.getText().toString());
+        prontuario.setDataEdicao(DataUtil.getDate());
 
         if (CheckProntuario.checkCampos(prontuario, this)) {
             prontuario = CheckProntuario.nadaConstaProntuario(prontuario);

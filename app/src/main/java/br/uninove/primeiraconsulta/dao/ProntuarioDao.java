@@ -46,6 +46,8 @@ public class ProntuarioDao {
         values.put(idEstiloDeVida, prontuario.getIdEstiloDeVida());
         values.put(idExameFisico, prontuario.getIdExameFisico());
         values.put(idAnamnese, prontuario.getIdAnamnese());
+        values.put(data, prontuario.getData());
+        values.put(dataEdicao, prontuario.getDataEdicao());
 
 
         //Verificando se ira fazer udpate ou insert
@@ -86,6 +88,8 @@ public class ProntuarioDao {
                 prontuario.setIdEstiloDeVida(cursor.getLong(ID_ESTILO_DE_VIDA));
                 prontuario.setIdExameFisico(cursor.getLong(ID_EXAME_FISICO));
                 prontuario.setIdAnamnese(cursor.getLong(ID_ANAMNESE));
+                prontuario.setData(cursor.getString(DATA));
+                prontuario.setDataEdicao(cursor.getString(DATA_EDICAO));
 
                 lista.add(prontuario);
 
@@ -123,6 +127,9 @@ public class ProntuarioDao {
     public static final int ID_ESTILO_DE_VIDA = 10;
     public static final int ID_EXAME_FISICO = 11;
     public static final int ID_ANAMNESE = 12;
+    public static final int DATA = 13;
+    public static final int DATA_EDICAO = 14;
+
 
 
 
@@ -139,6 +146,8 @@ public class ProntuarioDao {
     public static final String idEstiloDeVida = "id_estilo_de_vida";
     public static final String idExameFisico = "id_exame_fisico";
     public static final String idAnamnese = "ID_ANAMNESE";
+    public static final String data = "data";
+    public static final String dataEdicao = "data_edicao";
 
 
 

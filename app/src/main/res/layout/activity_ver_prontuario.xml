@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -26,6 +27,15 @@
                 android:textSize="24sp"
                 android:textColor="@android:color/background_light" />
 
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="Name"
+                android:ems="10"
+                android:id="@+id/edFocus" >
+                <requestFocus />
+                </EditText>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -58,60 +68,14 @@
             </LinearLayout>
 
 
-            <TabHost
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/tab_ver_prontuario">
+                android:focusable="false">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="@drawable/layout_border_tab"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp">
-
-                    <TabWidget
-                        android:id="@android:id/tabs"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/button01"/>
-
-                    <FrameLayout
-                        android:id="@android:id/tabcontent"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <LinearLayout
-                            android:id="@+id/tab_ver_anamnese"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <include layout="@layout/include_ver_anamnese" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/tab_ver_estilo_de_vida"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-                            <include layout="@layout/include_ver_estilo_de_vida_full" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/tab_ver_exame_fisico"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-                            <include layout="@layout/include_ver_exame_fisico_full" />
-                        </LinearLayout>
-                    </FrameLayout>
-                </LinearLayout>
-            </TabHost>
+                <include layout="@layout/include_ver_tab"/>
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"

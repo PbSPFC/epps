@@ -28,6 +28,8 @@ public class ExameFisico implements Serializable{
     private String quadrilResultado;
     private String snellenResultado;
 
+    private String comentario;
+
     public Long getId() {
         return id;
     }
@@ -154,5 +156,13 @@ public class ExameFisico implements Serializable{
 
     public void setSnellenResultado(String snellenResultado) {
         this.snellenResultado = snellenResultado;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
     }
 }

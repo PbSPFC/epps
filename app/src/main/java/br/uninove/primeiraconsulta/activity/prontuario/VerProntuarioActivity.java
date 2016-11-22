@@ -40,6 +40,10 @@ public class VerProntuarioActivity extends AppCompatActivity{
     TextView tvNomeUsuario;
     @Bind(R.id.tv_ver_ra)
     TextView tvRa;
+    @Bind(R.id.tv_ver_data)
+    TextView tvData;
+    @Bind(R.id.tv_ver_data_edicao)
+    TextView tvDataEdicao;
     @Bind(R.id.tv_ver_sexo)
     TextView tvSexo;
     @Bind(R.id.tv_ver_idade)
@@ -66,6 +70,8 @@ public class VerProntuarioActivity extends AppCompatActivity{
     TextView tvAgua;
     @Bind(R.id.tv_ver_at_fisica)
     TextView tvAtFisica;
+    @Bind(R.id.tv_ver_sexualmente_ativo)
+    TextView tvSexualmenteAtivo;
     @Bind(R.id.tv_ver_sono_pontos)
     TextView tvSonoPontos;
     @Bind(R.id.tv_ver_sono)
@@ -113,6 +119,8 @@ public class VerProntuarioActivity extends AppCompatActivity{
     TextView tvSnellenDireita;
     @Bind(R.id.tv_ver_snellen_esquerda)
     TextView tvSnellenEsquerda;
+    @Bind(R.id.tv_ver_exame_comentario)
+    TextView tvExameComentario;
 
     @Bind(R.id.tv_ver_pa_resultado)
     TextView tvPaResultado;
@@ -166,6 +174,9 @@ public class VerProntuarioActivity extends AppCompatActivity{
     @Bind(R.id.tv_ver_acao_7)
     TextView tvAcao7;
 
+    @Bind(R.id.edFocus)
+    EditText edFocus;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -190,6 +201,13 @@ public class VerProntuarioActivity extends AppCompatActivity{
         tabHost.addTab(specAnamnese);
         tabHost.addTab(specEstiloDeVida);
         tabHost.addTab(specExameFisico);
+
+        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String s) {
+                tabHost.clearFocus();
+            }
+        });
 
         //TAB LISTA DE PROBLEMAS
         tabListaProblemas = (TabHost)findViewById(R.id.tab_ver_lista_problemas);
@@ -231,6 +249,13 @@ public class VerProntuarioActivity extends AppCompatActivity{
         tabListaProblemas.addTab(specLP6);
         tabListaProblemas.addTab(specLP7);
 
+        tabListaProblemas.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String s) {
+                tabListaProblemas.clearFocus();
+            }
+        });
+
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if(bundle!=null){
@@ -243,6 +268,8 @@ public class VerProntuarioActivity extends AppCompatActivity{
             tvNumPronturario.setText(prontuario.getNumProntuario());
             tvNomeUsuario.setText(prontuario.getNomeMedico());
             tvRa.setText(prontuario.getRaUsuario());
+            tvData.setText(prontuario.getData());
+            tvDataEdicao.setText(prontuario.getDataEdicao());
             tvSexo.setText(prontuario.getSexo());
             tvIdade.setText(prontuario.getIdade().toString());
             tvPeso.setText(prontuario.getPeso().toString());
@@ -262,6 +289,7 @@ public class VerProntuarioActivity extends AppCompatActivity{
             tvRefri.setText(estiloDeVida.getRefri());
             tvAgua.setText(estiloDeVida.getAgua());
             tvAtFisica.setText(estiloDeVida.getAtFisica());
+            tvSexualmenteAtivo.setText(estiloDeVida.getSexualmenteAtivo());
             tvSonoPontos.setText(estiloDeVida.getSonoPontos().toString());
             tvSono.setText(estiloDeVida.getSono());
             tvCigarro1.setText(estiloDeVida.getCigarro1());
@@ -286,6 +314,7 @@ public class VerProntuarioActivity extends AppCompatActivity{
             tvQuadril.setText(exameFisico.getQuadril().toString());
             tvSnellenDireita.setText(exameFisico.getSnellenDireita().toString());
             tvSnellenEsquerda.setText(exameFisico.getSnellenEsquerda().toString());
+            tvExameComentario.setText(exameFisico.getComentario().toString());
 
             tvPaResultado.setText(exameFisico.getPaResultado());
             tvImcResultado.setText(exameFisico.getImcResultado());
@@ -310,10 +339,10 @@ public class VerProntuarioActivity extends AppCompatActivity{
             tvAcao6.setText(listaProblemas.get(5).getAcao());
             tvAcao7.setText(listaProblemas.get(6).getAcao());
 
-            tvNumPronturario.requestFocus();
+            edFocus.requestFocus();
         }
 
-        tvNumPronturario.requestFocus();
+        edFocus.requestFocus();
 
     }
 

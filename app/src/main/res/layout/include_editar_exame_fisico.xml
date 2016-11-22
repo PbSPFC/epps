@@ -195,6 +195,33 @@
     </TableRow>
 
     <TextView
+        android:text="Comentário: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/zztextView96"
+        android:layout_marginTop="10dp"
+        android:textStyle="normal|bold"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_border">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/ed_editar_exame_comentario"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+
+    <TextView
         android:text=""
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

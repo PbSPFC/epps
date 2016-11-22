@@ -78,6 +78,8 @@ public class EstiloDeVidaDao {
         values.put(alcool3, estiloDeVida.getAlcool3());
         values.put(alcool4, estiloDeVida.getAlcool4());
         values.put(alcool, estiloDeVida.getAlcool());
+        values.put(sexualmenteAtivo, estiloDeVida.getSexualmenteAtivo());
+        values.put(sexualmenteAtivoOpt, estiloDeVida.getSexualmenteAtivoOpt());
 
         //Verificando se ira fazer udpate ou insert
         if(estiloDeVida.getId()==null) {
@@ -154,6 +156,8 @@ public class EstiloDeVidaDao {
                 estiloDeVida.setAlcool3(cursor.getString(ALCOOL_3));
                 estiloDeVida.setAlcool4(cursor.getString(ALCOOL_4));
                 estiloDeVida.setAlcool(cursor.getString(ALCOOL));
+                estiloDeVida.setSexualmenteAtivo(cursor.getString(SEXUALMENTE_ATIVO));
+                estiloDeVida.setSexualmenteAtivoOpt(cursor.getInt(SEXUALMENTE_ATIVO_OPT));
 
                 lista.add(estiloDeVida);
 
@@ -231,6 +235,8 @@ public class EstiloDeVidaDao {
                 estiloDeVida.setAlcool3(cursor.getString(ALCOOL_3));
                 estiloDeVida.setAlcool4(cursor.getString(ALCOOL_4));
                 estiloDeVida.setAlcool(cursor.getString(ALCOOL));
+                estiloDeVida.setSexualmenteAtivo(cursor.getString(SEXUALMENTE_ATIVO));
+                estiloDeVida.setSexualmenteAtivoOpt(cursor.getInt(SEXUALMENTE_ATIVO_OPT));
 
                 lista.add(estiloDeVida);
 
@@ -311,6 +317,8 @@ public class EstiloDeVidaDao {
                 estiloDeVida.setAlcool3(cursor.getString(ALCOOL_3));
                 estiloDeVida.setAlcool4(cursor.getString(ALCOOL_4));
                 estiloDeVida.setAlcool(cursor.getString(ALCOOL));
+                estiloDeVida.setSexualmenteAtivo(cursor.getString(SEXUALMENTE_ATIVO));
+                estiloDeVida.setSexualmenteAtivoOpt(cursor.getInt(SEXUALMENTE_ATIVO_OPT));
                 db.close();
                 return estiloDeVida;
             }while(cursor.moveToNext());
@@ -378,6 +386,8 @@ public class EstiloDeVidaDao {
     public static final int ALCOOL_3 = 48;
     public static final int ALCOOL_4 = 49;
     public static final int ALCOOL = 50;
+    public static final int SEXUALMENTE_ATIVO = 51;
+    public static final int SEXUALMENTE_ATIVO_OPT = 52;
 
     public static final String id = "id";
     public static final String numProntuario = "num_prontuario";
@@ -430,5 +440,7 @@ public class EstiloDeVidaDao {
     public static final String alcool3 = "alcool_3";
     public static final String alcool4 = "alcool_4";
     public static final String alcool = "alcool";
+    public static final String sexualmenteAtivo = "SEXUALMENTE_ATIVO";
+    public static final String sexualmenteAtivoOpt = "SEXUALMENTE_ATIVO_OPT";
 
 }
