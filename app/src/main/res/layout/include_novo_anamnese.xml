@@ -19,6 +19,7 @@
                 android:id="@+id/texqqtView18"
                 android:textStyle="normal|bold"
                 android:textAllCaps="true"
+                android:layout_marginTop="18dp"
                 android:textSize="24sp"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_light" />

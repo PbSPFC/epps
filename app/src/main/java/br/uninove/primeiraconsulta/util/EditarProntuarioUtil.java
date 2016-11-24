@@ -41,6 +41,8 @@ public class EditarProntuarioUtil {
             } else {
                 exameFisico.setPaResultado("Pressão arterial está normal");
             }
+        } else {
+            exameFisico.setPaResultado("Nada Consta.");
         }
         if(prontuario.getPeso() != null && prontuario.getAltura() != null){
             exameFisico.setImc(CheckProntuario.getImc(prontuario.getPeso(), prontuario.getAltura()));
@@ -223,10 +225,10 @@ public class EditarProntuarioUtil {
         int sexualmenteAtivo = rgSexualmenteAtivo.getCheckedRadioButtonId();
         if (sexualmenteAtivo == R.id.rb_editar_sexualmente_ativo_sim) {
             estiloDeVida.setSexualmenteAtivoOpt(R.id.rb_editar_sexualmente_ativo_sim);
-            estiloDeVida.setSexualmenteAtivo("Sim.");
+            estiloDeVida.setSexualmenteAtivo("Sim");
         } else if (sexualmenteAtivo == R.id.rb_editar_sexualmente_ativo_nao) {
             estiloDeVida.setSexualmenteAtivoOpt(R.id.rb_editar_agua_2);
-            estiloDeVida.setSexualmenteAtivo("Não.");
+            estiloDeVida.setSexualmenteAtivo("Não");
         } else {
             estiloDeVida.setSexualmenteAtivo("");
         }

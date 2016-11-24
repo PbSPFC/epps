@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.uninove.primeiraconsulta.dao.ProntuarioDao;
+import br.uninove.primeiraconsulta.dao.log.LogProntuarioDao;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
 
 /**
@@ -19,6 +20,18 @@ public class CheckListaProntuario {
         List<Prontuario> listaRetorno = new ArrayList<>();
         for (Prontuario pron : prontuarioLista) {
             if(id == pron.getIdUsuario()){
+                listaRetorno.add(pron);
+            }
+        }
+
+        return listaRetorno;
+    }
+
+    public static List<Prontuario> checkProntuarioNumProntuario(String numProntuario, Context context) {
+        List<Prontuario> prontuarioLista = LogProntuarioDao.buscarTodosProntuarios(context);
+        List<Prontuario> listaRetorno = new ArrayList<>();
+        for (Prontuario pron : prontuarioLista) {
+            if(numProntuario.equals(pron.getNumProntuario())){
                 listaRetorno.add(pron);
             }
         }

@@ -45,9 +45,37 @@ public class DbUsuario {
             "(" +
             "'1111', '123', 'Bermudinha Do Patrick', 'bermudinhadopatrick@email.com', 1" +
             ")";
+    public static final String USUARIO_INSERT_REGIS_TADEU = "INSERT INTO " + USUARIO_TB_NAME + "(RA, SENHA, NOME," +
+            "EMAIL, STATUS_ID) VALUES" +
+            "(" +
+            "'666', '123', 'Regis Tadeu', 'registadeu@email.com', 1" +
+            ")";
+    public static final String USUARIO_INSERT_GANSO = "INSERT INTO " + USUARIO_TB_NAME + "(RA, SENHA, NOME," +
+            "EMAIL, STATUS_ID) VALUES" +
+            "(" +
+            "'10', '123', 'Paulo Henrique Ganso', 'phGanshow@email.com', 1" +
+            ")";
+
+    public static final String USUARIO_INSERT_LINEU = "INSERT INTO " + USUARIO_TB_NAME + "(RA, SENHA, NOME," +
+            "EMAIL, STATUS_ID) VALUES" +
+            "(" +
+            "'444', '123', 'Lineu', 'aosomdagrandefamilia@email.com', 1" +
+            ")";
+
+    public static final String USUARIO_INSERT_BARBA_MAN = "INSERT INTO " + USUARIO_TB_NAME + "(RA, SENHA, NOME," +
+            "EMAIL, STATUS_ID) VALUES" +
+            "(" +
+            "'333', '123', 'BarbaMan (Kbooom)', 'explodindo@email.com', 1" +
+            ")";
     public static final String USUARIO_INSERT_PB = "INSERT INTO " + USUARIO_TB_NAME + "(RA, SENHA, NOME," +
             "EMAIL, STATUS_ID) VALUES" +
             "(" +
-            "'11', '123', 'Pb', 'pb_nogueira@hotmail.com', 1" +
+            "'11', '123', 'Pb (Saiyajin)', 'pb_nogueira@hotmail.com', 1" +
             ")";
+    public static final String USUARIO_INSERT_CHAVES = "INSERT INTO " + USUARIO_TB_NAME + "(RA, SENHA, NOME," +
+            "EMAIL, STATUS_ID) VALUES" +
+            "(" +
+            "'123', '123', 'Turma do Chaves', 'chavinho_nao_tem_biscoito@email.com', 1" +
+            ")";
+
 }

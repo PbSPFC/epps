@@ -25,6 +25,7 @@
             android:windowSoftInputMode="stateHidden"></activity>
         <activity android:name=".activity.prontuario.VerProntuarioActivity"></activity>
         <activity android:name=".activity.prontuario.ListarProntuariosActivity"></activity>
+        <activity android:name=".activity.prontuario.LogProntuarioActivity"></activity>
         <activity android:name=".activity.prontuario.EditarProntuarioActivity"
             android:windowSoftInputMode="stateHidden"></activity>
     </application>

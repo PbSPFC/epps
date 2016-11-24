@@ -19,6 +19,7 @@ public class ListaProblemas implements Serializable{
     private String numProntuario;
     private String descricao;
     private String acao;
+    private String dataEdicao;
 
     public Long getId() {
         return id;
@@ -50,5 +51,13 @@ public class ListaProblemas implements Serializable{
 
     public void setAcao(String acao) {
         this.acao = acao;
+    }
+
+    public String getDataEdicao() {
+        return dataEdicao;
+    }
+
+    public void setDataEdicao(String dataEdicao) {
+        this.dataEdicao = dataEdicao;
     }
 }

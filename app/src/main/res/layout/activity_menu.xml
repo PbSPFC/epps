@@ -21,9 +21,10 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/layout_border">
 
                 <LinearLayout
@@ -119,41 +120,104 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/layout_border_tab">
 
-                <Button
-                    android:text="@string/cadastrar_aluno"
+                <TabHost
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/bt_menu_cadastrar"
-                    android:layout_marginTop="38dp"
-                    android:background="@drawable/button01"/>
+                    android:layout_height="match_parent"
+                    android:id="@+id/tab_menu">
 
-                <Button
-                    android:text="@string/novo_prontuario"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/bt_menu_novo_prontuario"
-                    android:layout_marginTop="14dp"
-                    android:background="@drawable/button01" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                <Button
-                    android:text="@string/ver_prontuarios"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/bt_menu_listar_prontuarios"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/button01"/>
+                        <TabWidget
+                            android:id="@android:id/tabs"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/layout_border"/>
 
-                <Button
-                    android:text="@string/sair"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/bt_menu_sair"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/button01"/>
+                        <FrameLayout
+                            android:id="@android:id/tabcontent"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:id="@+id/tab_menu_menu"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginLeft="50dp"
+                                    android:layout_marginRight="50dp"
+                                    android:layout_marginBottom="20dp">
+
+                                    <Button
+                                        android:text="@string/cadastrar_aluno"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/bt_menu_cadastrar"
+                                        android:background="@drawable/button01"/>
+
+                                    <Button
+                                        android:text="@string/novo_prontuario"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/bt_menu_novo_prontuario"
+                                        android:layout_marginTop="14dp"
+                                        android:background="@drawable/button01" />
+
+                                    <Button
+                                        android:text="@string/ver_prontuarios"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/bt_menu_listar_prontuarios"
+                                        android:layout_marginTop="16dp"
+                                        android:background="@drawable/button01"/>
+
+                                    <Button
+                                        android:text="@string/sair"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/bt_menu_sair"
+                                        android:layout_marginTop="16dp"
+                                        android:background="@drawable/button01"/>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/tab_menu_colaboradores"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <include layout="@layout/include_menu_colaboradores" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/tab_menu_desenvolvedores"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <include layout="@layout/include_menu_desenvolvedores" />
+
+                            </LinearLayout>
+                        </FrameLayout>
+                    </LinearLayout>
+                </TabHost>
             </LinearLayout>
 
         </LinearLayout>

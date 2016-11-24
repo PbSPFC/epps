@@ -1,9 +1,13 @@
 package br.uninove.primeiraconsulta.activity.prontuario;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TabHost;
@@ -18,17 +22,24 @@ import br.uninove.primeiraconsulta.dao.EstiloDeVidaDao;
 import br.uninove.primeiraconsulta.dao.ExameFisicoDao;
 import br.uninove.primeiraconsulta.dao.ListaProblemasDao;
 import br.uninove.primeiraconsulta.dao.ProntuarioDao;
+import br.uninove.primeiraconsulta.dao.log.LogAnamneseDao;
+import br.uninove.primeiraconsulta.dao.log.LogEstiloDeVidaDao;
+import br.uninove.primeiraconsulta.dao.log.LogExameFisicoDao;
+import br.uninove.primeiraconsulta.dao.log.LogListaProblemasDao;
+import br.uninove.primeiraconsulta.dao.log.LogProntuarioDao;
 import br.uninove.primeiraconsulta.entidade.Anamnese;
 import br.uninove.primeiraconsulta.entidade.EstiloDeVida;
 import br.uninove.primeiraconsulta.entidade.ExameFisico;
 import br.uninove.primeiraconsulta.entidade.ListaProblemas;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
+import br.uninove.primeiraconsulta.entidade.Usuario;
 import br.uninove.primeiraconsulta.util.CheckListaProntuario;
 import br.uninove.primeiraconsulta.util.CheckProntuario;
 import br.uninove.primeiraconsulta.util.DataUtil;
 import br.uninove.primeiraconsulta.util.EditarProntuarioUtil;
 import br.uninove.primeiraconsulta.util.ListaProblemasUtil;
 import br.uninove.primeiraconsulta.util.NovoProntuarioUtil;
+import br.uninove.primeiraconsulta.util.SessaoUsuario;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -150,11 +161,11 @@ public class EditarProntuarioActivity extends AppCompatActivity {
     @Bind(R.id.ed_editar_acao_7)
     EditText edAcao7;
 
-    static Prontuario prontuario;
-    static EstiloDeVida estiloDeVida;
-    static ExameFisico exameFisico;
-    static Anamnese anamnese;
-    static List<ListaProblemas> listaProblemas;
+    private static Prontuario prontuario;
+    private static EstiloDeVida estiloDeVida;
+    private static ExameFisico exameFisico;
+    private static Anamnese anamnese;
+    private static List<ListaProblemas> listaProblemas;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -429,27 +440,81 @@ public class EditarProntuarioActivity extends AppCompatActivity {
         listaProblemas.get(5).setAcao(edAcao6.getText().toString());
         listaProblemas.get(6).setAcao(edAcao7.getText().toString());
 
+
+
         //LISTA DE PROBLEMAS INICIO
 
         prontuario.setComentario(edComentario.getText().toString());
         prontuario.setDataEdicao(DataUtil.getDate());
+        listaProblemas.get(0).setDataEdicao(DataUtil.getDate());
+        listaProblemas.get(1).setDataEdicao(DataUtil.getDate());
+        listaProblemas.get(2).setDataEdicao(DataUtil.getDate());
+        listaProblemas.get(3).setDataEdicao(DataUtil.getDate());
+        listaProblemas.get(4).setDataEdicao(DataUtil.getDate());
+        listaProblemas.get(5).setDataEdicao(DataUtil.getDate());
+        listaProblemas.get(6).setDataEdicao(DataUtil.getDate());
 
-        if (CheckProntuario.checkCampos(prontuario, this)) {
-            prontuario = CheckProntuario.nadaConstaProntuario(prontuario);
-            estiloDeVida = CheckProntuario.nadaConstaEstiloDeVida(estiloDeVida);
-            anamnese = CheckProntuario.nadaConstaAnamnese(anamnese);
-            listaProblemas = CheckProntuario.nadaConstaListaProb(listaProblemas);
 
-            ProntuarioDao.salvar(prontuario, this);
-            AnamneseDao.salvar(anamnese, this);
-            EstiloDeVidaDao.salvar(estiloDeVida, this);
-            ExameFisicoDao.salvar(exameFisico, this);
-            ListaProblemasDao.salvar(listaProblemas, prontuario, this);
-            Toast.makeText(this, "Prontuario de N° " + prontuario.getNumProntuario() + " foi salvo com sucesso!", Toast.LENGTH_SHORT).show();
-            finish();
-        } else {
-            Toast.makeText(this, "Algum campo foi preenchido incorretamente", Toast.LENGTH_SHORT).show();
-        }
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        alert.setTitle("Confirmação");
+        alert.setMessage("Digite sua senha para salvar prontuário.");
+
+        // Set an EditText view to get user input
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        alert.setView(input);
+
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+
+                if(input.getText().toString().equals(SessaoUsuario.getUsuarioSessao().getSenha())
+                        || input.getText().toString().equals(SessaoUsuario.getSenha())){
+
+                    if (CheckProntuario.checkCampos(prontuario, EditarProntuarioActivity.this)) {
+                        prontuario = CheckProntuario.nadaConstaProntuario(prontuario);
+                        estiloDeVida = CheckProntuario.nadaConstaEstiloDeVida(estiloDeVida);
+                        anamnese = CheckProntuario.nadaConstaAnamnese(anamnese);
+                        listaProblemas = CheckProntuario.nadaConstaListaProb(listaProblemas);
+
+                        ProntuarioDao.salvar(prontuario, EditarProntuarioActivity.this);
+                        AnamneseDao.salvar(anamnese, EditarProntuarioActivity.this);
+                        EstiloDeVidaDao.salvar(estiloDeVida, EditarProntuarioActivity.this);
+                        ExameFisicoDao.salvar(exameFisico, EditarProntuarioActivity.this);
+                        ListaProblemasDao.salvar(listaProblemas, prontuario, EditarProntuarioActivity.this);
+
+                        LogEstiloDeVidaDao.salvar(estiloDeVida, EditarProntuarioActivity.this);
+                        LogExameFisicoDao.salvar(exameFisico, EditarProntuarioActivity.this);
+                        LogAnamneseDao.salvar(anamnese, EditarProntuarioActivity.this);
+                        LogListaProblemasDao.salvar(listaProblemas, prontuario, EditarProntuarioActivity.this);
+                        estiloDeVida = EstiloDeVidaDao.buscarPorNumProntuario(prontuario, EditarProntuarioActivity.this);
+                        exameFisico = ExameFisicoDao.buscarPorNumProntuario(prontuario, EditarProntuarioActivity.this);
+                        anamnese = AnamneseDao.buscarPorNumProntuario(prontuario, EditarProntuarioActivity.this);
+                        prontuario.setIdEstiloDeVida(estiloDeVida.getId());
+                        prontuario.setIdExameFisico(exameFisico.getId());
+                        prontuario.setIdAnamnese(anamnese.getId());
+                        LogProntuarioDao.salvar(prontuario, EditarProntuarioActivity.this);
+
+                        Toast.makeText(EditarProntuarioActivity.this, "Prontuario de N° " + prontuario.getNumProntuario() + " foi salvo com sucesso!", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        Toast.makeText(EditarProntuarioActivity.this, "Algum campo foi preenchido incorretamente", Toast.LENGTH_SHORT).show();
+                    }
+
+                } else{
+                    Toast.makeText(EditarProntuarioActivity.this, "Senha incorreta!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // Canceled.
+            }
+        });
+
+        alert.show();
 
 
     }

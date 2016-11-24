@@ -4,13 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
 import java.util.List;
 
 import br.uninove.primeiraconsulta.R;
+import br.uninove.primeiraconsulta.activity.prontuario.Adapter.RastreamentoAdapter;
+import br.uninove.primeiraconsulta.activity.prontuario.Adapter.RastreamentoTextoAdapter;
 import br.uninove.primeiraconsulta.dao.AnamneseDao;
 import br.uninove.primeiraconsulta.dao.EstiloDeVidaDao;
 import br.uninove.primeiraconsulta.dao.ExameFisicoDao;
@@ -20,6 +27,8 @@ import br.uninove.primeiraconsulta.entidade.EstiloDeVida;
 import br.uninove.primeiraconsulta.entidade.ExameFisico;
 import br.uninove.primeiraconsulta.entidade.ListaProblemas;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
+import br.uninove.primeiraconsulta.entidade.Rastreamento;
+import br.uninove.primeiraconsulta.util.RastreamentoUtil;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -32,6 +41,11 @@ public class VerProntuarioActivity extends AppCompatActivity{
 
     TabHost tabHost;
     TabHost tabListaProblemas;
+    TabHost tabRastreamento;
+    @Bind(R.id.list_rastreamento)
+    ListView lvRastreamento;
+    @Bind(R.id.list_rastreamento_texto)
+    ListView lvRastreamentoTexto;
 
 
     @Bind(R.id.tv_ver_num_prontuario)
@@ -174,6 +188,9 @@ public class VerProntuarioActivity extends AppCompatActivity{
     @Bind(R.id.tv_ver_acao_7)
     TextView tvAcao7;
 
+    @Bind(R.id.tv_rastreamento_referencias)
+    TextView tvReferencias;
+
     @Bind(R.id.edFocus)
     EditText edFocus;
 
@@ -256,6 +273,28 @@ public class VerProntuarioActivity extends AppCompatActivity{
             }
         });
 
+        //TAB RASTREAMENTO
+        tabRastreamento = (TabHost)findViewById(R.id.tab_ver_rastreamento);
+        tabRastreamento.setup();
+
+        TabHost.TabSpec specRastreamento = tabRastreamento.newTabSpec("Rastreamento");
+        specRastreamento.setContent(R.id.tab_rastreamento);
+        specRastreamento.setIndicator("Rastreamento");
+
+        TabHost.TabSpec specRastreamentoTexto = tabRastreamento.newTabSpec("Texto");
+        specRastreamentoTexto.setContent(R.id.tab_rastreamento_texto);
+        specRastreamentoTexto.setIndicator("Texto");
+
+        tabRastreamento.addTab(specRastreamento);
+        tabRastreamento.addTab(specRastreamentoTexto);
+        tabRastreamento.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String s) {
+                tabRastreamento.clearFocus();
+            }
+        });
+
+
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if(bundle!=null){
@@ -263,7 +302,9 @@ public class VerProntuarioActivity extends AppCompatActivity{
             EstiloDeVida estiloDeVida = EstiloDeVidaDao.buscarPorId(prontuario.getIdEstiloDeVida(), this);
             ExameFisico exameFisico = ExameFisicoDao.buscarPorId(prontuario.getIdExameFisico(), this);
             Anamnese anamnese = AnamneseDao.buscarPorId(prontuario.getIdAnamnese(), this);
-            List<ListaProblemas> listaProblemas = ListaProblemasDao.buscarPorNumProntuario(prontuario, this);
+            List<ListaProblemas> listaProblemas = (List<ListaProblemas>) bundle.get("listaProblemas");
+            List<Rastreamento> listaRastreamento = RastreamentoUtil.getRastreamento(prontuario, estiloDeVida, exameFisico);
+
 
             tvNumPronturario.setText(prontuario.getNumProntuario());
             tvNomeUsuario.setText(prontuario.getNomeMedico());
@@ -339,6 +380,36 @@ public class VerProntuarioActivity extends AppCompatActivity{
             tvAcao6.setText(listaProblemas.get(5).getAcao());
             tvAcao7.setText(listaProblemas.get(6).getAcao());
 
+
+            lvRastreamento.setOnTouchListener(new View.OnTouchListener() {
+                // Setting on Touch Listener for handling the touch inside ScrollView
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    // Disallow the touch request for parent scroll on touch of child view
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    return false;
+                }
+            });
+            setListViewHeightBasedOnChildren(lvRastreamento);
+
+            lvRastreamentoTexto.setOnTouchListener(new View.OnTouchListener() {
+                // Setting on Touch Listener for handling the touch inside ScrollView
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    // Disallow the touch request for parent scroll on touch of child view
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    return false;
+                }
+            });
+            setListViewHeightBasedOnChildren(lvRastreamentoTexto);
+
+            RastreamentoAdapter adapter = new RastreamentoAdapter(this, listaRastreamento);
+            lvRastreamento.setAdapter(adapter);
+            RastreamentoTextoAdapter adapter2 = new RastreamentoTextoAdapter(this, listaRastreamento);
+            lvRastreamentoTexto.setAdapter(adapter2);
+
+            tvReferencias.setText(RastreamentoUtil.getReferencias());
+
             edFocus.requestFocus();
         }
 
@@ -349,6 +420,31 @@ public class VerProntuarioActivity extends AppCompatActivity{
     @OnClick(R.id.bt_ver_voltar)
     public void voltar(){
         finish();
+    }
+
+
+    /**** Method for Setting the Height of the ListView dynamically.
+     **** Hack to fix the issue of not showing all the items of the ListView
+     **** when placed inside a ScrollView  ****/
+    public static void setListViewHeightBasedOnChildren(ListView listView) {
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null)
+            return;
+
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
+        int totalHeight = 0;
+        View view = null;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            view = listAdapter.getView(i, view, listView);
+            if (i == 0)
+                view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+            view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+            totalHeight += view.getMeasuredHeight();
+        }
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        listView.setLayoutParams(params);
     }
 
 }

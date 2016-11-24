@@ -10,7 +10,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:background="@drawable/background_gradient">
 
@@ -33,7 +33,10 @@
                 android:layout_height="0dp"
                 android:text="Name"
                 android:ems="10"
-                android:id="@+id/edFocus" >
+                android:id="@+id/edFocus"
+                android:clickable="false"
+                android:editable="false"
+                android:enabled="false">
                 <requestFocus />
                 </EditText>
 
@@ -77,6 +80,29 @@
                 <include layout="@layout/include_ver_tab"/>
             </LinearLayout>
 
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Rastreamento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/texzztView6"
+                    android:textAlignment="center"
+                    android:textStyle="normal|bold"
+                    android:textAllCaps="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:textSize="24sp"
+                    android:textColor="@android:color/background_light" />
+
+                <include layout="@layout/include_ver_tab_rastreamento"/>
+
+            </LinearLayout>
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -116,64 +142,59 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <ScrollView
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp">
+                    android:layout_height="match_parent"
+                    android:background="@drawable/layout_border">
 
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/layout_border">
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp">
 
                         <LinearLayout
-                            android:orientation="vertical"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginBottom="10dp">
+                            android:orientation="vertical">
 
-                            <LinearLayout
+                            <TextView
+                                android:text="Comentário: "
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/txtview9"
+                                android:layout_weight="1"
+                                android:textSize="18sp"
+                                android:textStyle="normal|bold" />
+
+                            <TextView
+                                android:text="LUISFABIANO"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:text="Comentário: "
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtview9"
-                                    android:layout_weight="1"
-                                    android:textSize="18sp"
-                                    android:textStyle="normal|bold" />
-
-                                <TextView
-                                    android:text="LUISFABIANO"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/tv_ver_comentario"
-                                    android:layout_weight="1"
-                                    android:textSize="18sp"
-                                    android:isScrollContainer="true"
-                                    android:scrollbars="vertical"
-                                    android:selectAllOnFocus="false" />
-                            </LinearLayout>
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tv_ver_comentario"
+                                android:layout_weight="1"
+                                android:textSize="18sp"
+                                android:isScrollContainer="true"
+                                android:scrollbars="vertical"
+                                android:selectAllOnFocus="false" />
                         </LinearLayout>
                     </LinearLayout>
-
                 </LinearLayout>
-            </ScrollView>
+
+            </LinearLayout>
 
             <TextView
                 android:text=""

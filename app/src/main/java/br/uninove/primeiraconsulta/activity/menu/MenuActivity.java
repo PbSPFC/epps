@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import butterknife.OnClick;
 
 public class MenuActivity extends AppCompatActivity{
 
+    TabHost tabHost;
 
     @Bind(R.id.tv_menu_ra)
     TextView tvRA;
@@ -46,7 +48,24 @@ public class MenuActivity extends AppCompatActivity{
         setContentView(R.layout.activity_menu);
         ButterKnife.bind(this);
 
-        System.out.println(SessaoUsuario.getUsuarioSessao().getNome() + " Conectou-se");
+        tabHost = (TabHost)findViewById(R.id.tab_menu);
+        tabHost.setup();
+
+        TabHost.TabSpec specMenu = tabHost.newTabSpec("Menu");
+        specMenu.setContent(R.id.tab_menu_menu);
+        specMenu.setIndicator("Menu");
+
+        TabHost.TabSpec specColaboradores = tabHost.newTabSpec("Colaboradores");
+        specColaboradores.setContent(R.id.tab_menu_colaboradores);
+        specColaboradores.setIndicator("Colaboradores");
+
+        TabHost.TabSpec specDesenvolvedores = tabHost.newTabSpec("Desenvolvedores");
+        specDesenvolvedores.setContent(R.id.tab_menu_desenvolvedores);
+        specDesenvolvedores.setIndicator("Desenvolvedores");
+
+        tabHost.addTab(specMenu);
+        tabHost.addTab(specColaboradores);
+        tabHost.addTab(specDesenvolvedores);
 
         tvRA.setText(usuarioSessao.getRa());
         tvStatus.setText(usuarioSessao.getStatus().getStatus());
