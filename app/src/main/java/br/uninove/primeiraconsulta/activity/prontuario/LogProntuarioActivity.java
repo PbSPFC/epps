@@ -8,10 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.List;
-
 import br.uninove.primeiraconsulta.R;
-import br.uninove.primeiraconsulta.activity.prontuario.Adapter.LogProntuarioAdapter;
+import br.uninove.primeiraconsulta.activity.prontuario.adapter.LogProntuarioAdapter;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
 import br.uninove.primeiraconsulta.util.CheckListaProntuario;
 import butterknife.Bind;

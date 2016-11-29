@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.uninove.primeiraconsulta.database.DbProntuario;
 import br.uninove.primeiraconsulta.database.log.DbLogProntuario;
 import br.uninove.primeiraconsulta.entidade.Anamnese;
 import br.uninove.primeiraconsulta.entidade.EstiloDeVida;
@@ -30,6 +29,7 @@ public class LogProntuarioDao {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         ContentValues values = new ContentValues();
         //Persistindo valores do objeto no BD
+
         values.put(numProntuario, prontuario.getNumProntuario());
 
         //PRONTUARIO
@@ -99,9 +99,20 @@ public class LogProntuarioDao {
         LogExameFisicoDao.excluirExameFisico(exameFisico, context);
         LogEstiloDeVidaDao.excluirEstiloDeVida(estiloDeVida, context);
         LogAnamneseDao.excluirAnamnese(anamnese, context);
-        LogListaProblemasDao.excluirListaProblemasNumProntuario(prontuario, context);
+        LogListaProblemasDao.excluirListaProblemasDataEdicao(prontuario, context);
 
         db.delete(DbLogProntuario.PRONTUARIO_TB_NAME, "id=?", new String[]{prontuario.getId() + ""});
+        db.close();
+    }
+
+    public static void excluirTodosProntuarios(Prontuario prontuario, Context context) {
+        SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        LogExameFisicoDao.excluirTodosExameFisico(prontuario, context);
+        LogEstiloDeVidaDao.excluirTodosEstiloDeVida(prontuario, context);
+        LogAnamneseDao.excluirTodosAnamnese(prontuario, context);
+        LogListaProblemasDao.excluirTodosListaProblemas(prontuario, context);
+
+        db.delete(DbLogProntuario.PRONTUARIO_TB_NAME, "num_prontuario=?", new String[]{prontuario.getNumProntuario() + ""});
         db.close();
     }
 

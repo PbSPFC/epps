@@ -4,11 +4,18 @@ import android.content.Context;
 
 import java.util.List;
 
+import br.uninove.primeiraconsulta.activity.prontuario.EditarProntuarioActivity;
+import br.uninove.primeiraconsulta.activity.prontuario.LogProntuarioActivity;
 import br.uninove.primeiraconsulta.dao.AnamneseDao;
 import br.uninove.primeiraconsulta.dao.EstiloDeVidaDao;
 import br.uninove.primeiraconsulta.dao.ExameFisicoDao;
 import br.uninove.primeiraconsulta.dao.ListaProblemasDao;
 import br.uninove.primeiraconsulta.dao.ProntuarioDao;
+import br.uninove.primeiraconsulta.dao.log.LogAnamneseDao;
+import br.uninove.primeiraconsulta.dao.log.LogEstiloDeVidaDao;
+import br.uninove.primeiraconsulta.dao.log.LogExameFisicoDao;
+import br.uninove.primeiraconsulta.dao.log.LogListaProblemasDao;
+import br.uninove.primeiraconsulta.dao.log.LogProntuarioDao;
 import br.uninove.primeiraconsulta.entidade.Anamnese;
 import br.uninove.primeiraconsulta.entidade.EstiloDeVida;
 import br.uninove.primeiraconsulta.entidade.ExameFisico;
@@ -31,51 +38,54 @@ public class CheckProntuario {
         return false;
     }
 
-    public static Prontuario checkNumProntuario(Prontuario p, EstiloDeVida estiloDeVida, ExameFisico exameFisico, Anamnese anamnese, List<ListaProblemas> listaProblemas, Context context) {
+    public static Prontuario checkNumProntuario(Prontuario prontuario, EstiloDeVida estiloDeVida, ExameFisico exameFisico, Anamnese anamnese, List<ListaProblemas> listaProblemas, Context context) {
         List<Prontuario> prontuarioLista = ProntuarioDao.buscarTodosProntuarios(context);
         for (Prontuario pron : prontuarioLista) {
-            if(p.getNumProntuario().equals(pron.getNumProntuario())){
+            if(prontuario.getNumProntuario().equals(pron.getNumProntuario())){
                 return null;
             }
         }
 
-        p = nadaConstaProntuario(p);
+
+
+
+        prontuario = nadaConstaProntuario(prontuario);
         estiloDeVida = nadaConstaEstiloDeVida(estiloDeVida);
         anamnese = nadaConstaAnamnese(anamnese);
+
         EstiloDeVidaDao.salvar(estiloDeVida, context);
         ExameFisicoDao.salvar(exameFisico, context);
         AnamneseDao.salvar(anamnese, context);
 
         listaProblemas = nadaConstaListaProb(listaProblemas);
-        ListaProblemasDao.salvar(listaProblemas, p, context);
+        ListaProblemasDao.salvar(listaProblemas, prontuario, context);
 
-        estiloDeVida = EstiloDeVidaDao.buscarPorNumProntuario(p, context);
-        exameFisico = ExameFisicoDao.buscarPorNumProntuario(p, context);
-        anamnese = AnamneseDao.buscarPorNumProntuario(p, context);
+        estiloDeVida = EstiloDeVidaDao.buscarPorNumProntuario(prontuario, context);
+        exameFisico = ExameFisicoDao.buscarPorNumProntuario(prontuario, context);
+        anamnese = AnamneseDao.buscarPorNumProntuario(prontuario, context);
 
-        p.setIdEstiloDeVida(estiloDeVida.getId());
-        System.out.println("Id Estilo de Vida: " + p.getIdEstiloDeVida());
-        p.setIdExameFisico(exameFisico.getId());
-        System.out.println("Id Exame Fisico: " + p.getIdExameFisico());
-        p.setIdAnamnese(anamnese.getId());
+        prontuario.setIdEstiloDeVida(estiloDeVida.getId());
+        prontuario.setIdExameFisico(exameFisico.getId());
+        prontuario.setIdAnamnese(anamnese.getId());
 
-        ProntuarioDao.salvar(p, context);
+        ProntuarioDao.salvar(prontuario, context);
+
 
         prontuarioLista = ProntuarioDao.buscarTodosProntuarios(context);
         for (Prontuario pron : prontuarioLista) {
-            if(p.getNumProntuario().equals(pron.getNumProntuario())){
-                p = pron;
+            if(prontuario.getNumProntuario().equals(pron.getNumProntuario())){
+                prontuario = pron;
             }
         }
 
-        return p;
+        return prontuario;
     }
 
     public static List<ListaProblemas> nadaConstaListaProb(List<ListaProblemas> listaProblemas) {
 
         for (ListaProblemas lp : listaProblemas) {
-            if(lp.getDescricao().isEmpty()){lp.setDescricao("Nada Consta.");}
-            if(lp.getAcao().isEmpty()){lp.setAcao("Nada Consta.");}
+            if(lp.getDescricao().isEmpty()){lp.setDescricao("N/D");}
+            if(lp.getAcao().isEmpty()){lp.setAcao("N/D");}
         }
 
         return listaProblemas;
@@ -83,31 +93,31 @@ public class CheckProntuario {
 
     public static Anamnese nadaConstaAnamnese(Anamnese anamnese) {
 
-        if(anamnese.getQueixa().isEmpty()){anamnese.setQueixa("Nada Consta.");}
-        if(anamnese.getHistoriaDoenca().isEmpty()){anamnese.setHistoriaDoenca("Nada Consta.");}
-        if(anamnese.getInterrogatorio().isEmpty()){anamnese.setInterrogatorio("Nada Consta.");}
-        if(anamnese.getPercepcao().isEmpty()){anamnese.setPercepcao("Nada Consta.");}
+        if(anamnese.getQueixa().isEmpty()){anamnese.setQueixa("N/D");}
+        if(anamnese.getHistoriaDoenca().isEmpty()){anamnese.setHistoriaDoenca("N/D");}
+        if(anamnese.getInterrogatorio().isEmpty()){anamnese.setInterrogatorio("N/D");}
+        if(anamnese.getPercepcao().isEmpty()){anamnese.setPercepcao("N/D");}
 
         return anamnese;
     }
 
     public static Prontuario nadaConstaProntuario(Prontuario p){
-        if(p.getComentario().isEmpty()){p.setComentario("Nada Consta.");}
+        if(p.getComentario().isEmpty()){p.setComentario("N/D");}
 
         return p;
     }
 
     public static EstiloDeVida nadaConstaEstiloDeVida(EstiloDeVida estiloDeVida){
-        if(estiloDeVida.getGordura().isEmpty() || estiloDeVida.getGordura().equals("")){estiloDeVida.setGordura("Nada Consta.");}
-        if(estiloDeVida.getFibra().isEmpty() || estiloDeVida.getFibra().equals("")){estiloDeVida.setFibra("Nada Consta.");}
-        if(estiloDeVida.getCalcio().isEmpty() || estiloDeVida.getCalcio().equals("")){estiloDeVida.setCalcio("Nada Consta.");}
-        if(estiloDeVida.getSodio().isEmpty() || estiloDeVida.getSodio().equals("")){estiloDeVida.setSodio("Nada Consta.");}
-        if(estiloDeVida.getAcucar().isEmpty() || estiloDeVida.getAcucar().equals("")){estiloDeVida.setAcucar("Nada Consta.");}
-        if(estiloDeVida.getRefri().isEmpty() || estiloDeVida.getRefri().equals("")){estiloDeVida.setRefri("Nada Consta.");}
-        if(estiloDeVida.getAgua().isEmpty() || estiloDeVida.getAgua().equals("")){estiloDeVida.setAgua("Nada Consta.");}
-        if(estiloDeVida.getAtFisica().isEmpty() || estiloDeVida.getAtFisica().equals("")){estiloDeVida.setAtFisica("Nada Consta.");}
-        if(estiloDeVida.getSono().isEmpty() || estiloDeVida.getSono().equals("")){estiloDeVida.setSono("Nada Consta.");}
-        if(estiloDeVida.getSexualmenteAtivo().isEmpty() || estiloDeVida.getSexualmenteAtivo().equals("")){estiloDeVida.setSexualmenteAtivo("Nada Consta.");}
+        if(estiloDeVida.getGordura().isEmpty() || estiloDeVida.getGordura().equals("")){estiloDeVida.setGordura("N/D");}
+        if(estiloDeVida.getFibra().isEmpty() || estiloDeVida.getFibra().equals("")){estiloDeVida.setFibra("N/D");}
+        if(estiloDeVida.getCalcio().isEmpty() || estiloDeVida.getCalcio().equals("")){estiloDeVida.setCalcio("N/D");}
+        if(estiloDeVida.getSodio().isEmpty() || estiloDeVida.getSodio().equals("")){estiloDeVida.setSodio("N/D");}
+        if(estiloDeVida.getAcucar().isEmpty() || estiloDeVida.getAcucar().equals("")){estiloDeVida.setAcucar("N/D");}
+        if(estiloDeVida.getRefri().isEmpty() || estiloDeVida.getRefri().equals("")){estiloDeVida.setRefri("N/D");}
+        if(estiloDeVida.getAgua().isEmpty() || estiloDeVida.getAgua().equals("")){estiloDeVida.setAgua("N/D");}
+        if(estiloDeVida.getAtFisica().isEmpty() || estiloDeVida.getAtFisica().equals("")){estiloDeVida.setAtFisica("N/D");}
+        if(estiloDeVida.getSono().isEmpty() || estiloDeVida.getSono().equals("")){estiloDeVida.setSono("N/D");}
+        if(estiloDeVida.getSexualmenteAtivo().isEmpty() || estiloDeVida.getSexualmenteAtivo().equals("")){estiloDeVida.setSexualmenteAtivo("N/D");}
 
         return estiloDeVida;
     }

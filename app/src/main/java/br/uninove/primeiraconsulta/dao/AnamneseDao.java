@@ -136,6 +136,12 @@ public class AnamneseDao {
         db.close();
     }
 
+    public static void excluirTodosAnamnese(Prontuario p, Context context) {
+        SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        db.delete(DbAnamnese.ANAMNESE_TB_NAME, "num_prontuario =?", new String[]{p.getNumProntuario().toString()});
+        db.close();
+    }
+
     public static final int ID = 0;
     public static final int NUM_PRONTUARIO = 1;
     public static final int QUEIXA_DURACAO = 2;

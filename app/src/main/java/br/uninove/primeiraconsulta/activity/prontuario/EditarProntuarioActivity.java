@@ -445,21 +445,27 @@ public class EditarProntuarioActivity extends AppCompatActivity {
         //LISTA DE PROBLEMAS INICIO
 
         prontuario.setComentario(edComentario.getText().toString());
-        prontuario.setDataEdicao(DataUtil.getDate());
-        listaProblemas.get(0).setDataEdicao(DataUtil.getDate());
-        listaProblemas.get(1).setDataEdicao(DataUtil.getDate());
-        listaProblemas.get(2).setDataEdicao(DataUtil.getDate());
-        listaProblemas.get(3).setDataEdicao(DataUtil.getDate());
-        listaProblemas.get(4).setDataEdicao(DataUtil.getDate());
-        listaProblemas.get(5).setDataEdicao(DataUtil.getDate());
-        listaProblemas.get(6).setDataEdicao(DataUtil.getDate());
+
+        String data = DataUtil.getDate();
+
+        prontuario.setDataEdicao(data);
+        estiloDeVida.setDataEdicao(data);
+        exameFisico.setDataEdicao(data);
+        anamnese.setDataEdicao(data);
+        listaProblemas.get(0).setDataEdicao(data);
+        listaProblemas.get(1).setDataEdicao(data);
+        listaProblemas.get(2).setDataEdicao(data);
+        listaProblemas.get(3).setDataEdicao(data);
+        listaProblemas.get(4).setDataEdicao(data);
+        listaProblemas.get(5).setDataEdicao(data);
+        listaProblemas.get(6).setDataEdicao(data);
 
 
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
         alert.setTitle("Confirmação");
-        alert.setMessage("Digite sua senha para salvar prontuário.");
+        alert.setMessage("Digite sua senha para salvar o prontuário.");
 
         // Set an EditText view to get user input
         final EditText input = new EditText(this);
@@ -488,9 +494,9 @@ public class EditarProntuarioActivity extends AppCompatActivity {
                         LogExameFisicoDao.salvar(exameFisico, EditarProntuarioActivity.this);
                         LogAnamneseDao.salvar(anamnese, EditarProntuarioActivity.this);
                         LogListaProblemasDao.salvar(listaProblemas, prontuario, EditarProntuarioActivity.this);
-                        estiloDeVida = EstiloDeVidaDao.buscarPorNumProntuario(prontuario, EditarProntuarioActivity.this);
-                        exameFisico = ExameFisicoDao.buscarPorNumProntuario(prontuario, EditarProntuarioActivity.this);
-                        anamnese = AnamneseDao.buscarPorNumProntuario(prontuario, EditarProntuarioActivity.this);
+                        estiloDeVida = LogEstiloDeVidaDao.buscarPorNumProntuario(prontuario, EditarProntuarioActivity.this);
+                        exameFisico = LogExameFisicoDao.buscarPorNumProntuario(prontuario, EditarProntuarioActivity.this);
+                        anamnese = LogAnamneseDao.buscarPorNumProntuario(prontuario, EditarProntuarioActivity.this);
                         prontuario.setIdEstiloDeVida(estiloDeVida.getId());
                         prontuario.setIdExameFisico(exameFisico.getId());
                         prontuario.setIdAnamnese(anamnese.getId());

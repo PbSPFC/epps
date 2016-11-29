@@ -183,7 +183,7 @@ android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView71"
-            android:textAlignment="center"
+            android:gravity="center"
             android:textSize="24sp"
             android:textStyle="normal|bold" />
 

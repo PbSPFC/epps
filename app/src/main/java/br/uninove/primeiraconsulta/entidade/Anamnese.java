@@ -14,6 +14,7 @@ public class Anamnese implements Serializable{
     private String historiaDoenca;
     private String interrogatorio;
     private String percepcao;
+    private String dataEdicao;
 
 
     public Long getId() {
@@ -62,5 +63,13 @@ public class Anamnese implements Serializable{
 
     public void setPercepcao(String percepcao) {
         this.percepcao = percepcao;
+    }
+
+    public String getDataEdicao() {
+        return dataEdicao;
+    }
+
+    public void setDataEdicao(String dataEdicao) {
+        this.dataEdicao = dataEdicao;
     }
 }

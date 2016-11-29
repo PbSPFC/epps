@@ -48,14 +48,16 @@ public class NovoProntuarioUtil {
 
         if (!edSistole.getText().toString().isEmpty()){exameFisico.setSistole(Integer.parseInt(edSistole.getText().toString()));}
         if (!edDiastole.getText().toString().isEmpty()){exameFisico.setDiastole(Integer.parseInt(edDiastole.getText().toString()));}
-        if (exameFisico.getSistole() != null && exameFisico.getDiastole() != null){
+        if ((exameFisico.getSistole() != null && exameFisico.getDiastole() != null)){
             if(exameFisico.getSistole() >= 140 || exameFisico.getDiastole() >= 90){
                 exameFisico.setPaResultado("Pressão arterial acima do normal");
+            } else if(exameFisico.getSistole() == 0 && exameFisico.getDiastole() == 0){
+                exameFisico.setPaResultado("N/D");
             } else {
                 exameFisico.setPaResultado("Pressão arterial está normal");
             }
         } else {
-            exameFisico.setPaResultado("Nada Consta.");
+            exameFisico.setPaResultado("N/D");
         }
         if(prontuario.getPeso() != null && prontuario.getAltura() != null){
             exameFisico.setImc(CheckProntuario.getImc(prontuario.getPeso(), prontuario.getAltura()));
@@ -63,63 +65,79 @@ public class NovoProntuarioUtil {
         }
         if (!edCervical.getText().toString().isEmpty()){exameFisico.setCervical(Integer.parseInt(edCervical.getText().toString()));}
         if(exameFisico.getCervical() != null){
-            if(prontuario.getSexo().equals("Masculino")){
+            if(exameFisico.getCervical() == 0){
+                exameFisico.setCervicalResultado("N/D");
+            } else if(prontuario.getSexo().equals("Masculino")){
                 if(exameFisico.getCervical() > 37){
                     exameFisico.setCervicalResultado("Circunferência está elevada!");
                 } else {
                     exameFisico.setCervicalResultado("Circunferência está normal.");
                 }
-            } else {
+            } else if(prontuario.getSexo().equals("Feminino")){
                 if(exameFisico.getCervical() > 34){
                     exameFisico.setCervicalResultado("Circunferência está elevada!");
                 } else {
                     exameFisico.setCervicalResultado("Circunferência está normal.");
                 }
             }
+        } else {
+            exameFisico.setCervicalResultado("N/D");
         }
 
         if (!edCintura.getText().toString().isEmpty()){exameFisico.setCintura(Integer.parseInt(edCintura.getText().toString()));}
         if(exameFisico.getCintura() != null){
-            if(prontuario.getSexo().equals("Masculino")){
+            if(exameFisico.getCintura() == 0){
+                exameFisico.setCinturaResultado("N/D");
+            } else if(prontuario.getSexo().equals("Masculino")){
                 if(exameFisico.getCintura() > 102){
                     exameFisico.setCinturaResultado("Circunferência está elevada!");
                 } else {
                     exameFisico.setCinturaResultado("Circunferência está normal.");
                 }
-            } else {
+            } else if(prontuario.getSexo().equals("Feminino")){
                 if(exameFisico.getCintura() > 88){
                     exameFisico.setCinturaResultado("Circunferência está elevada!");
                 } else {
                     exameFisico.setCinturaResultado("Circunferência está normal.");
                 }
             }
+        } else {
+            exameFisico.setCinturaResultado("N/D");
         }
 
         if (!edQuadril.getText().toString().isEmpty()){exameFisico.setQuadril(Float.parseFloat(edQuadril.getText().toString()));}
         if(exameFisico.getQuadril() != null){
-            if(prontuario.getSexo().equals("Masculino")){
+            if(exameFisico.getQuadril() == 0 || exameFisico.getQuadril() == 0.0){
+                exameFisico.setQuadrilResultado("N/D");
+            } else if(prontuario.getSexo().equals("Masculino")){
                 if(exameFisico.getQuadril() >= 0.9){
                     exameFisico.setQuadrilResultado("Risco para complicações metabólicas!");
                 } else {
                     exameFisico.setQuadrilResultado("Cintura/Quadril está normal.");
                 }
-            } else {
+            } else if(prontuario.getSexo().equals("Feminino")){
                 if(exameFisico.getQuadril() >= 0.85){
                     exameFisico.setQuadrilResultado("Risco para complicações metabólicas!");
                 } else {
                     exameFisico.setQuadrilResultado("Cintura/Quadril está normal.");
                 }
             }
+        } else {
+            exameFisico.setQuadrilResultado("N/D");
         }
 
         if (!edSnellenDireita.getText().toString().isEmpty()){exameFisico.setSnellenDireita(Integer.parseInt(edSnellenDireita.getText().toString()));}
         if (!edSnellenEsquerda.getText().toString().isEmpty()){exameFisico.setSnellenEsquerda(Integer.parseInt(edSnellenEsquerda.getText().toString()));}
         if (exameFisico.getSnellenDireita() != null && exameFisico.getSnellenEsquerda() != null){
-            if(exameFisico.getSnellenDireita() > 20 || exameFisico.getSnellenEsquerda() > 20){
+            if(exameFisico.getSnellenDireita() == 0 || exameFisico.getSnellenEsquerda() == 0){
+                exameFisico.setSnellenResultado("N/D");
+            } else if(exameFisico.getSnellenDireita() > 20 || exameFisico.getSnellenEsquerda() > 20){
                 exameFisico.setSnellenResultado("Vista está alterada!");
-            } else {
+            } else  {
                 exameFisico.setSnellenResultado("Vista está normal.");
             }
+        } else {
+            exameFisico.setSnellenResultado("N/D");
         }
 
         if(edExameComentario.getText().toString().isEmpty()){

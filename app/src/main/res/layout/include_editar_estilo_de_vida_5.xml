@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView50"
         android:textStyle="normal|bold"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textSize="18sp" />
 
     <TextView
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView53"
         android:textSize="14sp"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textStyle="normal|bold" />
     <TextView
         android:text="(Caso 'Sim')
@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView55"
         android:textSize="14sp"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textStyle="normal|bold" />
 
     <TextView
@@ -178,6 +178,6 @@
         android:id="@+id/textView56"
         android:textSize="24sp"
         android:textStyle="normal|bold"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
 </LinearLayout>

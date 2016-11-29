@@ -12,23 +12,22 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 import br.uninove.primeiraconsulta.R;
-import br.uninove.primeiraconsulta.activity.prontuario.Adapter.RastreamentoAdapter;
-import br.uninove.primeiraconsulta.activity.prontuario.Adapter.RastreamentoTextoAdapter;
-import br.uninove.primeiraconsulta.dao.AnamneseDao;
-import br.uninove.primeiraconsulta.dao.EstiloDeVidaDao;
-import br.uninove.primeiraconsulta.dao.ExameFisicoDao;
-import br.uninove.primeiraconsulta.dao.ListaProblemasDao;
+import br.uninove.primeiraconsulta.activity.prontuario.adapter.RastreamentoAdapter;
+import br.uninove.primeiraconsulta.activity.prontuario.adapter.RastreamentoTextoAdapter;
 import br.uninove.primeiraconsulta.entidade.Anamnese;
 import br.uninove.primeiraconsulta.entidade.EstiloDeVida;
 import br.uninove.primeiraconsulta.entidade.ExameFisico;
 import br.uninove.primeiraconsulta.entidade.ListaProblemas;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
 import br.uninove.primeiraconsulta.entidade.Rastreamento;
+import br.uninove.primeiraconsulta.util.EmailUtil;
 import br.uninove.primeiraconsulta.util.RastreamentoUtil;
+import br.uninove.primeiraconsulta.util.SessaoUsuario;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -194,6 +193,12 @@ public class VerProntuarioActivity extends AppCompatActivity{
     @Bind(R.id.edFocus)
     EditText edFocus;
 
+    private static Prontuario prontuario;
+    private static EstiloDeVida estiloDeVida;
+    private static ExameFisico exameFisico;
+    private static Anamnese anamnese;
+    private static List<ListaProblemas> listaProblemas;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -298,11 +303,11 @@ public class VerProntuarioActivity extends AppCompatActivity{
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if(bundle!=null){
-            Prontuario prontuario =(Prontuario) bundle.get("prontuario");
-            EstiloDeVida estiloDeVida = EstiloDeVidaDao.buscarPorId(prontuario.getIdEstiloDeVida(), this);
-            ExameFisico exameFisico = ExameFisicoDao.buscarPorId(prontuario.getIdExameFisico(), this);
-            Anamnese anamnese = AnamneseDao.buscarPorId(prontuario.getIdAnamnese(), this);
-            List<ListaProblemas> listaProblemas = (List<ListaProblemas>) bundle.get("listaProblemas");
+            prontuario = (Prontuario) bundle.get("prontuario");
+            estiloDeVida = (EstiloDeVida) bundle.get("estiloDeVida");
+            exameFisico = (ExameFisico) bundle.get("exameFisico");
+            anamnese = (Anamnese) bundle.get("anamnese");
+            listaProblemas = (List<ListaProblemas>) bundle.get("listaProblemas");
             List<Rastreamento> listaRastreamento = RastreamentoUtil.getRastreamento(prontuario, estiloDeVida, exameFisico);
 
 
@@ -420,6 +425,20 @@ public class VerProntuarioActivity extends AppCompatActivity{
     @OnClick(R.id.bt_ver_voltar)
     public void voltar(){
         finish();
+    }
+
+    @OnClick(R.id.bt_ver_email)
+    public void email(){
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.setType("message/rfc822");
+        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{SessaoUsuario.getUsuarioSessao().getEmail()});
+        i.putExtra(Intent.EXTRA_SUBJECT, "N° Prontuário: " + prontuario.getNumProntuario() + " - " + prontuario.getDataEdicao());
+        i.putExtra(Intent.EXTRA_TEXT   , EmailUtil.getEmail(prontuario, estiloDeVida, exameFisico, anamnese, listaProblemas));
+        try {
+            this.startActivity(Intent.createChooser(i, "Send mail..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(this, "Occorreu um erro, verifique sua conexão com a internet ou se o e-mail é valido.", Toast.LENGTH_SHORT).show();
+        }
     }
 
 

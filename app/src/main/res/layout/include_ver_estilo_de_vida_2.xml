@@ -25,7 +25,7 @@
         android:textStyle="normal|bold"
         android:layout_marginTop="20dp"
         android:textSize="18sp"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TableRow
         android:layout_width="match_parent"
@@ -68,7 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView87"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TextView
         android:text="Tabagismo, avaliação do grau de dependência: "
@@ -77,7 +77,7 @@
         android:id="@+id/textVieww76"
         android:textStyle="normal|bold"
         android:textSize="18sp"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TextView
         android:text="1 - Quanto tempo após acordar você fuma seu primeiro cigarro?"
@@ -198,6 +198,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textVieagaaa87"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
 </LinearLayout>

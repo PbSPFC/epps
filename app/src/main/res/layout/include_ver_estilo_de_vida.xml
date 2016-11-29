@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView84"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TextView
         android:text="Fibra: "
@@ -43,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView7x4"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TextView
         android:text="Cálcio: "
@@ -63,7 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textViewa74"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TextView
         android:text="Sódio: "
@@ -83,7 +83,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textViewb74"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TextView
         android:text="Açúcares / doces: "
@@ -103,7 +103,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textViewc74"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TextView
         android:text="Refrigerantes / Sucos artificiais: "
@@ -123,7 +123,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textViexw74"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TextView
         android:text="Ingestão de água: "
@@ -143,7 +143,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textdView74"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TextView
         android:text="Atividade Física: "
@@ -163,6 +163,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textcView74"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
 </LinearLayout>

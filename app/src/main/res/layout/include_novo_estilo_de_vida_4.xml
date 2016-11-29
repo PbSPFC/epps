@@ -11,7 +11,7 @@
         android:id="@+id/textView37"
         android:textSize="18sp"
         android:textStyle="normal|bold"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TextView
         android:text="Tabagismo ativo: "
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView40"
         android:textStyle="normal|bold"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TextView
         android:text="(Caso seja ativo)
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView41"
         android:textStyle="normal|bold"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TextView
         android:text="1 - Quanto tempo após acordar você fuma seu primeiro cigarro?"
@@ -267,6 +267,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView48"
         android:layout_weight="1"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
 </LinearLayout>

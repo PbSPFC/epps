@@ -12,7 +12,7 @@
         android:id="@+id/textView"
         android:textStyle="normal|bold"
         android:textAllCaps="false"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textSize="36sp"
         android:fontFamily="cursive"
         android:textColor="@android:color/background_light" />
@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bt_listar_voltar"
-        android:textAlignment="center"
+        android:gravity="center"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"

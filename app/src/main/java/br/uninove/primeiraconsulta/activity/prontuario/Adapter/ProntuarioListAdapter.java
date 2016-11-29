@@ -1,4 +1,4 @@
-package br.uninove.primeiraconsulta.activity.prontuario.Adapter;
+package br.uninove.primeiraconsulta.activity.prontuario.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

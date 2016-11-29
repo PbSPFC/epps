@@ -61,7 +61,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:textSize="18sp"
-            android:textAlignment="center" />
+            android:gravity="center" />
 
         <TextView
             android:text="Qual a probabilidade de você cochilar ou dormir, e não apenas se sentir cansado, nas seguintes situações?"
@@ -375,7 +375,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView49"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
 
 </LinearLayout>

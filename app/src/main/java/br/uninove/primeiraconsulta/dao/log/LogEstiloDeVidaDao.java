@@ -81,6 +81,7 @@ public class LogEstiloDeVidaDao {
         values.put(alcool, estiloDeVida.getAlcool());
         values.put(sexualmenteAtivo, estiloDeVida.getSexualmenteAtivo());
         values.put(sexualmenteAtivoOpt, estiloDeVida.getSexualmenteAtivoOpt());
+        values.put(dataEdicao, estiloDeVida.getDataEdicao());
 
         //Verificando se ira fazer udpate ou insert
         db.insert(DbLogEstiloDeVida.ESTILO_DE_VIDA_TB_NAME, null, values);
@@ -155,6 +156,7 @@ public class LogEstiloDeVidaDao {
                 estiloDeVida.setAlcool(cursor.getString(ALCOOL));
                 estiloDeVida.setSexualmenteAtivo(cursor.getString(SEXUALMENTE_ATIVO));
                 estiloDeVida.setSexualmenteAtivoOpt(cursor.getInt(SEXUALMENTE_ATIVO_OPT));
+                estiloDeVida.setDataEdicao(cursor.getString(DATA_EDICAO));
 
                 lista.add(estiloDeVida);
 
@@ -234,6 +236,7 @@ public class LogEstiloDeVidaDao {
                 estiloDeVida.setAlcool(cursor.getString(ALCOOL));
                 estiloDeVida.setSexualmenteAtivo(cursor.getString(SEXUALMENTE_ATIVO));
                 estiloDeVida.setSexualmenteAtivoOpt(cursor.getInt(SEXUALMENTE_ATIVO_OPT));
+                estiloDeVida.setDataEdicao(cursor.getString(DATA_EDICAO));
 
                 lista.add(estiloDeVida);
 
@@ -241,11 +244,12 @@ public class LogEstiloDeVidaDao {
         }
 
 
-        for (EstiloDeVida estilo : lista) {
-            if(p.getNumProntuario().equals(estilo.getNumProntuario())){
-                return estilo;
+            for (EstiloDeVida estilo : lista) {
+                if(p.getNumProntuario().equals(estilo.getNumProntuario()) && p.getDataEdicao().equals(estilo.getDataEdicao())){
+                    return estilo;
+                }
             }
-        }
+
 
         db.close();
         return null;
@@ -316,6 +320,7 @@ public class LogEstiloDeVidaDao {
                 estiloDeVida.setAlcool(cursor.getString(ALCOOL));
                 estiloDeVida.setSexualmenteAtivo(cursor.getString(SEXUALMENTE_ATIVO));
                 estiloDeVida.setSexualmenteAtivoOpt(cursor.getInt(SEXUALMENTE_ATIVO_OPT));
+                estiloDeVida.setDataEdicao(cursor.getString(DATA_EDICAO));
                 db.close();
                 return estiloDeVida;
             }while(cursor.moveToNext());
@@ -328,6 +333,12 @@ public class LogEstiloDeVidaDao {
     public static void excluirEstiloDeVida(EstiloDeVida estiloDeVida, Context context) {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         db.delete(DbLogEstiloDeVida.ESTILO_DE_VIDA_TB_NAME, "id =?", new String[]{estiloDeVida.getId().toString()});
+        db.close();
+    }
+
+    public static void excluirTodosEstiloDeVida(Prontuario p, Context context) {
+        SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        db.delete(DbLogEstiloDeVida.ESTILO_DE_VIDA_TB_NAME, "num_prontuario =?", new String[]{p.getNumProntuario().toString()});
         db.close();
     }
 
@@ -384,6 +395,7 @@ public class LogEstiloDeVidaDao {
     public static final int ALCOOL = 50;
     public static final int SEXUALMENTE_ATIVO = 51;
     public static final int SEXUALMENTE_ATIVO_OPT = 52;
+    public static final int DATA_EDICAO = 53;
 
     public static final String id = "id";
     public static final String numProntuario = "num_prontuario";
@@ -438,5 +450,6 @@ public class LogEstiloDeVidaDao {
     public static final String alcool = "alcool";
     public static final String sexualmenteAtivo = "SEXUALMENTE_ATIVO";
     public static final String sexualmenteAtivoOpt = "SEXUALMENTE_ATIVO_OPT";
+    public static final String dataEdicao = "DATA_EDICAO";
 
 }

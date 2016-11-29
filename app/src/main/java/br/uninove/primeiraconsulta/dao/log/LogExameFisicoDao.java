@@ -44,6 +44,7 @@ public class LogExameFisicoDao {
         values.put(quadrilResultado,exameFisico.getQuadrilResultado());
         values.put(snellenResultado,exameFisico.getSnellenResultado());
         values.put(comentario,exameFisico.getComentario());
+        values.put(dataEdicao, exameFisico.getDataEdicao());
 
 
 
@@ -83,6 +84,7 @@ public class LogExameFisicoDao {
                 exameFisico.setQuadrilResultado(cursor.getString(QUADRIL_RESULTADO));
                 exameFisico.setSnellenResultado(cursor.getString(SNELLEN_RESULTADO));
                 exameFisico.setComentario(cursor.getString(COMENTARIO));
+                exameFisico.setDataEdicao(cursor.getString(DATA_EDICAO));
 
                 lista.add(exameFisico);
 
@@ -125,17 +127,20 @@ public class LogExameFisicoDao {
                 exameFisico.setQuadrilResultado(cursor.getString(QUADRIL_RESULTADO));
                 exameFisico.setSnellenResultado(cursor.getString(SNELLEN_RESULTADO));
                 exameFisico.setComentario(cursor.getString(COMENTARIO));
+                exameFisico.setDataEdicao(cursor.getString(DATA_EDICAO));
 
                 lista.add(exameFisico);
 
             }while(cursor.moveToNext());
         }
 
-        for (ExameFisico exame : lista) {
-            if(p.getNumProntuario().equals(exame.getNumProntuario())){
-                return exame;
+            for (ExameFisico exame : lista) {
+                if(p.getNumProntuario().equals(exame.getNumProntuario()) && p.getDataEdicao().equals(exame.getDataEdicao())){
+                    return exame;
+                }
             }
-        }
+
+
 
         db.close();
         return null;
@@ -170,6 +175,7 @@ public class LogExameFisicoDao {
                 exameFisico.setQuadrilResultado(cursor.getString(QUADRIL_RESULTADO));
                 exameFisico.setSnellenResultado(cursor.getString(SNELLEN_RESULTADO));
                 exameFisico.setComentario(cursor.getString(COMENTARIO));
+                exameFisico.setDataEdicao(cursor.getString(DATA_EDICAO));
                 db.close();
                 return exameFisico;
             }while(cursor.moveToNext());
@@ -183,6 +189,12 @@ public class LogExameFisicoDao {
     public static void excluirExameFisico(ExameFisico exameFisico, Context context) {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         db.delete(DbLogExameFisico.EXAME_FISICO_TB_NAME, "id =?", new String[]{exameFisico.getId().toString()});
+        db.close();
+    }
+
+    public static void excluirTodosExameFisico(Prontuario p, Context context) {
+        SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        db.delete(DbLogExameFisico.EXAME_FISICO_TB_NAME, "num_prontuario =?", new String[]{p.getId().toString()});
         db.close();
     }
 
@@ -203,6 +215,7 @@ public class LogExameFisicoDao {
     public static final int QUADRIL_RESULTADO = 14;
     public static final int SNELLEN_RESULTADO = 15;
     public static final int COMENTARIO = 16;
+    public static final int DATA_EDICAO = 17;
 
     public static final String id = "id";
     public static final String numProntuario = "num_prontuario";
@@ -221,5 +234,6 @@ public class LogExameFisicoDao {
     public static final String quadrilResultado = "quadril_resultado";
     public static final String snellenResultado = "snellen_resultado";
     public static final String comentario = "comentario";
+    public static final String dataEdicao = "DATA_EDICAO";
 
 }

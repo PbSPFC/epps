@@ -20,7 +20,7 @@
                 android:textStyle="normal|bold"
                 android:textAllCaps="true"
                 android:textSize="24sp"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:textColor="@android:color/background_light" />
 
             <TextView
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textView20"
                 android:textSize="24sp"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:textStyle="normal|bold"
                 android:textColor="@android:color/background_light" />
 

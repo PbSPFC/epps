@@ -7,13 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import br.uninove.primeiraconsulta.R;
-import br.uninove.primeiraconsulta.activity.prontuario.Adapter.ProntuarioListAdapter;
-import br.uninove.primeiraconsulta.dao.ProntuarioDao;
-import br.uninove.primeiraconsulta.database.DataBase;
-import br.uninove.primeiraconsulta.database.DbProntuario;
+import br.uninove.primeiraconsulta.activity.prontuario.adapter.ProntuarioListAdapter;
 import br.uninove.primeiraconsulta.entidade.Usuario;
 import br.uninove.primeiraconsulta.util.CheckListaProntuario;
-import br.uninove.primeiraconsulta.util.DbFactory;
 import br.uninove.primeiraconsulta.util.SessaoUsuario;
 import butterknife.Bind;
 import butterknife.ButterKnife;

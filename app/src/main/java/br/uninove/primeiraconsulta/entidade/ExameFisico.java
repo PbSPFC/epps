@@ -29,6 +29,7 @@ public class ExameFisico implements Serializable{
     private String snellenResultado;
 
     private String comentario;
+    private String dataEdicao;
 
     public Long getId() {
         return id;
@@ -164,5 +165,13 @@ public class ExameFisico implements Serializable{
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+
+    public String getDataEdicao() {
+        return dataEdicao;
+    }
+
+    public void setDataEdicao(String dataEdicao) {
+        this.dataEdicao = dataEdicao;
     }
 }

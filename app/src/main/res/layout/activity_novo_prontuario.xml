@@ -28,7 +28,7 @@
                 android:textStyle="normal|bold"
                 android:textAllCaps="true"
                 android:textSize="30sp"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:fontFamily="sans-serif"
                 android:textColor="@android:color/background_light" />
 
@@ -131,7 +131,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/textView78"
-                            android:textAlignment="center"
+                            android:gravity="center"
                             android:textStyle="normal|bold"
                             android:textSize="18sp" />
 

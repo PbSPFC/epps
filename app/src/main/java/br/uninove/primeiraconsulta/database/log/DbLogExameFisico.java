@@ -26,7 +26,8 @@ public class DbLogExameFisico {
             "CINTURA_RESULTADO TEXT," +
             "QUADRIL_RESULTADO TEXT," +
             "SNELLEN_RESULTADO TEXT," +
-            "COMENTARIO TEXT" +
+            "COMENTARIO TEXT," +
+            "DATA_EDICAO TEXT" +
             ")";
     public static final String EXAME_FISICO_DROP_TB = "DROP TABLE IF EXISTS "+EXAME_FISICO_TB_NAME;
 

@@ -131,14 +131,18 @@ public class LogListaProblemasDao {
     public static void excluirListaProblemas(ListaProblemas listaProblemas, Context context) {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         db.delete(DbLogListaProblemas.LISTA_PROBLEMAS_TB_NAME, "id =?", new String[]{listaProblemas.getId().toString()});
-        System.out.println("ListaProblemas: " + listaProblemas.getNumProntuario());
         db.close();
     }
 
-    public static void excluirListaProblemasNumProntuario(Prontuario prontuario, Context context) {
+    public static void excluirListaProblemasDataEdicao(Prontuario prontuario, Context context) {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         db.delete(DbLogListaProblemas.LISTA_PROBLEMAS_TB_NAME, "DATA_EDICAO =?", new String[]{prontuario.getDataEdicao().toString()});
-        System.out.println("ListaProblemas: " + prontuario.getNumProntuario());
+        db.close();
+    }
+
+    public static void excluirTodosListaProblemas(Prontuario prontuario, Context context) {
+        SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        db.delete(DbLogListaProblemas.LISTA_PROBLEMAS_TB_NAME, "num_prontuario =?", new String[]{prontuario.getId().toString()});
         db.close();
     }
 

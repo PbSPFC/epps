@@ -62,7 +62,8 @@ public class DbLogEstiloDeVida {
             "ALCOOL_4 TEXT," +
             "ALCOOL TEXT," +
             "SEXUALMENTE_ATIVO TEXT," +
-            "SEXUALMENTE_ATIVO_OPT INTEGER" +
+            "SEXUALMENTE_ATIVO_OPT INTEGER," +
+            "DATA_EDICAO TEXT" +
             ")";
     public static final String ESTILO_DE_VIDA_DROP_TB = "DROP TABLE IF EXISTS "+ESTILO_DE_VIDA_TB_NAME;
 

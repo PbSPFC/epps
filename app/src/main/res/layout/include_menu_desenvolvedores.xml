@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textVieasdw102"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:textSize="24sp"
                 android:layout_marginBottom="18dp"
                 android:textStyle="normal|bold" />
@@ -86,7 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView111"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:layout_marginTop="18dp"
                 android:textStyle="normal|bold" />
 
@@ -95,7 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView113"
-                android:textAlignment="center" />
+                android:gravity="center" />
         </LinearLayout>
 
     </LinearLayout>

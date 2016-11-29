@@ -28,6 +28,8 @@
         <activity android:name=".activity.prontuario.LogProntuarioActivity"></activity>
         <activity android:name=".activity.prontuario.EditarProntuarioActivity"
             android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".activity.prontuario.excluir.ExcluirLogActivity"></activity>
+        <activity android:name=".activity.prontuario.excluir.ExcluirProntuarioActivity"></activity>
     </application>
 
 </manifest>

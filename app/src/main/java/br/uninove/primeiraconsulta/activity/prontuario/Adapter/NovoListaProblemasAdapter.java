@@ -1,7 +1,6 @@
-package br.uninove.primeiraconsulta.activity.prontuario.Adapter;
+package br.uninove.primeiraconsulta.activity.prontuario.adapter;
 
 import android.content.Context;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import java.util.List;
 
 import br.uninove.primeiraconsulta.R;
 import br.uninove.primeiraconsulta.entidade.ListaProblemas;
-import br.uninove.primeiraconsulta.entidade.Prontuario;
 import br.uninove.primeiraconsulta.util.ListaProblemasUtil;
 import butterknife.Bind;
 import butterknife.ButterKnife;

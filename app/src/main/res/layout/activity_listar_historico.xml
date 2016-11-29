@@ -12,7 +12,7 @@
         android:id="@+id/textViewasdasdsa"
         android:textStyle="normal|bold"
         android:textAllCaps="false"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textSize="36sp"
         android:fontFamily="cursive"
         android:textColor="@android:color/background_light" />
@@ -32,7 +32,7 @@
             android:id="@+id/zzzjkhsakd"
             android:textStyle="normal|bold"
             android:textAllCaps="false"
-            android:textAlignment="center"
+            android:gravity="center"
             android:textSize="24sp"
             android:fontFamily="cursive"
             android:textColor="@android:color/background_light" />
@@ -44,7 +44,7 @@
             android:id="@+id/tv_log_num_prontuario"
             android:textStyle="normal|bold"
             android:textAllCaps="false"
-            android:textAlignment="center"
+            android:gravity="center"
             android:textSize="24sp"
             android:fontFamily="cursive"
             android:textColor="@android:color/background_light" />
@@ -66,7 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bt_log_voltar"
-        android:textAlignment="center"
+        android:gravity="center"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"

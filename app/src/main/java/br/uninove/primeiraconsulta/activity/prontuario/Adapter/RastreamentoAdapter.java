@@ -1,4 +1,4 @@
-package br.uninove.primeiraconsulta.activity.prontuario.Adapter;
+package br.uninove.primeiraconsulta.activity.prontuario.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,7 +10,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import br.uninove.primeiraconsulta.R;
-import br.uninove.primeiraconsulta.entidade.Prontuario;
 import br.uninove.primeiraconsulta.entidade.Rastreamento;
 import butterknife.Bind;
 import butterknife.ButterKnife;

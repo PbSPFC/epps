@@ -10,7 +10,7 @@
         android:id="@+id/teaaaxtVieww76"
         android:textStyle="normal|bold"
         android:textSize="18sp"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TextView
         android:text="Alguma vez você sentiu que deveria diminuir a quantidade de bebida, ou parar de beber?"
@@ -88,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textVieagaadasaa87"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
 
 </LinearLayout>

@@ -15,7 +15,8 @@ public class DbLogAnamnese {
             "QUEIXA_DURACAO TEXT," +
             "HISTORIA_DOENCA_ATUAL TEXT," +
             "INTERROGATORIO TEXT," +
-            "PERCEPCAO_PACIENTE TEXT" +
+            "PERCEPCAO_PACIENTE TEXT," +
+            "DATA_EDICAO TEXT" +
             ")";
 
 

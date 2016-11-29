@@ -18,7 +18,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:text="Estilo de Vida / Hábitos"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:textAllCaps="true"
                 android:textSize="24sp"
                 android:textStyle="normal|bold"
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:text="Dieta"
                 android:layout_marginBottom="18dp"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:textSize="24sp"
                 android:textStyle="normal|bold"
                 android:textColor="@android:color/background_light" />

@@ -17,7 +17,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView72"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:textStyle="normal|bold"
                 android:textAllCaps="true"
                 android:layout_marginTop="20dp"

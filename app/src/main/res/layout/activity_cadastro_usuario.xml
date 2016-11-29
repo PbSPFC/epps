@@ -23,7 +23,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:fontFamily="cursive"
                 android:textColor="@android:color/background_light" />
 
@@ -146,9 +146,9 @@
                     android:textAllCaps="false"
                     android:textStyle="normal|bold"
                     android:textSize="18sp"
+                    android:gravity="center"
                     android:layout_below="@+id/ed_cad_senha"
                     android:layout_centerHorizontal="true"
-                    android:elevation="5dp"
                     android:background="@drawable/button01"/>
             </LinearLayout>
 

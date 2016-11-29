@@ -5,31 +5,34 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.text.method.ScrollingMovementMethod;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.RadioGroup;
-import android.widget.Scroller;
 import android.widget.TabHost;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
 import br.uninove.primeiraconsulta.R;
 import br.uninove.primeiraconsulta.activity.menu.MenuActivity;
-import br.uninove.primeiraconsulta.activity.prontuario.Adapter.NovoListaProblemasAdapter;
+import br.uninove.primeiraconsulta.dao.AnamneseDao;
+import br.uninove.primeiraconsulta.dao.EstiloDeVidaDao;
+import br.uninove.primeiraconsulta.dao.ExameFisicoDao;
+import br.uninove.primeiraconsulta.dao.ListaProblemasDao;
+import br.uninove.primeiraconsulta.dao.log.LogAnamneseDao;
+import br.uninove.primeiraconsulta.dao.log.LogEstiloDeVidaDao;
+import br.uninove.primeiraconsulta.dao.log.LogExameFisicoDao;
+import br.uninove.primeiraconsulta.dao.log.LogListaProblemasDao;
+import br.uninove.primeiraconsulta.dao.log.LogProntuarioDao;
 import br.uninove.primeiraconsulta.entidade.Anamnese;
 import br.uninove.primeiraconsulta.entidade.EstiloDeVida;
 import br.uninove.primeiraconsulta.entidade.ExameFisico;
 import br.uninove.primeiraconsulta.entidade.ListaProblemas;
 import br.uninove.primeiraconsulta.entidade.Prontuario;
-import br.uninove.primeiraconsulta.entidade.Usuario;
 import br.uninove.primeiraconsulta.util.CheckProntuario;
 import br.uninove.primeiraconsulta.util.DataUtil;
 import br.uninove.primeiraconsulta.util.ListaProblemasUtil;
 import br.uninove.primeiraconsulta.util.NovoProntuarioUtil;
-import br.uninove.primeiraconsulta.util.SessaoUsuario;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -322,14 +325,40 @@ public class NovoProntuarioActivity extends AppCompatActivity {
 
 
         prontuario.setComentario(edComentario.getText().toString());
-        prontuario.setData(DataUtil.getDate());
-        prontuario.setDataEdicao("");
+
+        String data = DataUtil.getDate();
+
+        prontuario.setData(data);
+        prontuario.setDataEdicao(data);
+        estiloDeVida.setDataEdicao(data);
+        exameFisico.setDataEdicao(data);
+        anamnese.setDataEdicao(data);
+        listaProblemas.get(0).setDataEdicao(data);
+        listaProblemas.get(1).setDataEdicao(data);
+        listaProblemas.get(2).setDataEdicao(data);
+        listaProblemas.get(3).setDataEdicao(data);
+        listaProblemas.get(4).setDataEdicao(data);
+        listaProblemas.get(5).setDataEdicao(data);
+        listaProblemas.get(6).setDataEdicao(data);
 
         if (CheckProntuario.checkCampos(prontuario, this)) {
 
             prontuario = CheckProntuario.checkNumProntuario(prontuario, estiloDeVida, exameFisico, anamnese, listaProblemas, this);
             if (prontuario != null) {
                 Toast.makeText(this, "Prontuario de N° " + prontuario.getNumProntuario() + " foi cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+
+                estiloDeVida = EstiloDeVidaDao.buscarPorId(prontuario.getIdEstiloDeVida(), this);
+                exameFisico = ExameFisicoDao.buscarPorId(prontuario.getIdExameFisico(), this);
+                anamnese = AnamneseDao.buscarPorId(prontuario.getIdAnamnese(), this);
+                listaProblemas = ListaProblemasDao.buscarPorNumProntuario(prontuario, this);
+
+                Intent intent = new Intent(this, VerProntuarioActivity.class);
+                intent.putExtra("prontuario", prontuario);
+                intent.putExtra("estiloDeVida", estiloDeVida);
+                intent.putExtra("exameFisico", exameFisico);
+                intent.putExtra("anamnese", anamnese);
+                intent.putExtra("listaProblemas", (Serializable) listaProblemas);
+                this.startActivity(intent);
                 finish();
             } else {
                 Toast.makeText(this, "Não foi possível cadastrar prontuário, número do prontuário já está registrado!", Toast.LENGTH_SHORT).show();

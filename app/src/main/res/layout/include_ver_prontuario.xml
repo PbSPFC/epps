@@ -201,6 +201,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView73"
         android:textSize="18sp"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
 </LinearLayout>

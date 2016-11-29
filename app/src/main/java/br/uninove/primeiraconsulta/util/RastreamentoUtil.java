@@ -206,88 +206,107 @@ public class RastreamentoUtil {
 
         //6 - Diabetes Mellitus II (DMII)
 
-        if(prontuario.getIdade() >= 18 &&
-                (estiloDeVida.getAcucar().equals("Maior de 75g 5x por semana. (Inadequado)")
-                || exameFisico.getImc() >= 25
-                || exameFisico.getPaResultado().equals("Pressão arterial acima do normal")
-                || estiloDeVida.getAtFisica().equals("Menos de 10 minutos contínuos de exercício por semana (Sedentário)"))){
-            Rastreamento r = new Rastreamento();
-            r.setNivel("B");
-            r.setRastreamento("Diabetes Mellitus");
-            r.setTitulo("Diabetes Mellitus II (DMII)");
-            r.setTexto("Adoção de hábitos de vida saudáveis, como uma alimentação equilibrada, prática regular de atividade física, moderação no uso de álcool e abandono do tabagismo, e redução do peso. (MINISTÉRIO DA SAÚDE, 2013, DIABETES MELLITUS)\n" +
-                    "\n" +
-                    "Público alvo:\n" +
-                    "Critérios para o rastreamento do DM II em adultos assintomáticos:\n" +
-                    " Excesso de peso ( IMC > 25 Kg) e um dos seguintes fatores de risco:\n" +
-                    "●\tHistória de pai ou mãe com diabetes;\n" +
-                    "●\tHipertensão arterial (> 140/90 mmHg ou uso de anti - hipertensivos em adultos);\n" +
-                    "●\tDislipidemia: hipertrigliceridemia (> 250 mg/dL) ou HDL-C baixo (< 35 mg/dL);\n" +
-                    "●\tExame prévio de HcA1c  ≥ 5,7%, tolerância diminuída à glicose ou glicemia de jejum alter ada;\n" +
-                    "●\tObesidade severa, acanthosis nigricans;\n" +
-                    "●\tSíndrome de ovários policísticos;\n" +
-                    "●\tHistória de doença cardiovascular;\n" +
-                    "●\tInatividade física;\n" +
-                    "ou \n" +
-                    "●\tIdade≥ 45 anos;\n" +
-                    "ou \n" +
-                    "●\tRisco cardiovascular moderado.\n" +
-                    "Fonte: (MINISTÉRIO DA SAÚDE, 2013,DIABETES MELLITUS)\n" +
-                    "\n" +
-                    "Frequência:\n" +
-                    "\n" +
-                    "Alguns estudos apontaram que as pessoas que apresentam resultados negativos podem ser testadas a cada 3 a 5 anos [Grau de Recomendação E] (AMERICAN DIABETES ASSOCIATION, 2013).\n" +
-                    "Casos de tolerância diminuída à glicose, glicemia de jejum alterada ou diabetes gestacional prévio, podem ser testados mais frequentemente, por exemplo, anualmente (AMERICAN DIABETES ASSOCIATION, 2013).\n");
-            listaRastreamento.add(r);
-            System.out.println("add");
+            if(!estiloDeVida.getAcucar().isEmpty() && exameFisico.getImc() != null &&
+                    !exameFisico.getPaResultado().isEmpty() && !estiloDeVida.getAtFisica().isEmpty()){
+                if(prontuario.getIdade() >= 18 && estiloDeVida.getAcucar().equals("Maior de 75g 5x por semana. (Inadequado)")
+                        || exameFisico.getImc() >= 25
+                        || exameFisico.getPaResultado().equals("Pressão arterial acima do normal")
+                        || estiloDeVida.getAtFisica().equals("Menos de 10 minutos contínuos de exercício por semana (Sedentário)")){
+                    Rastreamento r = new Rastreamento();
+                    r.setNivel("B");
+                    r.setRastreamento("Diabetes Mellitus");
+                    r.setTitulo("Diabetes Mellitus II (DMII)");
+                    r.setTexto("Adoção de hábitos de vida saudáveis, como uma alimentação equilibrada, prática regular de atividade física, moderação no uso de álcool e abandono do tabagismo, e redução do peso. (MINISTÉRIO DA SAÚDE, 2013, DIABETES MELLITUS)\n" +
+                            "\n" +
+                            "Público alvo:\n" +
+                            "Critérios para o rastreamento do DM II em adultos assintomáticos:\n" +
+                            " Excesso de peso ( IMC > 25 Kg) e um dos seguintes fatores de risco:\n" +
+                            "●\tHistória de pai ou mãe com diabetes;\n" +
+                            "●\tHipertensão arterial (> 140/90 mmHg ou uso de anti - hipertensivos em adultos);\n" +
+                            "●\tDislipidemia: hipertrigliceridemia (> 250 mg/dL) ou HDL-C baixo (< 35 mg/dL);\n" +
+                            "●\tExame prévio de HcA1c  ≥ 5,7%, tolerância diminuída à glicose ou glicemia de jejum alter ada;\n" +
+                            "●\tObesidade severa, acanthosis nigricans;\n" +
+                            "●\tSíndrome de ovários policísticos;\n" +
+                            "●\tHistória de doença cardiovascular;\n" +
+                            "●\tInatividade física;\n" +
+                            "ou \n" +
+                            "●\tIdade≥ 45 anos;\n" +
+                            "ou \n" +
+                            "●\tRisco cardiovascular moderado.\n" +
+                            "Fonte: (MINISTÉRIO DA SAÚDE, 2013,DIABETES MELLITUS)\n" +
+                            "\n" +
+                            "Frequência:\n" +
+                            "\n" +
+                            "Alguns estudos apontaram que as pessoas que apresentam resultados negativos podem ser testadas a cada 3 a 5 anos [Grau de Recomendação E] (AMERICAN DIABETES ASSOCIATION, 2013).\n" +
+                            "Casos de tolerância diminuída à glicose, glicemia de jejum alterada ou diabetes gestacional prévio, podem ser testados mais frequentemente, por exemplo, anualmente (AMERICAN DIABETES ASSOCIATION, 2013).\n");
+                    listaRastreamento.add(r);
+                    System.out.println("add");
 
-        }
+                }
+
+            }
+
+
+
 
         //7 - Tabaco
 
-        if(prontuario.getIdade() >= 18 && estiloDeVida.getCigarroPontos() >= 3){
-            Rastreamento r = new Rastreamento();
-            r.setNivel("A");
-            r.setRastreamento("Tabaco");
-            r.setTitulo("Tabaco");
-            r.setTexto("A abordagem breve (cerca de cinco minutos) pode levar a cerca de 5% do abandono do hábito do tabaco. Em todos os encontros com os pacientes, recomenda-se que os profissionais de saúde perguntem a todos os adultos (incluídas as gestantes) sobre o uso do tabaco e forneçam intervenção para que deixem esse hábito. (Série A. Normas e Manuais Técnicos Cadernos de Atenção Primária, n. 29)\n" +
-                    "A promoção de saúde deve ser feita também com pacientes não tabagistas, sempre reforçando que o tabagismo aumento o risco de doenças cardio, cerebrovascular, e neoplasias. (Cadernos de Atenção Básica Prevenção Clínica de doenças cardiovascular, cerebrovascular e renal crônica).\n" +
-                    "\n" +
-                    "\n" +
-                    "Prevenção Secundária:\n" +
-                    "Fornecer gratuitamente recursos de abandono para fumantes aumenta significativamente a proporção de fumantes que tentam parar, usam tratamentos medicamentosos e param de fumar.\n" +
-                    "\n" +
-                    "População alvo:\n" +
-                    "Está recomendado o rastreamento do tabagismo em todos os adultos, incluídas as gestantes. (A)\n" +
-                    "\n" +
-                    "Frequência:\n" +
-                    "Em todos os encontros com os pacientes, recomenda-se que os profissionais de saúde perguntem a todos os adultos (incluídas as gestantes) sobre o uso do tabaco e forneçam intervenção para que deixem esse hábito.(Série A. Normas e Manuais Técnicos Cadernos de Atenção Primária, n. 29)\n");
-            listaRastreamento.add(r);
-            System.out.println("add");
+        if(estiloDeVida.getCigarroPontos() != null){
+
+            if(prontuario.getIdade() >= 18 && estiloDeVida.getCigarroPontos() >= 3){
+                Rastreamento r = new Rastreamento();
+                r.setNivel("A");
+                r.setRastreamento("Tabaco");
+                r.setTitulo("Tabaco");
+                r.setTexto("A abordagem breve (cerca de cinco minutos) pode levar a cerca de 5% do abandono do hábito do tabaco. Em todos os encontros com os pacientes, recomenda-se que os profissionais de saúde perguntem a todos os adultos (incluídas as gestantes) sobre o uso do tabaco e forneçam intervenção para que deixem esse hábito. (Série A. Normas e Manuais Técnicos Cadernos de Atenção Primária, n. 29)\n" +
+                        "A promoção de saúde deve ser feita também com pacientes não tabagistas, sempre reforçando que o tabagismo aumento o risco de doenças cardio, cerebrovascular, e neoplasias. (Cadernos de Atenção Básica Prevenção Clínica de doenças cardiovascular, cerebrovascular e renal crônica).\n" +
+                        "\n" +
+                        "\n" +
+                        "Prevenção Secundária:\n" +
+                        "Fornecer gratuitamente recursos de abandono para fumantes aumenta significativamente a proporção de fumantes que tentam parar, usam tratamentos medicamentosos e param de fumar.\n" +
+                        "\n" +
+                        "População alvo:\n" +
+                        "Está recomendado o rastreamento do tabagismo em todos os adultos, incluídas as gestantes. (A)\n" +
+                        "\n" +
+                        "Frequência:\n" +
+                        "Em todos os encontros com os pacientes, recomenda-se que os profissionais de saúde perguntem a todos os adultos (incluídas as gestantes) sobre o uso do tabaco e forneçam intervenção para que deixem esse hábito.(Série A. Normas e Manuais Técnicos Cadernos de Atenção Primária, n. 29)\n");
+                listaRastreamento.add(r);
+                System.out.println("add");
+
+            }
 
         }
+
+
 
         //8 - Alcool
-        if(prontuario.getIdade() >= 18 && (!estiloDeVida.getAlcool().equals("Grau de dependência do álcool: Muito baixo.")
-                && !estiloDeVida.getAlcool().equals("Nada Consta.") && !estiloDeVida.getAlcool().equals("Paciente não consome álcool."))){
-            Rastreamento r = new Rastreamento();
-            r.setNivel("B");
-            r.setRastreamento("Álcool");
-            r.setTitulo("Álcool");
-            r.setTexto("Há boa evidência de que o aconselhamento comportamental breve, com seguimento dos usuários, produz de pequena a moderada redução no consumo de álcool de forma sustentada ao longo de seis a 12 meses ou mais. Encontrou-se alguma evidência de que a intervenção produz resultados em saúde após quatro anos ou mais do aconselhamento.(MINISTÉRIO DA SAÚDE, 2010)\n" +
-                    " \n" +
-                    "Prevenção Secundária: \n" +
-                    "Há dois testes mais conhecidos. O AUDIT (The Alcohol Use Disorders) e o CAGE(feeling the need to Cut down, Annoyed by criticism, Guilty about drinking, and need for an Eye-opener in the morning), sendo esse último o mais utilizado na atenção primária.\n" +
-                    "\n" +
-                    "População Alvo:\n" +
-                    "Recomenda-se o rastreamento e intervenções de aconselhamento na atenção primária para reduzir o uso inadequado de álcool em adultos, incluindo mulheres grávidas. (B).\n" +
-                    "\n" +
-                    "Frequência:\n" +
-                    "Não há um intervalo conhecido para realizar os testes de rastreio. Pacientes com histórico de problemas com álcool, adultos jovens e grupos de alto risco (por exemplo, tabagistas) podem ser beneficiados com o rastreio mais frequente.(MINISTÉRIO DA SAÚDE, 2010)\n");
-            listaRastreamento.add(r);
-            System.out.println("add");
+
+        if(estiloDeVida.getAlcool() != null){
+
+            if(prontuario.getIdade() >= 18 && (!estiloDeVida.getAlcool().equals("Grau de dependência do álcool: Muito baixo.")
+                    && !estiloDeVida.getAlcool().equals("N/D") && !estiloDeVida.getAlcool().equals("Paciente não consome álcool."))){
+                Rastreamento r = new Rastreamento();
+                r.setNivel("B");
+                r.setRastreamento("Álcool");
+                r.setTitulo("Álcool");
+                r.setTexto("Há boa evidência de que o aconselhamento comportamental breve, com seguimento dos usuários, produz de pequena a moderada redução no consumo de álcool de forma sustentada ao longo de seis a 12 meses ou mais. Encontrou-se alguma evidência de que a intervenção produz resultados em saúde após quatro anos ou mais do aconselhamento.(MINISTÉRIO DA SAÚDE, 2010)\n" +
+                        " \n" +
+                        "Prevenção Secundária: \n" +
+                        "Há dois testes mais conhecidos. O AUDIT (The Alcohol Use Disorders) e o CAGE(feeling the need to Cut down, Annoyed by criticism, Guilty about drinking, and need for an Eye-opener in the morning), sendo esse último o mais utilizado na atenção primária.\n" +
+                        "\n" +
+                        "População Alvo:\n" +
+                        "Recomenda-se o rastreamento e intervenções de aconselhamento na atenção primária para reduzir o uso inadequado de álcool em adultos, incluindo mulheres grávidas. (B).\n" +
+                        "\n" +
+                        "Frequência:\n" +
+                        "Não há um intervalo conhecido para realizar os testes de rastreio. Pacientes com histórico de problemas com álcool, adultos jovens e grupos de alto risco (por exemplo, tabagistas) podem ser beneficiados com o rastreio mais frequente.(MINISTÉRIO DA SAÚDE, 2010)\n");
+                listaRastreamento.add(r);
+                System.out.println("add");
+
+            }
 
         }
+
+
 
         //9 - Câncer de Pele
 
@@ -360,26 +379,33 @@ public class RastreamentoUtil {
 
 
         //12 - Obesidade
-        if(prontuario.getIdade() >= 18 && exameFisico.getImc() >= 30){
-            Rastreamento r = new Rastreamento();
-            r.setNivel("B");
-            r.setRastreamento("Obesidade");
-            r.setTitulo("Obesidade");
-            r.setTexto("A pratica de atividade física regular associada com alimentação saudável deve ser incetivada \n" +
-                    "Ministério da Saúde, 2014. (Cadernos de Atenção Básica, n. 12)\n" +
-                    "\n" +
-                    "Prevenção Secundária\n" +
-                    "Deve se realizar o calculo de IMC\n" +
-                    "\n" +
-                    "População Alvo\n" +
-                    "Recomenda-se o rastreamento de todos os pacientes adultos para obesidade (B).\n" +
-                    "\n" +
-                    "Frequência\n" +
-                    "Não há recomendação clara sobre a periodicidade do rastreamento, assim ele fica indicado durante a consulta de exame periódico de saúde. (INSTITUTO NACIONAL DE CÂNCER, 2010)\n");
-            listaRastreamento.add(r);
-            System.out.println("add");
+
+        if(exameFisico.getImc() != null){
+
+            if(prontuario.getIdade() >= 18 && exameFisico.getImc() >= 30){
+                Rastreamento r = new Rastreamento();
+                r.setNivel("B");
+                r.setRastreamento("Obesidade");
+                r.setTitulo("Obesidade");
+                r.setTexto("A pratica de atividade física regular associada com alimentação saudável deve ser incetivada \n" +
+                        "Ministério da Saúde, 2014. (Cadernos de Atenção Básica, n. 12)\n" +
+                        "\n" +
+                        "Prevenção Secundária\n" +
+                        "Deve se realizar o calculo de IMC\n" +
+                        "\n" +
+                        "População Alvo\n" +
+                        "Recomenda-se o rastreamento de todos os pacientes adultos para obesidade (B).\n" +
+                        "\n" +
+                        "Frequência\n" +
+                        "Não há recomendação clara sobre a periodicidade do rastreamento, assim ele fica indicado durante a consulta de exame periódico de saúde. (INSTITUTO NACIONAL DE CÂNCER, 2010)\n");
+                listaRastreamento.add(r);
+                System.out.println("add");
+
+            }
 
         }
+
+
 
 
         //13 - Câncer de Boca

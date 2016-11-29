@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView66"
         android:textSize="14sp"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TableRow
         android:layout_width="match_parent"
@@ -86,7 +86,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView67"
         android:textSize="14sp"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TableRow
         android:layout_width="match_parent"
@@ -115,7 +115,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView68"
         android:textSize="14sp"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TableRow
         android:layout_width="match_parent"
@@ -144,7 +144,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView69"
         android:textSize="14sp"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
     <TextView
         android:text="Snellen: "
@@ -227,6 +227,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView70"
         android:textSize="14sp"
-        android:textAlignment="center" />
+        android:gravity="center" />
 
 </LinearLayout>

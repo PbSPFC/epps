@@ -30,6 +30,7 @@ public class LogAnamneseDao {
         values.put(historiaDoenca,anamnese.getHistoriaDoenca());
         values.put(interrogatorio,anamnese.getInterrogatorio());
         values.put(percepcao,anamnese.getPercepcao());
+        values.put(dataEdicao, anamnese.getDataEdicao());
 
 
         //Verificando se ira fazer udpate ou insert
@@ -55,6 +56,7 @@ public class LogAnamneseDao {
                 anamnese.setHistoriaDoenca(cursor.getString(HISTORIA_DOENCA_ATUAL));
                 anamnese.setInterrogatorio(cursor.getString(INTERROGATORIO));
                 anamnese.setPercepcao(cursor.getString(PERCEPCAO_PACIENTE));
+                anamnese.setDataEdicao(cursor.getString(DATA_EDICAO));
 
                 lista.add(anamnese);
 
@@ -83,17 +85,18 @@ public class LogAnamneseDao {
                 anamnese.setHistoriaDoenca(cursor.getString(HISTORIA_DOENCA_ATUAL));
                 anamnese.setInterrogatorio(cursor.getString(INTERROGATORIO));
                 anamnese.setPercepcao(cursor.getString(PERCEPCAO_PACIENTE));
+                anamnese.setDataEdicao(cursor.getString(DATA_EDICAO));
 
                 lista.add(anamnese);
 
             }while(cursor.moveToNext());
         }
 
-        for (Anamnese a : lista) {
-            if(p.getNumProntuario().equals(a.getNumProntuario())){
-                return a;
+            for (Anamnese a : lista) {
+                if (p.getNumProntuario().equals(a.getNumProntuario()) && p.getDataEdicao().equals(a.getDataEdicao())) {
+                    return a;
+                }
             }
-        }
 
         db.close();
         return null;
@@ -114,6 +117,7 @@ public class LogAnamneseDao {
                 anamnese.setHistoriaDoenca(cursor.getString(HISTORIA_DOENCA_ATUAL));
                 anamnese.setInterrogatorio(cursor.getString(INTERROGATORIO));
                 anamnese.setPercepcao(cursor.getString(PERCEPCAO_PACIENTE));
+                anamnese.setDataEdicao(cursor.getString(DATA_EDICAO));
                 db.close();
                 return anamnese;
             }while(cursor.moveToNext());
@@ -129,6 +133,11 @@ public class LogAnamneseDao {
         db.delete(DbLogAnamnese.ANAMNESE_TB_NAME, "id =?", new String[]{anamnese.getId().toString()});
         db.close();
     }
+    public static void excluirTodosAnamnese(Prontuario prontuario, Context context) {
+        SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        db.delete(DbLogAnamnese.ANAMNESE_TB_NAME, "num_prontuario =?", new String[]{prontuario.getNumProntuario().toString()});
+        db.close();
+    }
 
     public static final int ID = 0;
     public static final int NUM_PRONTUARIO = 1;
@@ -136,6 +145,7 @@ public class LogAnamneseDao {
     public static final int HISTORIA_DOENCA_ATUAL = 3;
     public static final int INTERROGATORIO = 4;
     public static final int PERCEPCAO_PACIENTE = 5;
+    public static final int DATA_EDICAO = 6;
 
     public static final String id = "ID";
     public static final String numProntuario = "NUM_PRONTUARIO";
@@ -143,5 +153,6 @@ public class LogAnamneseDao {
     public static final String historiaDoenca = "HISTORIA_DOENCA_ATUAL";
     public static final String interrogatorio = "INTERROGATORIO";
     public static final String percepcao = "PERCEPCAO_PACIENTE";
+    public static final String dataEdicao = "DATA_EDICAO";
 
 }
