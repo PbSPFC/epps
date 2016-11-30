@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -42,30 +43,35 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
 
     @OnClick(R.id.bt_cad_cadastrar)
     public void btCadastrar(){
-        String nome = edNome.getText().toString();
-        String ra = edRa.getText().toString();
-        String senha = edSenha.getText().toString();
-        String email = edEmail.getText().toString();
 
-        if(CheckCadastro.checkRa(ra, this)){
+        try {
+            String nome = edNome.getText().toString();
+            String ra = edRa.getText().toString();
+            String senha = edSenha.getText().toString();
+            String email = edEmail.getText().toString();
 
-            if(CheckCadastro.checkEmail(email, this)) {
+            if (CheckCadastro.checkRa(ra, this)) {
 
-                if (CheckCadastro.checkCampoInvalido(nome, ra, senha, email, this)) {
-                    Toast.makeText(this, nome + " foi cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
-                    finish();
+                if (CheckCadastro.checkEmail(email, this)) {
+
+                    if (CheckCadastro.checkCampoInvalido(nome, ra, senha, email, this)) {
+                        Toast.makeText(this, nome + " foi cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+                        finish();
+
+                    } else {
+                        Toast.makeText(this, "Algum campo está inválido!", Toast.LENGTH_SHORT).show();
+                    }
 
                 } else {
-                    Toast.makeText(this, "Algum campo está inválido!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Esse E-mail já está cadastrado!", Toast.LENGTH_SHORT).show();
                 }
-
-            }else{
-                Toast.makeText(this, "Esse E-mail já está cadastrado!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Esse RA já está cadastrado!", Toast.LENGTH_SHORT).show();
             }
-        }else{
-            Toast.makeText(this, "Esse RA já está cadastrado!", Toast.LENGTH_SHORT).show();
+
+        }catch (Exception e){
+            Log.e("cadastro", e.getMessage());
+            Toast.makeText(this, "Ocorreu um erro!", Toast.LENGTH_SHORT).show();
         }
-
-
     }
 }

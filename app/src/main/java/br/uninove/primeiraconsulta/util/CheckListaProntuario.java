@@ -15,28 +15,36 @@ import br.uninove.primeiraconsulta.entidade.Prontuario;
 
 public class CheckListaProntuario {
 
-    public static List<Prontuario> checkProntuarioUsuarioId(Long id, Context context) {
-        List<Prontuario> prontuarioLista = ProntuarioDao.buscarTodosProntuarios(context);
-        List<Prontuario> listaRetorno = new ArrayList<>();
-        for (Prontuario pron : prontuarioLista) {
-            if(id == pron.getIdUsuario()){
-                listaRetorno.add(pron);
+    public static List<Prontuario> checkProntuarioUsuarioId(Long id, Context context) throws Exception {
+        try {
+            List<Prontuario> prontuarioLista = ProntuarioDao.buscarTodosProntuarios(context);
+            List<Prontuario> listaRetorno = new ArrayList<>();
+            for (Prontuario pron : prontuarioLista) {
+                if (id == pron.getIdUsuario()) {
+                    listaRetorno.add(pron);
+                }
             }
-        }
 
-        return listaRetorno;
+            return listaRetorno;
+        }catch (Exception e){
+            throw new Exception(e);
+        }
     }
 
-    public static List<Prontuario> checkProntuarioNumProntuario(String numProntuario, Context context) {
-        List<Prontuario> prontuarioLista = LogProntuarioDao.buscarTodosProntuarios(context);
-        List<Prontuario> listaRetorno = new ArrayList<>();
-        for (Prontuario pron : prontuarioLista) {
-            if(numProntuario.equals(pron.getNumProntuario())){
-                listaRetorno.add(pron);
+    public static List<Prontuario> checkProntuarioNumProntuario(String numProntuario, Context context) throws Exception {
+        try {
+            List<Prontuario> prontuarioLista = LogProntuarioDao.buscarTodosProntuarios(context);
+            List<Prontuario> listaRetorno = new ArrayList<>();
+            for (Prontuario pron : prontuarioLista) {
+                if (numProntuario.equals(pron.getNumProntuario())) {
+                    listaRetorno.add(pron);
+                }
             }
-        }
 
-        return listaRetorno;
+            return listaRetorno;
+        }catch (Exception e){
+            throw new Exception(e);
+        }
     }
 
 }

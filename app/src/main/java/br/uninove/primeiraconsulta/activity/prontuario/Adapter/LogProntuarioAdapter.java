@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -48,20 +49,25 @@ public class LogProntuarioAdapter extends ArrayAdapter<Prontuario> {
     public View getView(int position, View convertView, ViewGroup parent) {
         final ViewHolder holder;
 
-        if (convertView == null) {
-            convertView = View.inflate(getContext(), R.layout.list_log_edicoes, null);
-            holder = new ViewHolder();
-            ButterKnife.bind(holder, convertView);
+        try {
+            if (convertView == null) {
+                convertView = View.inflate(getContext(), R.layout.list_log_edicoes, null);
+                holder = new ViewHolder();
+                ButterKnife.bind(holder, convertView);
 
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
-        }
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
 
-        final Prontuario prontuario = getItem(position);
-        holder.prontuarioHolder = prontuario;
-        if(prontuario!=null) {
-            holder.dataEdicao.setText(prontuario.getDataEdicao());
+            final Prontuario prontuario = getItem(position);
+            holder.prontuarioHolder = prontuario;
+            if (prontuario != null) {
+                holder.dataEdicao.setText(prontuario.getDataEdicao());
+            }
+            return convertView;
+        }catch (Exception e){
+            Log.e("log adapter", e.getMessage());
         }
         return convertView;
     }
@@ -75,38 +81,46 @@ public class LogProntuarioAdapter extends ArrayAdapter<Prontuario> {
 
         @OnClick(R.id.bt_log_ver)
         public void btVer(){
-            EstiloDeVida estiloDeVida = LogEstiloDeVidaDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
-            ExameFisico exameFisico = LogExameFisicoDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
-            Anamnese anamnese = LogAnamneseDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
-            List<ListaProblemas> listaProblemas = LogListaProblemasDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
+            try {
+                EstiloDeVida estiloDeVida = LogEstiloDeVidaDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
+                ExameFisico exameFisico = LogExameFisicoDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
+                Anamnese anamnese = LogAnamneseDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
+                List<ListaProblemas> listaProblemas = LogListaProblemasDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
 
-            Intent intent = new Intent(LogProntuarioActivity.getContext(), VerProntuarioActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra("prontuario", prontuarioHolder);
-            intent.putExtra("estiloDeVida", estiloDeVida);
-            intent.putExtra("exameFisico", exameFisico);
-            intent.putExtra("anamnese", anamnese);
-            intent.putExtra("listaProblemas", (Serializable) listaProblemas);
-            LogProntuarioActivity.getContext().startActivity(intent);
+                Intent intent = new Intent(LogProntuarioActivity.getContext(), VerProntuarioActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("prontuario", prontuarioHolder);
+                intent.putExtra("estiloDeVida", estiloDeVida);
+                intent.putExtra("exameFisico", exameFisico);
+                intent.putExtra("anamnese", anamnese);
+                intent.putExtra("listaProblemas", (Serializable) listaProblemas);
+                LogProntuarioActivity.getContext().startActivity(intent);
+            }catch (Exception e){
+                Log.e("log adapter", e.getMessage());
+                Toast.makeText(LogProntuarioActivity.getContext(), "Ocorreu um erro!", Toast.LENGTH_SHORT).show();
+            }
         }
 
         @OnClick(R.id.bt_log_excluir)
         public void btExcluir(){
+            try {
+                EstiloDeVida estiloDeVida = LogEstiloDeVidaDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
+                ExameFisico exameFisico = LogExameFisicoDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
+                Anamnese anamnese = LogAnamneseDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
+                List<ListaProblemas> listaProblemas = LogListaProblemasDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
 
-            EstiloDeVida estiloDeVida = LogEstiloDeVidaDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
-            ExameFisico exameFisico = LogExameFisicoDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
-            Anamnese anamnese = LogAnamneseDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
-            List<ListaProblemas> listaProblemas = LogListaProblemasDao.buscarPorNumProntuario(prontuarioHolder, LogProntuarioActivity.getContext());
-
-            Intent intent = new Intent(LogProntuarioActivity.getContext(), ExcluirLogActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra("prontuario", prontuarioHolder);
-            intent.putExtra("estiloDeVida", estiloDeVida);
-            intent.putExtra("exameFisico", exameFisico);
-            intent.putExtra("anamnese", anamnese);
-            intent.putExtra("listaProblemas", (Serializable) listaProblemas);
-            LogProntuarioActivity.getContext().startActivity(intent);
-
+                Intent intent = new Intent(LogProntuarioActivity.getContext(), ExcluirLogActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("prontuario", prontuarioHolder);
+                intent.putExtra("estiloDeVida", estiloDeVida);
+                intent.putExtra("exameFisico", exameFisico);
+                intent.putExtra("anamnese", anamnese);
+                intent.putExtra("listaProblemas", (Serializable) listaProblemas);
+                LogProntuarioActivity.getContext().startActivity(intent);
+            }catch (Exception e){
+                Log.e("log excluir", e.getMessage());
+                Toast.makeText(LogProntuarioActivity.getContext(), "Ocorreu um erro!", Toast.LENGTH_SHORT).show();
+            }
 
 
 

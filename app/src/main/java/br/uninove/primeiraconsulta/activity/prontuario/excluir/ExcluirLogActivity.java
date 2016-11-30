@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -36,52 +37,64 @@ public class ExcluirLogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excluir_log);
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        if (bundle != null) {
-            final Prontuario prontuario = (Prontuario) bundle.get("prontuario");
-            final EstiloDeVida estiloDeVida = (EstiloDeVida) bundle.get("estiloDeVida");
-            final ExameFisico exameFisico = (ExameFisico) bundle.get("exameFisico");
-            final Anamnese anamnese = (Anamnese) bundle.get("anamnese");
-            final List<ListaProblemas> listaProblemas = (List<ListaProblemas>) bundle.get("listaProblemas");
+        try {
+            Intent intent = getIntent();
+            Bundle bundle = intent.getExtras();
+            if (bundle != null) {
+                final Prontuario prontuario = (Prontuario) bundle.get("prontuario");
+                final EstiloDeVida estiloDeVida = (EstiloDeVida) bundle.get("estiloDeVida");
+                final ExameFisico exameFisico = (ExameFisico) bundle.get("exameFisico");
+                final Anamnese anamnese = (Anamnese) bundle.get("anamnese");
+                final List<ListaProblemas> listaProblemas = (List<ListaProblemas>) bundle.get("listaProblemas");
 
+                try {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
-            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                    alert.setTitle("Deseja realmente excluir este Log?");
+                    alert.setMessage("Digite sua senha para excluir o prontuário.");
 
-            alert.setTitle("Deseja realmente excluir este Log?");
-            alert.setMessage("Digite sua senha para excluir o prontuário.");
+                    final EditText input = new EditText(this);
+                    input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    alert.setView(input);
 
-            final EditText input = new EditText(this);
-            input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-            alert.setView(input);
+                    alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
 
-            alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int whichButton) {
+                            if (input.getText().toString().equals(SessaoUsuario.getUsuarioSessao().getSenha())
+                                    || input.getText().toString().equals(SessaoUsuario.getSenha())) {
 
-                    if (input.getText().toString().equals(SessaoUsuario.getUsuarioSessao().getSenha())
-                            || input.getText().toString().equals(SessaoUsuario.getSenha())) {
+                                try {
+                                    LogProntuarioDao.excluirProntuario(prontuario, estiloDeVida, exameFisico, anamnese, listaProblemas, ExcluirLogActivity.this);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                Toast.makeText(ExcluirLogActivity.this, "Log foi excluído com sucesso!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(LogProntuarioActivity.getContext(), MenuActivity.class);
+                                ExcluirLogActivity.this.startActivity(intent);
+                            } else {
+                                Toast.makeText(ExcluirLogActivity.this, "Senha incorreta!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
 
-                        LogProntuarioDao.excluirProntuario(prontuario, estiloDeVida, exameFisico, anamnese, listaProblemas, ExcluirLogActivity.this);
-                        Toast.makeText(ExcluirLogActivity.this, "Log foi excluído com sucesso!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(LogProntuarioActivity.getContext(), MenuActivity.class);
-                        ExcluirLogActivity.this.startActivity(intent);
-                    } else {
-                        Toast.makeText(ExcluirLogActivity.this, "Senha incorreta!", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
+                        }
+                    });
 
+                    alert.setNegativeButton("não", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            finish();
+                        }
+                    });
+
+                    alert.show();
+                }catch (Exception e){
+                    Log.e("excluir alert", e.getMessage());
+                    Toast.makeText(this, "Ocorreu um erro!", Toast.LENGTH_SHORT).show();
                 }
-            });
-
-            alert.setNegativeButton("não", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int whichButton) {
-                    finish();
-                }
-            });
-
-            alert.show();
+            }
+        }catch (Exception e){
+            Log.e("excluir", e.getMessage());
+            Toast.makeText(this, "Ocorreu um erro!", Toast.LENGTH_SHORT).show();
         }
-
     }
 
 }

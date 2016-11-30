@@ -20,123 +20,152 @@ import br.uninove.primeiraconsulta.util.DbFactory;
 
 public class LogAnamneseDao {
 
-    public static void salvar(Anamnese anamnese, Context context){
+    public static void salvar(Anamnese anamnese, Context context) throws Exception {
         //Instancia o Banco de Dados
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         ContentValues values = new ContentValues();
         //Persistindo valores do objeto no BD
-        values.put(numProntuario, anamnese.getNumProntuario());
-        values.put(queixaDuracao,anamnese.getQueixa());
-        values.put(historiaDoenca,anamnese.getHistoriaDoenca());
-        values.put(interrogatorio,anamnese.getInterrogatorio());
-        values.put(percepcao,anamnese.getPercepcao());
-        values.put(dataEdicao, anamnese.getDataEdicao());
+        try {
+            values.put(numProntuario, anamnese.getNumProntuario());
+            values.put(queixaDuracao, anamnese.getQueixa());
+            values.put(historiaDoenca, anamnese.getHistoriaDoenca());
+            values.put(interrogatorio, anamnese.getInterrogatorio());
+            values.put(percepcao, anamnese.getPercepcao());
+            values.put(dataEdicao, anamnese.getDataEdicao());
 
 
         //Verificando se ira fazer udpate ou insert
         db.insert(DbLogAnamnese.ANAMNESE_TB_NAME, null, values);
-        
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
+
     }
 
-    public static List<Anamnese> buscarTodosProntuarios(Context context){
+    public static List<Anamnese> buscarTodosProntuarios(Context context) throws Exception {
         List<Anamnese> lista = new ArrayList<>();
 
         String sql = "select * from " + DbLogAnamnese.ANAMNESE_TB_NAME;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
+        try {
+            if (cursor.moveToFirst()) {
+                do {
 
-        if(cursor.moveToFirst()){
-            do{
+                    Anamnese anamnese = new Anamnese();
+                    anamnese.setId(cursor.getLong(ID));
+                    anamnese.setNumProntuario(cursor.getString(NUM_PRONTUARIO));
+                    anamnese.setQueixa(cursor.getString(QUEIXA_DURACAO));
+                    anamnese.setHistoriaDoenca(cursor.getString(HISTORIA_DOENCA_ATUAL));
+                    anamnese.setInterrogatorio(cursor.getString(INTERROGATORIO));
+                    anamnese.setPercepcao(cursor.getString(PERCEPCAO_PACIENTE));
+                    anamnese.setDataEdicao(cursor.getString(DATA_EDICAO));
 
-                Anamnese anamnese = new Anamnese();
-                anamnese.setId(cursor.getLong(ID));
-                anamnese.setNumProntuario(cursor.getString(NUM_PRONTUARIO));
-                anamnese.setQueixa(cursor.getString(QUEIXA_DURACAO));
-                anamnese.setHistoriaDoenca(cursor.getString(HISTORIA_DOENCA_ATUAL));
-                anamnese.setInterrogatorio(cursor.getString(INTERROGATORIO));
-                anamnese.setPercepcao(cursor.getString(PERCEPCAO_PACIENTE));
-                anamnese.setDataEdicao(cursor.getString(DATA_EDICAO));
+                    lista.add(anamnese);
 
-                lista.add(anamnese);
-
-            }while(cursor.moveToNext());
+                } while (cursor.moveToNext());
+            }
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
         }
-
-
-        db.close();
         return lista;
     }
 
-    public static Anamnese buscarPorNumProntuario(Prontuario p, Context context){
+    public static Anamnese buscarPorNumProntuario(Prontuario p, Context context) throws Exception {
         List<Anamnese> lista = new ArrayList<>();
 
         String sql = "select * from " + DbLogAnamnese.ANAMNESE_TB_NAME;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
-        if(cursor.moveToFirst()){
-            do{
+        try {
+            if (cursor.moveToFirst()) {
+                do {
 
-                Anamnese anamnese = new Anamnese();
-                anamnese.setId(cursor.getLong(ID));
-                anamnese.setNumProntuario(cursor.getString(NUM_PRONTUARIO));
-                anamnese.setQueixa(cursor.getString(QUEIXA_DURACAO));
-                anamnese.setHistoriaDoenca(cursor.getString(HISTORIA_DOENCA_ATUAL));
-                anamnese.setInterrogatorio(cursor.getString(INTERROGATORIO));
-                anamnese.setPercepcao(cursor.getString(PERCEPCAO_PACIENTE));
-                anamnese.setDataEdicao(cursor.getString(DATA_EDICAO));
+                    Anamnese anamnese = new Anamnese();
+                    anamnese.setId(cursor.getLong(ID));
+                    anamnese.setNumProntuario(cursor.getString(NUM_PRONTUARIO));
+                    anamnese.setQueixa(cursor.getString(QUEIXA_DURACAO));
+                    anamnese.setHistoriaDoenca(cursor.getString(HISTORIA_DOENCA_ATUAL));
+                    anamnese.setInterrogatorio(cursor.getString(INTERROGATORIO));
+                    anamnese.setPercepcao(cursor.getString(PERCEPCAO_PACIENTE));
+                    anamnese.setDataEdicao(cursor.getString(DATA_EDICAO));
 
-                lista.add(anamnese);
+                    lista.add(anamnese);
 
-            }while(cursor.moveToNext());
-        }
+                } while (cursor.moveToNext());
+            }
 
             for (Anamnese a : lista) {
                 if (p.getNumProntuario().equals(a.getNumProntuario()) && p.getDataEdicao().equals(a.getDataEdicao())) {
                     return a;
                 }
             }
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
 
-        db.close();
         return null;
     }
 
-    public static Anamnese buscarPorId(Long id, Context context){
+    public static Anamnese buscarPorId(Long id, Context context) throws Exception {
 
         String sql = "select * from " + DbLogAnamnese.ANAMNESE_TB_NAME + " where ID = " + id;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
-        if(cursor.moveToFirst()){
-            do{
-                Anamnese anamnese = new Anamnese();
-                anamnese.setId(cursor.getLong(ID));
-                anamnese.setNumProntuario(cursor.getString(NUM_PRONTUARIO));
-                anamnese.setQueixa(cursor.getString(QUEIXA_DURACAO));
-                anamnese.setHistoriaDoenca(cursor.getString(HISTORIA_DOENCA_ATUAL));
-                anamnese.setInterrogatorio(cursor.getString(INTERROGATORIO));
-                anamnese.setPercepcao(cursor.getString(PERCEPCAO_PACIENTE));
-                anamnese.setDataEdicao(cursor.getString(DATA_EDICAO));
-                db.close();
-                return anamnese;
-            }while(cursor.moveToNext());
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    Anamnese anamnese = new Anamnese();
+                    anamnese.setId(cursor.getLong(ID));
+                    anamnese.setNumProntuario(cursor.getString(NUM_PRONTUARIO));
+                    anamnese.setQueixa(cursor.getString(QUEIXA_DURACAO));
+                    anamnese.setHistoriaDoenca(cursor.getString(HISTORIA_DOENCA_ATUAL));
+                    anamnese.setInterrogatorio(cursor.getString(INTERROGATORIO));
+                    anamnese.setPercepcao(cursor.getString(PERCEPCAO_PACIENTE));
+                    anamnese.setDataEdicao(cursor.getString(DATA_EDICAO));
+                    db.close();
+                    return anamnese;
+                } while (cursor.moveToNext());
+            }
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
         }
 
-        db.close();
         return null;
     }
 
 
-    public static void excluirAnamnese(Anamnese anamnese, Context context) {
+    public static void excluirAnamnese(Anamnese anamnese, Context context) throws Exception {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
-        db.delete(DbLogAnamnese.ANAMNESE_TB_NAME, "id =?", new String[]{anamnese.getId().toString()});
-        db.close();
+        try {
+            db.delete(DbLogAnamnese.ANAMNESE_TB_NAME, "id =?", new String[]{anamnese.getId().toString()});
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
+
     }
-    public static void excluirTodosAnamnese(Prontuario prontuario, Context context) {
+    public static void excluirTodosAnamnese(Prontuario prontuario, Context context) throws Exception {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
-        db.delete(DbLogAnamnese.ANAMNESE_TB_NAME, "num_prontuario =?", new String[]{prontuario.getNumProntuario().toString()});
-        db.close();
+        try {
+            db.delete(DbLogAnamnese.ANAMNESE_TB_NAME, "num_prontuario =?", new String[]{prontuario.getNumProntuario().toString()});
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
+
     }
 
     public static final int ID = 0;

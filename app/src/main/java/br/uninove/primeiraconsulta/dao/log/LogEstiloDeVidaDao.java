@@ -21,81 +21,88 @@ import br.uninove.primeiraconsulta.util.DbFactory;
 public class LogEstiloDeVidaDao {
 
 
-    public static void salvar(EstiloDeVida estiloDeVida, Context context){
+    public static void salvar(EstiloDeVida estiloDeVida, Context context) throws Exception {
         //Instancia o Banco de Dados
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         ContentValues values = new ContentValues();
-        //Persistindo valores do objeto no BD
-        values.put(numProntuario, estiloDeVida.getNumProntuario());
 
-        //ESTILO DE VIDA
+        try {
+            //Persistindo valores do objeto no BD
+            values.put(numProntuario, estiloDeVida.getNumProntuario());
 
-        values.put(gorduraOpt, estiloDeVida.getGorduraOpt());
-        values.put(gorduraResul, estiloDeVida.getGordura());
-        values.put(fibraOpt, estiloDeVida.getFibraOpt());
-        values.put(fibra, estiloDeVida.getFibra());
-        values.put(calcioOpt, estiloDeVida.getCalcioOpt());
-        values.put(calcio, estiloDeVida.getCalcio());
-        values.put(sodioOpt, estiloDeVida.getSodioOpt());
-        values.put(sodio, estiloDeVida.getSodio());
-        values.put(acucarOpt, estiloDeVida.getAcucarOpt());
-        values.put(acucar, estiloDeVida.getAcucar());
-        values.put(refriOpt, estiloDeVida.getRefriOpt());
-        values.put(refri, estiloDeVida.getRefri());
-        values.put(aguaOpt, estiloDeVida.getAguaOpt());
-        values.put(agua, estiloDeVida.getAgua());
-        values.put(atFisicaOpt, estiloDeVida.getAtFisicaOpt());
-        values.put(atFisica, estiloDeVida.getAtFisica());
-        values.put(sonoOpt1, estiloDeVida.getSonoOpt1());
-        values.put(sonoOpt2, estiloDeVida.getSonoOpt2());
-        values.put(sonoOpt3, estiloDeVida.getSonoOpt3());
-        values.put(sonoOpt4, estiloDeVida.getSonoOpt4());
-        values.put(sonoOpt5, estiloDeVida.getSonoOpt5());
-        values.put(sonoOpt6, estiloDeVida.getSonoOpt6());
-        values.put(sonoPontos, estiloDeVida.getSonoPontos());
-        values.put(sono, estiloDeVida.getSono());
-        values.put(cigarroAtivoOpt, estiloDeVida.getCigarroAtivoOpt());
-        values.put(cigarroOpt1, estiloDeVida.getCigarroOpt1());
-        values.put(cigarro1, estiloDeVida.getCigarro1());
-        values.put(cigarroOpt2, estiloDeVida.getCigarroOpt2());
-        values.put(cigarro2, estiloDeVida.getCigarro2());
-        values.put(cigarroOpt3, estiloDeVida.getCigarroOpt3());
-        values.put(cigarro3, estiloDeVida.getCigarro3());
-        values.put(cigarroOpt4, estiloDeVida.getCigarroOpt4());
-        values.put(cigarro4, estiloDeVida.getCigarro4());
-        values.put(cigarroOpt5, estiloDeVida.getCigarroOpt5());
-        values.put(cigarro5, estiloDeVida.getCigarro5());
-        values.put(cigarroOpt6, estiloDeVida.getCigarroOpt6());
-        values.put(cigarro6, estiloDeVida.getCigarro6());
-        values.put(cigarroPontos, estiloDeVida.getCigarroPontos());
-        values.put(cigarro, estiloDeVida.getCigarro());
-        values.put(alcoolAtivoOpt, estiloDeVida.getAlcoolAtivoOpt());
-        values.put(alcoolOpt1, estiloDeVida.getAlcoolOpt1());
-        values.put(alcoolOpt2, estiloDeVida.getAlcoolOpt2());
-        values.put(alcoolOpt3, estiloDeVida.getAlcoolOpt3());
-        values.put(alcoolOpt4, estiloDeVida.getAlcoolOpt4());
-        values.put(alcool1, estiloDeVida.getAlcool1());
-        values.put(alcool2, estiloDeVida.getAlcool2());
-        values.put(alcool3, estiloDeVida.getAlcool3());
-        values.put(alcool4, estiloDeVida.getAlcool4());
-        values.put(alcool, estiloDeVida.getAlcool());
-        values.put(sexualmenteAtivo, estiloDeVida.getSexualmenteAtivo());
-        values.put(sexualmenteAtivoOpt, estiloDeVida.getSexualmenteAtivoOpt());
-        values.put(dataEdicao, estiloDeVida.getDataEdicao());
+            //ESTILO DE VIDA
 
-        //Verificando se ira fazer udpate ou insert
-        db.insert(DbLogEstiloDeVida.ESTILO_DE_VIDA_TB_NAME, null, values);
+            values.put(gorduraOpt, estiloDeVida.getGorduraOpt());
+            values.put(gorduraResul, estiloDeVida.getGordura());
+            values.put(fibraOpt, estiloDeVida.getFibraOpt());
+            values.put(fibra, estiloDeVida.getFibra());
+            values.put(calcioOpt, estiloDeVida.getCalcioOpt());
+            values.put(calcio, estiloDeVida.getCalcio());
+            values.put(sodioOpt, estiloDeVida.getSodioOpt());
+            values.put(sodio, estiloDeVida.getSodio());
+            values.put(acucarOpt, estiloDeVida.getAcucarOpt());
+            values.put(acucar, estiloDeVida.getAcucar());
+            values.put(refriOpt, estiloDeVida.getRefriOpt());
+            values.put(refri, estiloDeVida.getRefri());
+            values.put(aguaOpt, estiloDeVida.getAguaOpt());
+            values.put(agua, estiloDeVida.getAgua());
+            values.put(atFisicaOpt, estiloDeVida.getAtFisicaOpt());
+            values.put(atFisica, estiloDeVida.getAtFisica());
+            values.put(sonoOpt1, estiloDeVida.getSonoOpt1());
+            values.put(sonoOpt2, estiloDeVida.getSonoOpt2());
+            values.put(sonoOpt3, estiloDeVida.getSonoOpt3());
+            values.put(sonoOpt4, estiloDeVida.getSonoOpt4());
+            values.put(sonoOpt5, estiloDeVida.getSonoOpt5());
+            values.put(sonoOpt6, estiloDeVida.getSonoOpt6());
+            values.put(sonoPontos, estiloDeVida.getSonoPontos());
+            values.put(sono, estiloDeVida.getSono());
+            values.put(cigarroAtivoOpt, estiloDeVida.getCigarroAtivoOpt());
+            values.put(cigarroOpt1, estiloDeVida.getCigarroOpt1());
+            values.put(cigarro1, estiloDeVida.getCigarro1());
+            values.put(cigarroOpt2, estiloDeVida.getCigarroOpt2());
+            values.put(cigarro2, estiloDeVida.getCigarro2());
+            values.put(cigarroOpt3, estiloDeVida.getCigarroOpt3());
+            values.put(cigarro3, estiloDeVida.getCigarro3());
+            values.put(cigarroOpt4, estiloDeVida.getCigarroOpt4());
+            values.put(cigarro4, estiloDeVida.getCigarro4());
+            values.put(cigarroOpt5, estiloDeVida.getCigarroOpt5());
+            values.put(cigarro5, estiloDeVida.getCigarro5());
+            values.put(cigarroOpt6, estiloDeVida.getCigarroOpt6());
+            values.put(cigarro6, estiloDeVida.getCigarro6());
+            values.put(cigarroPontos, estiloDeVida.getCigarroPontos());
+            values.put(cigarro, estiloDeVida.getCigarro());
+            values.put(alcoolAtivoOpt, estiloDeVida.getAlcoolAtivoOpt());
+            values.put(alcoolOpt1, estiloDeVida.getAlcoolOpt1());
+            values.put(alcoolOpt2, estiloDeVida.getAlcoolOpt2());
+            values.put(alcoolOpt3, estiloDeVida.getAlcoolOpt3());
+            values.put(alcoolOpt4, estiloDeVida.getAlcoolOpt4());
+            values.put(alcool1, estiloDeVida.getAlcool1());
+            values.put(alcool2, estiloDeVida.getAlcool2());
+            values.put(alcool3, estiloDeVida.getAlcool3());
+            values.put(alcool4, estiloDeVida.getAlcool4());
+            values.put(alcool, estiloDeVida.getAlcool());
+            values.put(sexualmenteAtivo, estiloDeVida.getSexualmenteAtivo());
+            values.put(sexualmenteAtivoOpt, estiloDeVida.getSexualmenteAtivoOpt());
+            values.put(dataEdicao, estiloDeVida.getDataEdicao());
 
-        db.close();
+            //Verificando se ira fazer udpate ou insert
+            db.insert(DbLogEstiloDeVida.ESTILO_DE_VIDA_TB_NAME, null, values);
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
+
     }
 
-    public static List<EstiloDeVida> buscarTodosProntuarios(Context context){
+    public static List<EstiloDeVida> buscarTodosProntuarios(Context context) throws Exception {
         List<EstiloDeVida> lista = new ArrayList<>();
 
         String sql = "select * from " + DbLogEstiloDeVida.ESTILO_DE_VIDA_TB_NAME;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
 
@@ -162,13 +169,17 @@ public class LogEstiloDeVidaDao {
 
             }while(cursor.moveToNext());
         }
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
 
 
-        db.close();
         return lista;
     }
 
-    public static EstiloDeVida buscarPorNumProntuario(Prontuario p, Context context){
+    public static EstiloDeVida buscarPorNumProntuario(Prontuario p, Context context) throws Exception {
 
         List<EstiloDeVida> lista = new ArrayList<>();
 
@@ -176,6 +187,7 @@ public class LogEstiloDeVidaDao {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
 
@@ -250,17 +262,22 @@ public class LogEstiloDeVidaDao {
                 }
             }
 
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
 
-        db.close();
         return null;
     }
 
-    public static EstiloDeVida buscarPorId(Long id, Context context){
+    public static EstiloDeVida buscarPorId(Long id, Context context) throws Exception {
 
         String sql = "select * from " + DbLogEstiloDeVida.ESTILO_DE_VIDA_TB_NAME + " where ID = " + id;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
                 EstiloDeVida estiloDeVida = new EstiloDeVida();
@@ -325,21 +342,36 @@ public class LogEstiloDeVidaDao {
                 return estiloDeVida;
             }while(cursor.moveToNext());
         }
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
 
-        db.close();
         return null;
     }
 
-    public static void excluirEstiloDeVida(EstiloDeVida estiloDeVida, Context context) {
+    public static void excluirEstiloDeVida(EstiloDeVida estiloDeVida, Context context) throws Exception {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        try{
         db.delete(DbLogEstiloDeVida.ESTILO_DE_VIDA_TB_NAME, "id =?", new String[]{estiloDeVida.getId().toString()});
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
+
     }
 
-    public static void excluirTodosEstiloDeVida(Prontuario p, Context context) {
+    public static void excluirTodosEstiloDeVida(Prontuario p, Context context) throws Exception {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        try{
         db.delete(DbLogEstiloDeVida.ESTILO_DE_VIDA_TB_NAME, "num_prontuario =?", new String[]{p.getNumProntuario().toString()});
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
     }
 
     public static final int ID = 0;

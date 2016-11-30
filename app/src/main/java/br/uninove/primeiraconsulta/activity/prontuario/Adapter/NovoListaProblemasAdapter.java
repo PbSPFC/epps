@@ -2,14 +2,17 @@ package br.uninove.primeiraconsulta.activity.prontuario.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.List;
 
 import br.uninove.primeiraconsulta.R;
+import br.uninove.primeiraconsulta.activity.prontuario.LogProntuarioActivity;
 import br.uninove.primeiraconsulta.entidade.ListaProblemas;
 import br.uninove.primeiraconsulta.util.ListaProblemasUtil;
 import butterknife.Bind;
@@ -30,47 +33,52 @@ public class NovoListaProblemasAdapter  extends ArrayAdapter<ListaProblemas> {
     public View getView(int position, View convertView, ViewGroup parent) {
         final VierHolder holder;
 
-        if (convertView == null) {
-            convertView = View.inflate(getContext(), R.layout.list_novo_lista_problemas, null);
-            holder = new VierHolder();
-            ButterKnife.bind(holder, convertView);
+        try {
+            if (convertView == null) {
+                convertView = View.inflate(getContext(), R.layout.list_novo_lista_problemas, null);
+                holder = new VierHolder();
+                ButterKnife.bind(holder, convertView);
 
-            convertView.setTag(holder);
-        } else {
-            holder = (VierHolder) convertView.getTag();
-        }
-
-        final ListaProblemas listaProblemas = getItem(position);
-        holder.listaProblemasHolder = listaProblemas;
-        if(listaProblemas!=null) {
-            holder.edDescricao.setText(listaProblemas.getDescricao().toString());
-            holder.edAcao.setText(listaProblemas.getAcao().toString());
-        }
-
-        holder.edDescricao.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                if(!b){
-                    final int position = view.getId();
-                    final EditText edDescricao = (EditText) view;
-                    ListaProblemasUtil.listaDeProblemas.get(position).setDescricao(edDescricao.getText().toString());
-                    System.out.print("Descrição: " + ListaProblemasUtil.listaDeProblemas.get(position).getDescricao());
-                }
+                convertView.setTag(holder);
+            } else {
+                holder = (VierHolder) convertView.getTag();
             }
-        });
 
-        holder.edAcao.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                if(!b){
-                    final int position = view.getId();
-                    final EditText edAcao = (EditText) view;
-                    ListaProblemasUtil.listaDeProblemas.get(position).setAcao(edAcao.getText().toString());
-                    System.out.print("Ação: " + ListaProblemasUtil.listaDeProblemas.get(position).getAcao());
-                }
+            final ListaProblemas listaProblemas = getItem(position);
+            holder.listaProblemasHolder = listaProblemas;
+            if (listaProblemas != null) {
+                holder.edDescricao.setText(listaProblemas.getDescricao().toString());
+                holder.edAcao.setText(listaProblemas.getAcao().toString());
             }
-        });
 
+            holder.edDescricao.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View view, boolean b) {
+                    if (!b) {
+                        final int position = view.getId();
+                        final EditText edDescricao = (EditText) view;
+                        ListaProblemasUtil.listaDeProblemas.get(position).setDescricao(edDescricao.getText().toString());
+                        System.out.print("Descrição: " + ListaProblemasUtil.listaDeProblemas.get(position).getDescricao());
+                    }
+                }
+            });
+
+            holder.edAcao.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View view, boolean b) {
+                    if (!b) {
+                        final int position = view.getId();
+                        final EditText edAcao = (EditText) view;
+                        ListaProblemasUtil.listaDeProblemas.get(position).setAcao(edAcao.getText().toString());
+                        System.out.print("Ação: " + ListaProblemasUtil.listaDeProblemas.get(position).getAcao());
+                    }
+                }
+            });
+
+            return convertView;
+        }catch (Exception e){
+            Log.e("novolista adapter", e.getMessage());
+        }
         return convertView;
     }
 

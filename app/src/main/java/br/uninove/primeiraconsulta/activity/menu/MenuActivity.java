@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,38 +49,48 @@ public class MenuActivity extends AppCompatActivity{
         setContentView(R.layout.activity_menu);
         ButterKnife.bind(this);
 
-        tabHost = (TabHost)findViewById(R.id.tab_menu);
-        tabHost.setup();
+        try {
+            tabHost = (TabHost) findViewById(R.id.tab_menu);
+            tabHost.setup();
 
-        TabHost.TabSpec specMenu = tabHost.newTabSpec("Menu");
-        specMenu.setContent(R.id.tab_menu_menu);
-        specMenu.setIndicator("Menu");
+            TabHost.TabSpec specMenu = tabHost.newTabSpec("Menu");
+            specMenu.setContent(R.id.tab_menu_menu);
+            specMenu.setIndicator("Menu");
 
-        TabHost.TabSpec specColaboradores = tabHost.newTabSpec("Colaboradores");
-        specColaboradores.setContent(R.id.tab_menu_colaboradores);
-        specColaboradores.setIndicator("Colaboradores");
+            TabHost.TabSpec specColaboradores = tabHost.newTabSpec("Colaboradores");
+            specColaboradores.setContent(R.id.tab_menu_colaboradores);
+            specColaboradores.setIndicator("Colaboradores");
 
-        TabHost.TabSpec specDesenvolvedores = tabHost.newTabSpec("Desenvolvedores");
-        specDesenvolvedores.setContent(R.id.tab_menu_desenvolvedores);
-        specDesenvolvedores.setIndicator("Desenvolvedores");
+            TabHost.TabSpec specDesenvolvedores = tabHost.newTabSpec("Desenvolvedores");
+            specDesenvolvedores.setContent(R.id.tab_menu_desenvolvedores);
+            specDesenvolvedores.setIndicator("Desenvolvedores");
 
-        tabHost.addTab(specMenu);
-        tabHost.addTab(specColaboradores);
-        tabHost.addTab(specDesenvolvedores);
+            tabHost.addTab(specMenu);
+            tabHost.addTab(specColaboradores);
+            tabHost.addTab(specDesenvolvedores);
 
-        tvRA.setText(usuarioSessao.getRa());
-        tvStatus.setText(usuarioSessao.getStatus().getStatus());
-        tvNome.setText(usuarioSessao.getNome());
-        tvEmail.setText(usuarioSessao.getEmail());
+            tvRA.setText(usuarioSessao.getRa());
+            tvStatus.setText(usuarioSessao.getStatus().getStatus());
+            tvNome.setText(usuarioSessao.getNome());
+            tvEmail.setText(usuarioSessao.getEmail());
+        }catch (Exception e){
+            Log.e("menu", e.getMessage());
+            Toast.makeText(this, "Ocorreu um erro!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @OnClick(R.id.bt_menu_cadastrar)
     public void btCadastro(){
-        if(usuarioSessao.getStatus().getId() == 2){
-            Toast.makeText(this, "Você não tem permissão para cadastrar usuários!", Toast.LENGTH_SHORT).show();
-        }else{
-            Intent intent = new Intent(this, CadastroUsuarioActivity.class);
-            startActivity(intent);
+        try {
+            if (usuarioSessao.getStatus().getId() == 2) {
+                Toast.makeText(this, "Você não tem permissão para cadastrar usuários!", Toast.LENGTH_SHORT).show();
+            } else {
+                Intent intent = new Intent(this, CadastroUsuarioActivity.class);
+                startActivity(intent);
+            }
+        }catch (Exception e){
+            Log.e("bt cadastrar", e.getMessage());
+            Toast.makeText(this, "Ocorreu um erro!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -97,11 +108,16 @@ public class MenuActivity extends AppCompatActivity{
 
     @OnClick(R.id.bt_menu_sair)
     public void sair(){
-        SessaoUsuario.setUsuarioSessao(new Usuario());
-        System.out.println(SessaoUsuario.getUsuarioSessao().getNome() + " Saiu");
-        Intent intent = new Intent(this, PrimeiraConsulta.class);
-        startActivity(intent);
-        finish();
+        try {
+            SessaoUsuario.setUsuarioSessao(new Usuario());
+            System.out.println(SessaoUsuario.getUsuarioSessao().getNome() + " Saiu");
+            Intent intent = new Intent(this, PrimeiraConsulta.class);
+            startActivity(intent);
+            finish();
+        }catch (Exception e){
+            Log.e("sair", e.getMessage());
+            Toast.makeText(this, "Ocorreu um erro!", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

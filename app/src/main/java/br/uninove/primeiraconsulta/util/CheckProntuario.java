@@ -28,119 +28,180 @@ import br.uninove.primeiraconsulta.entidade.Prontuario;
 
 public class CheckProntuario {
 
-    public static boolean checkCampos(Prontuario p, Context context) {
-
-        if(!p.getNumProntuario().isEmpty() &&
-                p.getIdUsuario()!= null && !p.getRaUsuario().isEmpty() && !p.getNomeMedico().isEmpty() &&
-                !p.getSexo().isEmpty() && p.getIdade() != null && p.getPeso() != null && p.getAltura() != null){
-            return true;
-        }
-        return false;
-    }
-
-    public static Prontuario checkNumProntuario(Prontuario prontuario, EstiloDeVida estiloDeVida, ExameFisico exameFisico, Anamnese anamnese, List<ListaProblemas> listaProblemas, Context context) {
-        List<Prontuario> prontuarioLista = ProntuarioDao.buscarTodosProntuarios(context);
-        for (Prontuario pron : prontuarioLista) {
-            if(prontuario.getNumProntuario().equals(pron.getNumProntuario())){
-                return null;
+    public static boolean checkCampos(Prontuario p, Context context) throws Exception {
+        try {
+            if (!p.getNumProntuario().isEmpty() &&
+                    p.getIdUsuario() != null && !p.getRaUsuario().isEmpty() && !p.getNomeMedico().isEmpty() &&
+                    !p.getSexo().isEmpty() && p.getIdade() != null && p.getPeso() != null && p.getAltura() != null) {
+                return true;
             }
+            return false;
+        }catch (Exception e){
+            throw new Exception(e);
         }
+    }
 
-
-
-
-        prontuario = nadaConstaProntuario(prontuario);
-        estiloDeVida = nadaConstaEstiloDeVida(estiloDeVida);
-        anamnese = nadaConstaAnamnese(anamnese);
-
-        EstiloDeVidaDao.salvar(estiloDeVida, context);
-        ExameFisicoDao.salvar(exameFisico, context);
-        AnamneseDao.salvar(anamnese, context);
-
-        listaProblemas = nadaConstaListaProb(listaProblemas);
-        ListaProblemasDao.salvar(listaProblemas, prontuario, context);
-
-        estiloDeVida = EstiloDeVidaDao.buscarPorNumProntuario(prontuario, context);
-        exameFisico = ExameFisicoDao.buscarPorNumProntuario(prontuario, context);
-        anamnese = AnamneseDao.buscarPorNumProntuario(prontuario, context);
-
-        prontuario.setIdEstiloDeVida(estiloDeVida.getId());
-        prontuario.setIdExameFisico(exameFisico.getId());
-        prontuario.setIdAnamnese(anamnese.getId());
-
-        ProntuarioDao.salvar(prontuario, context);
-
-
-        prontuarioLista = ProntuarioDao.buscarTodosProntuarios(context);
-        for (Prontuario pron : prontuarioLista) {
-            if(prontuario.getNumProntuario().equals(pron.getNumProntuario())){
-                prontuario = pron;
+    public static Prontuario checkNumProntuario(Prontuario prontuario, EstiloDeVida estiloDeVida, ExameFisico exameFisico, Anamnese anamnese, List<ListaProblemas> listaProblemas, Context context) throws Exception {
+        try {
+            List<Prontuario> prontuarioLista = ProntuarioDao.buscarTodosProntuarios(context);
+            for (Prontuario pron : prontuarioLista) {
+                if (prontuario.getNumProntuario().equals(pron.getNumProntuario())) {
+                    return null;
+                }
             }
+
+
+            prontuario = nadaConstaProntuario(prontuario);
+            estiloDeVida = nadaConstaEstiloDeVida(estiloDeVida);
+            anamnese = nadaConstaAnamnese(anamnese);
+
+            EstiloDeVidaDao.salvar(estiloDeVida, context);
+            ExameFisicoDao.salvar(exameFisico, context);
+            AnamneseDao.salvar(anamnese, context);
+
+            listaProblemas = nadaConstaListaProb(listaProblemas);
+            ListaProblemasDao.salvar(listaProblemas, prontuario, context);
+
+            estiloDeVida = EstiloDeVidaDao.buscarPorNumProntuario(prontuario, context);
+            exameFisico = ExameFisicoDao.buscarPorNumProntuario(prontuario, context);
+            anamnese = AnamneseDao.buscarPorNumProntuario(prontuario, context);
+
+            prontuario.setIdEstiloDeVida(estiloDeVida.getId());
+            prontuario.setIdExameFisico(exameFisico.getId());
+            prontuario.setIdAnamnese(anamnese.getId());
+
+            ProntuarioDao.salvar(prontuario, context);
+
+
+            prontuarioLista = ProntuarioDao.buscarTodosProntuarios(context);
+            for (Prontuario pron : prontuarioLista) {
+                if (prontuario.getNumProntuario().equals(pron.getNumProntuario())) {
+                    prontuario = pron;
+                }
+            }
+
+            return prontuario;
+        }catch (Exception e){
+            throw new Exception(e);
         }
-
-        return prontuario;
     }
 
-    public static List<ListaProblemas> nadaConstaListaProb(List<ListaProblemas> listaProblemas) {
+    public static List<ListaProblemas> nadaConstaListaProb(List<ListaProblemas> listaProblemas) throws Exception {
+        try {
+            for (ListaProblemas lp : listaProblemas) {
+                if (lp.getDescricao().isEmpty()) {
+                    lp.setDescricao("N/D");
+                }
+                if (lp.getAcao().isEmpty()) {
+                    lp.setAcao("N/D");
+                }
+            }
 
-        for (ListaProblemas lp : listaProblemas) {
-            if(lp.getDescricao().isEmpty()){lp.setDescricao("N/D");}
-            if(lp.getAcao().isEmpty()){lp.setAcao("N/D");}
+            return listaProblemas;
+        }catch (Exception e){
+            throw new Exception(e);
         }
-
-        return listaProblemas;
     }
 
-    public static Anamnese nadaConstaAnamnese(Anamnese anamnese) {
+    public static Anamnese nadaConstaAnamnese(Anamnese anamnese) throws Exception {
+        try {
+            if (anamnese.getQueixa().isEmpty()) {
+                anamnese.setQueixa("N/D");
+            }
+            if (anamnese.getHistoriaDoenca().isEmpty()) {
+                anamnese.setHistoriaDoenca("N/D");
+            }
+            if (anamnese.getInterrogatorio().isEmpty()) {
+                anamnese.setInterrogatorio("N/D");
+            }
+            if (anamnese.getPercepcao().isEmpty()) {
+                anamnese.setPercepcao("N/D");
+            }
 
-        if(anamnese.getQueixa().isEmpty()){anamnese.setQueixa("N/D");}
-        if(anamnese.getHistoriaDoenca().isEmpty()){anamnese.setHistoriaDoenca("N/D");}
-        if(anamnese.getInterrogatorio().isEmpty()){anamnese.setInterrogatorio("N/D");}
-        if(anamnese.getPercepcao().isEmpty()){anamnese.setPercepcao("N/D");}
-
-        return anamnese;
+            return anamnese;
+        }catch (Exception e){
+            throw new Exception(e);
+        }
     }
 
-    public static Prontuario nadaConstaProntuario(Prontuario p){
-        if(p.getComentario().isEmpty()){p.setComentario("N/D");}
+    public static Prontuario nadaConstaProntuario(Prontuario p) throws Exception {
+        try {
+            if (p.getComentario().isEmpty()) {
+                p.setComentario("N/D");
+            }
 
-        return p;
+            return p;
+        }catch (Exception e){
+            throw new Exception(e);
+        }
     }
 
-    public static EstiloDeVida nadaConstaEstiloDeVida(EstiloDeVida estiloDeVida){
-        if(estiloDeVida.getGordura().isEmpty() || estiloDeVida.getGordura().equals("")){estiloDeVida.setGordura("N/D");}
-        if(estiloDeVida.getFibra().isEmpty() || estiloDeVida.getFibra().equals("")){estiloDeVida.setFibra("N/D");}
-        if(estiloDeVida.getCalcio().isEmpty() || estiloDeVida.getCalcio().equals("")){estiloDeVida.setCalcio("N/D");}
-        if(estiloDeVida.getSodio().isEmpty() || estiloDeVida.getSodio().equals("")){estiloDeVida.setSodio("N/D");}
-        if(estiloDeVida.getAcucar().isEmpty() || estiloDeVida.getAcucar().equals("")){estiloDeVida.setAcucar("N/D");}
-        if(estiloDeVida.getRefri().isEmpty() || estiloDeVida.getRefri().equals("")){estiloDeVida.setRefri("N/D");}
-        if(estiloDeVida.getAgua().isEmpty() || estiloDeVida.getAgua().equals("")){estiloDeVida.setAgua("N/D");}
-        if(estiloDeVida.getAtFisica().isEmpty() || estiloDeVida.getAtFisica().equals("")){estiloDeVida.setAtFisica("N/D");}
-        if(estiloDeVida.getSono().isEmpty() || estiloDeVida.getSono().equals("")){estiloDeVida.setSono("N/D");}
-        if(estiloDeVida.getSexualmenteAtivo().isEmpty() || estiloDeVida.getSexualmenteAtivo().equals("")){estiloDeVida.setSexualmenteAtivo("N/D");}
+    public static EstiloDeVida nadaConstaEstiloDeVida(EstiloDeVida estiloDeVida) throws Exception {
+        try {
+            if (estiloDeVida.getGordura().isEmpty() || estiloDeVida.getGordura().equals("")) {
+                estiloDeVida.setGordura("N/D");
+            }
+            if (estiloDeVida.getFibra().isEmpty() || estiloDeVida.getFibra().equals("")) {
+                estiloDeVida.setFibra("N/D");
+            }
+            if (estiloDeVida.getCalcio().isEmpty() || estiloDeVida.getCalcio().equals("")) {
+                estiloDeVida.setCalcio("N/D");
+            }
+            if (estiloDeVida.getSodio().isEmpty() || estiloDeVida.getSodio().equals("")) {
+                estiloDeVida.setSodio("N/D");
+            }
+            if (estiloDeVida.getAcucar().isEmpty() || estiloDeVida.getAcucar().equals("")) {
+                estiloDeVida.setAcucar("N/D");
+            }
+            if (estiloDeVida.getRefri().isEmpty() || estiloDeVida.getRefri().equals("")) {
+                estiloDeVida.setRefri("N/D");
+            }
+            if (estiloDeVida.getAgua().isEmpty() || estiloDeVida.getAgua().equals("")) {
+                estiloDeVida.setAgua("N/D");
+            }
+            if (estiloDeVida.getAtFisica().isEmpty() || estiloDeVida.getAtFisica().equals("")) {
+                estiloDeVida.setAtFisica("N/D");
+            }
+            if (estiloDeVida.getSono().isEmpty() || estiloDeVida.getSono().equals("")) {
+                estiloDeVida.setSono("N/D");
+            }
+            if (estiloDeVida.getSexualmenteAtivo().isEmpty() || estiloDeVida.getSexualmenteAtivo().equals("")) {
+                estiloDeVida.setSexualmenteAtivo("N/D");
+            }
 
-        return estiloDeVida;
+            return estiloDeVida;
+        }catch (Exception e){
+            throw new Exception(e);
+        }
     }
 
 
-    public static Float getImc(Integer peso, Float altura){
-        Float imc = peso / (altura*altura);
-        return imc;
+    public static Float getImc(Integer peso, Float altura) throws Exception {
+        try {
+            Float imc = peso / (altura * altura);
+            return imc;
+        }catch (Exception e){
+            throw new Exception(e);
+        }
     }
 
-    public static String getImcResultado(Float imc){
-        if(imc < 18.5){
-            return "Magreza.";
-        } else if (imc >= 18.5 && imc < 25){
-            return "Peso normal.";
-        } else if (imc >= 25 && imc < 30){
-            return "Sobrepeso.";
-        } else if (imc >= 30 && imc < 35){
-            return "Obesidade Classe I.";
-        } else if (imc >= 35 && imc < 40){
-            return "Obesidade Classe II.";
-        } else {
-            return "Obesidade Classe III.";
+    public static String getImcResultado(Float imc) throws Exception {
+        try {
+            if (imc < 18.5) {
+                return "Magreza.";
+            } else if (imc >= 18.5 && imc < 25) {
+                return "Peso normal.";
+            } else if (imc >= 25 && imc < 30) {
+                return "Sobrepeso.";
+            } else if (imc >= 30 && imc < 35) {
+                return "Obesidade Classe I.";
+            } else if (imc >= 35 && imc < 40) {
+                return "Obesidade Classe II.";
+            } else {
+                return "Obesidade Classe III.";
+            }
+        }catch (Exception e){
+            throw new Exception(e);
         }
     }
 

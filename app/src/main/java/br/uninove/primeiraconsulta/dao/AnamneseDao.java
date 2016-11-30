@@ -21,10 +21,11 @@ import br.uninove.primeiraconsulta.util.DbFactory;
 
 public class AnamneseDao {
 
-    public static void salvar(Anamnese anamnese, Context context){
+    public static void salvar(Anamnese anamnese, Context context) throws Exception {
         //Instancia o Banco de Dados
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         ContentValues values = new ContentValues();
+        try{
         //Persistindo valores do objeto no BD
         values.put(numProntuario, anamnese.getNumProntuario());
         values.put(queixaDuracao,anamnese.getQueixa());
@@ -40,16 +41,21 @@ public class AnamneseDao {
         }else{
             db.update(DbAnamnese.ANAMNESE_TB_NAME, values, "id = ?", new String[]{anamnese.getId().toString()});
         }
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
     }
 
-    public static List<Anamnese> buscarTodosProntuarios(Context context){
+    public static List<Anamnese> buscarTodosProntuarios(Context context) throws Exception {
         List<Anamnese> lista = new ArrayList<>();
 
         String sql = "select * from " + DbAnamnese.ANAMNESE_TB_NAME;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
 
@@ -67,17 +73,22 @@ public class AnamneseDao {
         }
 
 
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return lista;
     }
 
-    public static Anamnese buscarPorNumProntuario(Prontuario p, Context context){
+    public static Anamnese buscarPorNumProntuario(Prontuario p, Context context) throws Exception {
         List<Anamnese> lista = new ArrayList<>();
 
         String sql = "select * from " + DbAnamnese.ANAMNESE_TB_NAME;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
 
@@ -100,16 +111,21 @@ public class AnamneseDao {
             }
         }
 
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return null;
     }
 
-    public static Anamnese buscarPorId(Long id, Context context){
+    public static Anamnese buscarPorId(Long id, Context context) throws Exception {
 
         String sql = "select * from " + DbAnamnese.ANAMNESE_TB_NAME + " where ID = " + id;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
                 Anamnese anamnese = new Anamnese();
@@ -124,22 +140,35 @@ public class AnamneseDao {
             }while(cursor.moveToNext());
         }
 
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return null;
     }
 
 
-    public static void excluirAnamnese(Anamnese anamnese, Context context) {
+    public static void excluirAnamnese(Anamnese anamnese, Context context) throws Exception {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        try{
         db.delete(DbAnamnese.ANAMNESE_TB_NAME, "id =?", new String[]{anamnese.getId().toString()});
-        System.out.println("Anamnese: " + anamnese.getNumProntuario());
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
     }
 
-    public static void excluirTodosAnamnese(Prontuario p, Context context) {
+    public static void excluirTodosAnamnese(Prontuario p, Context context) throws Exception {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        try{
         db.delete(DbAnamnese.ANAMNESE_TB_NAME, "num_prontuario =?", new String[]{p.getNumProntuario().toString()});
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
     }
 
     public static final int ID = 0;

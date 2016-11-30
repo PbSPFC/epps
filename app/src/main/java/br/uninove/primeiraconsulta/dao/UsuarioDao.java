@@ -35,10 +35,11 @@ public class UsuarioDao {
 
 
 
-    public static void salvar(Usuario usuario, Context context){
+    public static void salvar(Usuario usuario, Context context) throws Exception {
         //Instancia o Banco de Dados
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         ContentValues values = new ContentValues();
+        try{
         //Persistindo valores do objeto no BD
         values.put(ra, usuario.getRa());
         values.put(senha, usuario.getSenha());
@@ -51,16 +52,21 @@ public class UsuarioDao {
         }else{
             db.update(DbUsuario.USUARIO_TB_NAME, values, "id = ?", new String[]{usuario.getId().toString()});
         }
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
 
     }
 
-    public static Usuario buscarUsuarioPorId(Long id, Context context){
+    public static Usuario buscarUsuarioPorId(Long id, Context context) throws Exception {
 
         String sql = "select * from " + DbUsuario.USUARIO_TB_NAME + " where ID = " + id;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
                 Usuario usuario = new Usuario();
@@ -77,18 +83,23 @@ public class UsuarioDao {
             }while(cursor.moveToNext());
         }
 
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return null;
     }
 
 
-    public static List<Usuario> buscarTodosUsuarios(Context context){
+    public static List<Usuario> buscarTodosUsuarios(Context context) throws Exception {
         List<Usuario> lista = new ArrayList<>();
 
         String sql = "select * from " + DbUsuario.USUARIO_TB_NAME;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
 
@@ -106,14 +117,23 @@ public class UsuarioDao {
         }
 
 
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return lista;
     }
 
-    public static void excluirUsuario(Usuario usuario, Context context) {
+    public static void excluirUsuario(Usuario usuario, Context context) throws Exception {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        try{
         db.delete(DbUsuario.USUARIO_TB_NAME, "id=?", new String[]{usuario.getId() + ""});
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
     }
 
 }

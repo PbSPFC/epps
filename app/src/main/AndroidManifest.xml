@@ -30,6 +30,9 @@
             android:windowSoftInputMode="stateHidden"></activity>
         <activity android:name=".activity.prontuario.excluir.ExcluirLogActivity"></activity>
         <activity android:name=".activity.prontuario.excluir.ExcluirProntuarioActivity"></activity>
-    </application>
 
+
+    </application>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 </manifest>

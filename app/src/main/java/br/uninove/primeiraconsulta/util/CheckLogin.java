@@ -14,23 +14,27 @@ import br.uninove.primeiraconsulta.entidade.Usuario;
 
 public class CheckLogin {
 
-    public static Usuario checklogin(String ra, String senha, Context context) {
+    public static Usuario checklogin(String ra, String senha, Context context) throws Exception {
 
-        List<Usuario> listaUsuarios = UsuarioDao.buscarTodosUsuarios(context);
-        for (Usuario u:listaUsuarios) {
-            if(ra.equals(u.getRa()) && senha.equals(u.getSenha())){
-                Usuario usuario = new Usuario();
-                usuario.setId(u.getId());
-                usuario.setRa(u.getRa());
-                usuario.setNome(u.getNome());
-                usuario.setSenha(u.getSenha());
-                usuario.setStatus(u.getStatus());
-                usuario.setEmail(u.getEmail());
-                return usuario;
+        try {
+            List<Usuario> listaUsuarios = UsuarioDao.buscarTodosUsuarios(context);
+            for (Usuario u : listaUsuarios) {
+                if (ra.equals(u.getRa()) && senha.equals(u.getSenha())) {
+                    Usuario usuario = new Usuario();
+                    usuario.setId(u.getId());
+                    usuario.setRa(u.getRa());
+                    usuario.setNome(u.getNome());
+                    usuario.setSenha(u.getSenha());
+                    usuario.setStatus(u.getStatus());
+                    usuario.setEmail(u.getEmail());
+                    return usuario;
+                }
             }
-        }
 
-        return null;
+            return null;
+        }catch (Exception e){
+            throw new Exception(e);
+        }
     }
 
 }

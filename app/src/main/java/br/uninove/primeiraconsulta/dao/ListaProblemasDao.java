@@ -19,10 +19,12 @@ import br.uninove.primeiraconsulta.util.DbFactory;
 
 public class ListaProblemasDao {
 
-    public static void salvar(List<ListaProblemas> lp, Prontuario prontuario, Context context){
+    public static void salvar(List<ListaProblemas> lp, Prontuario prontuario, Context context) throws Exception {
         //Instancia o Banco de Dados
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         ContentValues values = new ContentValues();
+
+        try{
         //Persistindo valores do objeto no BD
         for (ListaProblemas listaProblemas:lp) {
             listaProblemas.setNumProntuario(prontuario.getNumProntuario());
@@ -40,18 +42,21 @@ public class ListaProblemasDao {
                 db.update(DbListaProblemas.LISTA_PROBLEMAS_TB_NAME, values, "id = ?", new String[]{listaProblemas.getId().toString()});
             }
         }
-        
-
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
     }
 
-    public static List<ListaProblemas> buscarTodos(Context context){
+    public static List<ListaProblemas> buscarTodos(Context context) throws Exception {
         List<ListaProblemas> lista = new ArrayList<>();
 
         String sql = "select * from " + DbListaProblemas.LISTA_PROBLEMAS_TB_NAME;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
 
@@ -66,18 +71,23 @@ public class ListaProblemasDao {
             }while(cursor.moveToNext());
         }
 
-
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return lista;
     }
 
-    public static List<ListaProblemas> buscarPorNumProntuario(Prontuario p, Context context){
+    public static List<ListaProblemas> buscarPorNumProntuario(Prontuario p, Context context) throws Exception {
         List<ListaProblemas> lista = new ArrayList<>();
+        List<ListaProblemas> listaAtualizada = new ArrayList<>();
 
         String sql = "select * from " + DbListaProblemas.LISTA_PROBLEMAS_TB_NAME;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
 
@@ -91,25 +101,27 @@ public class ListaProblemasDao {
 
             }while(cursor.moveToNext());
         }
-
-        List<ListaProblemas> listaAtualizada = new ArrayList<>();
 
         for (ListaProblemas lp : lista) {
             if(p.getNumProntuario().equals(lp.getNumProntuario())){
                 listaAtualizada.add(lp);
             }
         }
-
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return listaAtualizada;
     }
 
-    public static ListaProblemas buscarPorId(Long id, Context context){
+    public static ListaProblemas buscarPorId(Long id, Context context) throws Exception {
 
         String sql = "select * from " + DbListaProblemas.LISTA_PROBLEMAS_TB_NAME + " where ID = " + id;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
                 ListaProblemas listaProblemas = new ListaProblemas();
@@ -122,23 +134,35 @@ public class ListaProblemasDao {
             }while(cursor.moveToNext());
         }
 
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return null;
     }
 
 
-    public static void excluirListaProblemas(ListaProblemas listaProblemas, Context context) {
+    public static void excluirListaProblemas(ListaProblemas listaProblemas, Context context) throws Exception {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        try{
         db.delete(DbListaProblemas.LISTA_PROBLEMAS_TB_NAME, "id =?", new String[]{listaProblemas.getId().toString()});
-        System.out.println("ListaProblemas: " + listaProblemas.getNumProntuario());
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
     }
 
-    public static void excluirListaProblemasNumProntuario(Prontuario prontuario, Context context) {
+    public static void excluirListaProblemasNumProntuario(Prontuario prontuario, Context context) throws Exception {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        try{
         db.delete(DbListaProblemas.LISTA_PROBLEMAS_TB_NAME, "num_prontuario =?", new String[]{prontuario.getNumProntuario().toString()});
-        System.out.println("ListaProblemas: " + prontuario.getNumProntuario());
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
     }
 
     public static final int ID = 0;

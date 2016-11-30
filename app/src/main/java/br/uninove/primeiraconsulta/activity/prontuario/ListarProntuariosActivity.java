@@ -4,7 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import br.uninove.primeiraconsulta.R;
 import br.uninove.primeiraconsulta.activity.prontuario.adapter.ProntuarioListAdapter;
@@ -49,8 +51,13 @@ public class ListarProntuariosActivity extends AppCompatActivity{
     }
 
     private void atualizar() {
-        ProntuarioListAdapter adapter = new ProntuarioListAdapter(this, CheckListaProntuario.checkProntuarioUsuarioId(usuarioSessao.getId(),this));
-        listViewProntuario.setAdapter(adapter);
+        try {
+            ProntuarioListAdapter adapter = new ProntuarioListAdapter(this, CheckListaProntuario.checkProntuarioUsuarioId(usuarioSessao.getId(), this));
+            listViewProntuario.setAdapter(adapter);
+        }catch (Exception e){
+            Log.e("list view prontuario", e.getMessage());
+            Toast.makeText(this, "Ocorreu um erro!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @OnClick(R.id.bt_listar_voltar)

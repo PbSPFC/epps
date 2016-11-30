@@ -20,10 +20,11 @@ import br.uninove.primeiraconsulta.util.DbFactory;
 public class EstiloDeVidaDao {
 
 
-    public static void salvar(EstiloDeVida estiloDeVida, Context context){
+    public static void salvar(EstiloDeVida estiloDeVida, Context context) throws Exception {
         //Instancia o Banco de Dados
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         ContentValues values = new ContentValues();
+        try{
         //Persistindo valores do objeto no BD
         values.put(numProntuario, estiloDeVida.getNumProntuario());
 
@@ -88,16 +89,21 @@ public class EstiloDeVidaDao {
         }else{
             db.update(DbEstiloDeVida.ESTILO_DE_VIDA_TB_NAME, values, "id = ?", new String[]{estiloDeVida.getId().toString()});
         }
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
     }
 
-    public static List<EstiloDeVida> buscarTodosProntuarios(Context context){
+    public static List<EstiloDeVida> buscarTodosProntuarios(Context context) throws Exception {
         List<EstiloDeVida> lista = new ArrayList<>();
 
         String sql = "select * from " + DbEstiloDeVida.ESTILO_DE_VIDA_TB_NAME;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
 
@@ -165,11 +171,15 @@ public class EstiloDeVidaDao {
         }
 
 
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return lista;
     }
 
-    public static EstiloDeVida buscarPorNumProntuario(Prontuario p, Context context){
+    public static EstiloDeVida buscarPorNumProntuario(Prontuario p, Context context) throws Exception {
 
         List<EstiloDeVida> lista = new ArrayList<>();
 
@@ -177,6 +187,7 @@ public class EstiloDeVidaDao {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
 
@@ -250,16 +261,21 @@ public class EstiloDeVidaDao {
             }
         }
 
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return null;
     }
 
-    public static EstiloDeVida buscarPorId(Long id, Context context){
+    public static EstiloDeVida buscarPorId(Long id, Context context) throws Exception {
 
         String sql = "select * from " + DbEstiloDeVida.ESTILO_DE_VIDA_TB_NAME + " where ID = " + id;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
                 EstiloDeVida estiloDeVida = new EstiloDeVida();
@@ -324,15 +340,23 @@ public class EstiloDeVidaDao {
             }while(cursor.moveToNext());
         }
 
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return null;
     }
 
-    public static void excluirEstiloDeVida(EstiloDeVida estiloDeVida, Context context) {
+    public static void excluirEstiloDeVida(EstiloDeVida estiloDeVida, Context context) throws Exception {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        try{
         db.delete(DbEstiloDeVida.ESTILO_DE_VIDA_TB_NAME, "id =?", new String[]{estiloDeVida.getId().toString()});
-        System.out.println("Paciente: " + estiloDeVida.getNumProntuario());
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
     }
 
     public static final int ID = 0;

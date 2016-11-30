@@ -16,12 +16,13 @@ public class StatusDao {
 
     public static final StatusDao statusDao = new StatusDao();
 
-    public static Status buscaStatusPorId(Long id, Context context){
+    public static Status buscaStatusPorId(Long id, Context context) throws Exception {
 
         String sql = "select * from " + DbStatus.STATUS_TB_NAME + " where ID = " + id;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
                 Status status = new Status();
@@ -32,7 +33,11 @@ public class StatusDao {
             }while(cursor.moveToNext());
         }
 
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return null;
     }
 

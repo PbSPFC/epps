@@ -26,10 +26,12 @@ public class ProntuarioDao {
 
 
 
-    public static void salvar(Prontuario prontuario, Context context){
+    public static void salvar(Prontuario prontuario, Context context) throws Exception {
         //Instancia o Banco de Dados
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         ContentValues values = new ContentValues();
+
+        try{
         //Persistindo valores do objeto no BD
         values.put(numProntuario, prontuario.getNumProntuario());
 
@@ -58,16 +60,22 @@ public class ProntuarioDao {
         }else{
             db.update(DbProntuario.PRONTUARIO_TB_NAME, values, "id = ?", new String[]{prontuario.getId().toString()});
         }
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
     }
 
-    public static List<Prontuario> buscarTodosProntuarios(Context context){
+    public static List<Prontuario> buscarTodosProntuarios(Context context) throws Exception {
         List<Prontuario> lista = new ArrayList<>();
 
         String sql = "select * from " + DbProntuario.PRONTUARIO_TB_NAME;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+
+        try{
         if(cursor.moveToFirst()){
             do{
 
@@ -97,20 +105,29 @@ public class ProntuarioDao {
         }
 
 
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return lista;
     }
 
 
-    public static void excluirProntuario(Prontuario prontuario, EstiloDeVida estiloDeVida, ExameFisico exameFisico, Anamnese anamnese, List<ListaProblemas> listaProblemases, Context context) {
+    public static void excluirProntuario(Prontuario prontuario, EstiloDeVida estiloDeVida, ExameFisico exameFisico, Anamnese anamnese, List<ListaProblemas> listaProblemases, Context context) throws Exception {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        try{
         ExameFisicoDao.excluirExameFisico(exameFisico, context);
         EstiloDeVidaDao.excluirEstiloDeVida(estiloDeVida, context);
         AnamneseDao.excluirAnamnese(anamnese, context);
         ListaProblemasDao.excluirListaProblemasNumProntuario(prontuario, context);
 
         db.delete(DbProntuario.PRONTUARIO_TB_NAME, "id=?", new String[]{prontuario.getId() + ""});
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
     }
 
 

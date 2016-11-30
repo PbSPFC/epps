@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import br.uninove.primeiraconsulta.R;
 import br.uninove.primeiraconsulta.activity.prontuario.adapter.LogProntuarioAdapter;
@@ -62,8 +64,13 @@ public class LogProntuarioActivity extends AppCompatActivity{
     }
 
     private void atualizar() {
-        LogProntuarioAdapter adapter = new LogProntuarioAdapter(this, CheckListaProntuario.checkProntuarioNumProntuario(prontuario.getNumProntuario(),this));
-        lvLog.setAdapter(adapter);
+        try {
+            LogProntuarioAdapter adapter = new LogProntuarioAdapter(this, CheckListaProntuario.checkProntuarioNumProntuario(prontuario.getNumProntuario(), this));
+            lvLog.setAdapter(adapter);
+        }catch (Exception e){
+            Log.e("log list view", e.getMessage());
+            Toast.makeText(this, "Ocorreu um erro!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @OnClick(R.id.bt_log_voltar)

@@ -20,10 +20,11 @@ import br.uninove.primeiraconsulta.util.DbFactory;
 
 public class LogExameFisicoDao {
 
-    public static void salvar(ExameFisico exameFisico, Context context){
+    public static void salvar(ExameFisico exameFisico, Context context) throws Exception {
         //Instancia o Banco de Dados
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         ContentValues values = new ContentValues();
+        try{
         //Persistindo valores do objeto no BD
         values.put(numProntuario, exameFisico.getNumProntuario());
 
@@ -49,17 +50,20 @@ public class LogExameFisicoDao {
 
 
         db.insert(DbLogExameFisico.EXAME_FISICO_TB_NAME, null, values);
-
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
     }
 
-    public static List<ExameFisico> buscarTodosProntuarios(Context context){
+    public static List<ExameFisico> buscarTodosProntuarios(Context context) throws Exception {
         List<ExameFisico> lista = new ArrayList<>();
 
         String sql = "select * from " + DbLogExameFisico.EXAME_FISICO_TB_NAME;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
-
+        try{
         if(cursor.moveToFirst()){
             do{
 
@@ -92,17 +96,21 @@ public class LogExameFisicoDao {
         }
 
 
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return lista;
     }
 
-    public static ExameFisico buscarPorNumProntuario(Prontuario p, Context context){
+    public static ExameFisico buscarPorNumProntuario(Prontuario p, Context context) throws Exception {
         List<ExameFisico> lista = new ArrayList<>();
 
         String sql = "select * from " + DbLogExameFisico.EXAME_FISICO_TB_NAME;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
-
+        try{
         if(cursor.moveToFirst()){
             do{
 
@@ -142,16 +150,21 @@ public class LogExameFisicoDao {
 
 
 
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return null;
     }
 
-    public static ExameFisico buscarPorId(Long id, Context context){
+    public static ExameFisico buscarPorId(Long id, Context context) throws Exception {
 
         String sql = "select * from " + DbLogExameFisico.EXAME_FISICO_TB_NAME + " where ID = " + id;
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
+        try{
         if(cursor.moveToFirst()){
             do{
                 ExameFisico exameFisico = new ExameFisico();
@@ -181,21 +194,35 @@ public class LogExameFisicoDao {
             }while(cursor.moveToNext());
         }
 
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
         return null;
     }
 
 
-    public static void excluirExameFisico(ExameFisico exameFisico, Context context) {
+    public static void excluirExameFisico(ExameFisico exameFisico, Context context) throws Exception {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        try{
         db.delete(DbLogExameFisico.EXAME_FISICO_TB_NAME, "id =?", new String[]{exameFisico.getId().toString()});
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
     }
 
-    public static void excluirTodosExameFisico(Prontuario p, Context context) {
+    public static void excluirTodosExameFisico(Prontuario p, Context context) throws Exception {
         SQLiteDatabase db = DbFactory.getDB(context).getWritableDatabase();
+        try{
         db.delete(DbLogExameFisico.EXAME_FISICO_TB_NAME, "num_prontuario =?", new String[]{p.getId().toString()});
-        db.close();
+        }catch (Exception e){
+            throw new Exception(e);
+        }finally {
+            db.close();
+        }
     }
 
     public static final int ID = 0;
