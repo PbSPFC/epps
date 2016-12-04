@@ -17,6 +17,39 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:text="Primeira Consulta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_primeira_consulta"
+                android:gravity="center"
+                android:fontFamily="cursive"
+                android:layout_marginTop="25dp"
+                android:textSize="42sp"
+                android:textColor="@color/branco" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="Name"
+                android:ems="10"
+                android:id="@+id/edFocus"
+                android:clickable="false"
+                android:editable="false"
+                android:enabled="false">
+                <requestFocus />
+            </EditText>
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/logo"
+                android:layout_centerHorizontal="true" />
+
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -24,8 +57,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/layout_border">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -48,7 +80,8 @@
                             android:id="@+id/tv_menu_1"
                             android:textSize="18sp"
                             android:textStyle="normal|bold"
-                            android:textAllCaps="true" />
+                            android:textAllCaps="false"
+                            android:textColor="@color/branco"/>
 
                         <TextView
                             android:text="Nome: "
@@ -57,7 +90,8 @@
                             android:id="@+id/tv_menu_3"
                             android:textSize="18sp"
                             android:textStyle="normal|bold"
-                            android:textAllCaps="true" />
+                            android:textAllCaps="false"
+                            android:textColor="@color/branco"/>
 
                         <TextView
                             android:text="Status: "
@@ -67,7 +101,8 @@
                             tools:text="Status: "
                             android:textSize="18sp"
                             android:textStyle="normal|bold"
-                            android:textAllCaps="true" />
+                            android:textAllCaps="false"
+                            android:textColor="@color/branco"/>
 
                         <TextView
                             android:text="E-Mail: "
@@ -76,7 +111,8 @@
                             android:id="@+id/tv_menu_5"
                             android:textSize="18sp"
                             android:textStyle="normal|bold"
-                            android:textAllCaps="true" />
+                            android:textAllCaps="false"
+                            android:textColor="@color/branco" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -89,28 +125,32 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/tv_menu_ra"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textColor="@color/branco"/>
 
                         <TextView
                             android:text="TextView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/tv_menu_nome"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textColor="@color/branco"/>
 
                         <TextView
                             android:text="TextView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/tv_menu_status"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textColor="@color/branco"/>
 
                         <TextView
                             android:text="TextView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/tv_menu_email"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textColor="@color/branco"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -156,43 +196,56 @@
 
                                 <LinearLayout
                                     android:orientation="vertical"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:layout_marginTop="20dp"
                                     android:layout_marginLeft="50dp"
                                     android:layout_marginRight="50dp"
-                                    android:layout_marginBottom="20dp">
+                                    android:layout_marginBottom="20dp"
+                                    android:layout_gravity="center">
 
                                     <Button
                                         android:text="@string/cadastrar_aluno"
-                                        android:layout_width="match_parent"
+                                        android:drawableLeft="@drawable/cadastro"
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:id="@+id/bt_menu_cadastrar"
-                                        android:background="@drawable/button01"/>
+                                        android:gravity="center"
+                                        android:background="@drawable/button01"
+                                        android:textAllCaps="false" />
 
                                     <Button
                                         android:text="@string/novo_prontuario"
-                                        android:layout_width="match_parent"
+                                        android:drawableLeft="@drawable/novo_prontuario"
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:id="@+id/bt_menu_novo_prontuario"
-                                        android:layout_marginTop="14dp"
-                                        android:background="@drawable/button01" />
+                                        android:layout_marginTop="15dp"
+                                        android:gravity="center"
+                                        android:background="@drawable/button01"
+                                        android:textAllCaps="false" />
 
                                     <Button
                                         android:text="@string/ver_prontuarios"
-                                        android:layout_width="match_parent"
+                                        android:drawableLeft="@drawable/ver"
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:id="@+id/bt_menu_listar_prontuarios"
-                                        android:layout_marginTop="16dp"
-                                        android:background="@drawable/button01"/>
+                                        android:layout_marginTop="15dp"
+                                        android:gravity="center"
+                                        android:background="@drawable/button01"
+                                        android:textAllCaps="false" />
 
                                     <Button
                                         android:text="@string/sair"
-                                        android:layout_width="match_parent"
+                                        android:drawableLeft="@drawable/logout"
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:id="@+id/bt_menu_sair"
-                                        android:layout_marginTop="16dp"
-                                        android:background="@drawable/button01"/>
+                                        android:layout_marginTop="15dp"
+                                        android:gravity="center"
+                                        android:background="@drawable/button01"
+                                        android:textAllCaps="false" />
                                 </LinearLayout>
                             </LinearLayout>
 

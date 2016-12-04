@@ -22,22 +22,31 @@
                 android:text="Primeira Consulta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView86"
+                android:id="@+id/tv_primeira_consulta"
                 android:gravity="center"
                 android:fontFamily="cursive"
                 android:layout_marginTop="25dp"
                 android:textSize="42sp"
-                android:textColor="@android:color/background_light" />
+                android:textColor="@color/branco" />
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/logo"
+                android:layout_centerHorizontal="true" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
                 android:elevation="6dp"
-                android:background="@drawable/layout_border">
+                android:background="@drawable/button01">
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -50,35 +59,7 @@
 
                     <LinearLayout
                         android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/crm_ra"
-                            android:textSize="24sp"
-                            android:id="@+id/tv_ra"
-                            android:textStyle="normal|bold"
-                            android:textAllCaps="false"
-                            android:layout_weight="1" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/senha"
-                            android:textSize="24sp"
-                            tools:text="Senha:"
-                            android:id="@+id/tv_senha"
-                            android:textStyle="normal|bold"
-                            android:textAllCaps="false"
-                            android:layout_weight="1" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <EditText
@@ -87,7 +68,8 @@
                             android:inputType="number"
                             android:ems="10"
                             android:id="@+id/ed_ra"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:hint="CRM/RA" />
 
                         <EditText
                             android:layout_width="match_parent"
@@ -95,7 +77,9 @@
                             android:inputType="textPassword"
                             android:ems="10"
                             android:id="@+id/ed_senha"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:hint="Senha"
+                            android:drawableRight="@drawable/lock"/>
 
                     </LinearLayout>
 
@@ -105,13 +89,15 @@
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp">
+                android:layout_marginRight="25dp"
+                android:layout_gravity="center">
 
                 <Button
                     android:text="@string/conectar"
+                    android:drawableLeft="@drawable/login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/bt_login"

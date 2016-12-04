@@ -2,6 +2,7 @@ package br.uninove.primeiraconsulta.activity.prontuario;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -32,7 +33,8 @@ public class LogProntuarioActivity extends AppCompatActivity{
 
     @Bind(R.id.lv_listar_log)
     ListView lvLog;
-
+    @Bind(R.id.tvHistorico)
+    TextView tvHistorico;
     @Bind(R.id.tv_log_num_prontuario)
     TextView tvNumProntuario;
 
@@ -45,6 +47,13 @@ public class LogProntuarioActivity extends AppCompatActivity{
         LogProntuarioActivity.context = getApplicationContext();
         setContentView(R.layout.activity_listar_historico);
         ButterKnife.bind(this);
+
+        try {
+            Typeface font = Typeface.createFromAsset(getAssets(), "fonts/blacksword.otf");
+            tvHistorico.setTypeface(font);
+        }catch (Exception e){
+
+        }
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();

@@ -1,11 +1,13 @@
 package br.uninove.primeiraconsulta.activity.prontuario;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import br.uninove.primeiraconsulta.R;
@@ -29,6 +31,8 @@ public class ListarProntuariosActivity extends AppCompatActivity{
     }
 
 
+    @Bind(R.id.tvProntuarios)
+    TextView tvProntuarios;
     @Bind(R.id.lv_listar_lista)
     ListView listViewProntuario;
 
@@ -40,7 +44,12 @@ public class ListarProntuariosActivity extends AppCompatActivity{
         ListarProntuariosActivity.context = getApplicationContext();
         setContentView(R.layout.activity_listar_prontuarios);
         ButterKnife.bind(this);
+        try {
+            Typeface font = Typeface.createFromAsset(getAssets(), "fonts/blacksword.otf");
+            tvProntuarios.setTypeface(font);
+        }catch (Exception e){
 
+        }
 
     }
 

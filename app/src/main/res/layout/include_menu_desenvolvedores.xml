@@ -27,7 +27,7 @@
                 android:text="Desenvolvedores"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textVieasdw102"
+                android:id="@+id/tv_desenvolvedores"
                 android:gravity="center"
                 android:textSize="24sp"
                 android:layout_marginBottom="18dp"
@@ -35,6 +35,7 @@
 
             <TextView
                 android:text="Cauê Nogueira (Pb Nogueira/Saiyajin)"
+                android:drawableLeft="@drawable/ssj2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textVieasasw105"
@@ -43,41 +44,60 @@
 
             <TextView
                 android:text="Edson Melo (Regis Tadeu)"
+                android:drawableLeft="@drawable/regis_tadeu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView107"
                 android:textStyle="normal|bold"
+                android:layout_marginTop="10dp"
                 android:textSize="18sp" />
 
             <TextView
-                android:text="Paulo (Espadilha)"
+                android:text="José Warlly Lima (Barba Man)"
+                android:drawableLeft="@drawable/barbaman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/textView110"
+                android:textStyle="normal|bold"
+                android:textSize="18sp" />
+
+            <TextView
+                android:text="Paulo (Espadilha / Jack Black)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView108"
                 android:textStyle="normal|bold"
-                android:textSize="18sp" />
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:drawableLeft="@drawable/jackblack"/>
 
             <TextView
                 android:text="Tayllor Oliveira"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView109"
+                android:layout_marginTop="10dp"
                 android:textSize="18sp"
                 android:textStyle="normal|bold" />
 
             <TextView
-                android:text="José Warlly Lima (Barba Man)"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView110"
-                android:textStyle="normal|bold"
-                android:textSize="18sp" />
+            android:text="William Minininha Soares (P.H Ganso)"
+            android:drawableLeft="@drawable/ganso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+            android:id="@+id/textVasddiew106"
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
 
             <TextView
-                android:text="William Minininha Soares (P.H Ganso)"
+                android:text="Participação Especial: Lineu"
+                android:drawableLeft="@drawable/lineu"
                 android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/textVasddiew106"
+                android:id="@+id/textVasddasdiew106"
                 android:textStyle="normal|bold"
                 android:textSize="18sp" />
 

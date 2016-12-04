@@ -1,11 +1,13 @@
 package br.uninove.primeiraconsulta.activity.cadastro;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import br.uninove.primeiraconsulta.R;
@@ -20,6 +22,9 @@ import butterknife.OnClick;
  */
 
 public class CadastroUsuarioActivity extends AppCompatActivity {
+
+    @Bind(R.id.tv_cadastro)
+    TextView tvCadastro;
 
     @Bind(R.id.ed_cad_nome)
     EditText edNome;
@@ -39,6 +44,15 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_usuario);
         ButterKnife.bind(this);
+
+        try {
+            Typeface font = Typeface.createFromAsset(getAssets(), "fonts/blacksword.otf");
+            tvCadastro.setTypeface(font);
+        }catch (Exception e){
+
+        }
+
+
     }
 
     @OnClick(R.id.bt_cad_cadastrar)

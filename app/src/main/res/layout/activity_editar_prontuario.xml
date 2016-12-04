@@ -193,6 +193,7 @@
 
                 <Button
                     android:text="Salvar"
+                    android:drawableLeft="@drawable/save"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/bt_editar_salvar"
@@ -201,10 +202,12 @@
                     android:layout_marginRight="25dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button01"/>
+                    android:background="@drawable/button01"
+                    android:textAllCaps="false" />
 
                 <Button
                     android:text="Voltar"
+                    android:drawableLeft="@drawable/voltar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/bt_editar_voltar"
@@ -213,7 +216,8 @@
                     android:layout_marginRight="25dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button01"/>
+                    android:background="@drawable/button01"
+                    android:textAllCaps="false" />
 
             </LinearLayout>
 

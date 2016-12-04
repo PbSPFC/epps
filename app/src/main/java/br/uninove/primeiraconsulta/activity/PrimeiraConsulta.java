@@ -1,6 +1,7 @@
 package br.uninove.primeiraconsulta.activity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import br.uninove.primeiraconsulta.R;
@@ -25,6 +27,8 @@ import butterknife.OnClick;
 
 public class PrimeiraConsulta extends AppCompatActivity {
 
+    @Bind(R.id.tv_primeira_consulta)
+    TextView tvPrimeiraConsulta;
     @Bind(R.id.ed_ra)
     EditText edRA;
     @Bind(R.id.ed_senha)
@@ -37,6 +41,12 @@ public class PrimeiraConsulta extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ButterKnife.bind(this);
+        try {
+            Typeface font = Typeface.createFromAsset(getAssets(), "fonts/blacksword.otf");
+            tvPrimeiraConsulta.setTypeface(font);
+        }catch (Exception e){
+
+        }
 
     }
 

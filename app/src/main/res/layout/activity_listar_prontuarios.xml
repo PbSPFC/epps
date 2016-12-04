@@ -5,17 +5,25 @@
     android:weightSum="1"
     android:background="@drawable/background_gradient">
 
-    <TextView
-        android:text="Prontuários"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:textStyle="normal|bold"
-        android:textAllCaps="false"
-        android:gravity="center"
-        android:textSize="36sp"
-        android:fontFamily="cursive"
-        android:textColor="@android:color/background_light" />
+        android:layout_gravity="center">
+
+        <TextView
+            android:text="Prontuários"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvProntuarios"
+            android:textStyle="normal|bold"
+            android:textAllCaps="false"
+            android:gravity="center"
+            android:textSize="36sp"
+            android:fontFamily="cursive"
+            android:textColor="@android:color/background_light"
+            android:drawableRight="@drawable/logo_50px"/>
+    </LinearLayout>
 
     <ListView
         android:layout_width="match_parent"
@@ -31,6 +39,7 @@
 
     <Button
         android:text="Voltar"
+        android:drawableLeft="@drawable/voltar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bt_listar_voltar"

@@ -67,15 +67,19 @@ public class DbUsuario {
             "(" +
             "'333', '123', 'BarbaMan (Kbooom)', 'explodindo@email.com', 1" +
             ")";
+    public static final String USUARIO_INSERT_RAFAEL = "INSERT INTO " + USUARIO_TB_NAME + "(RA, SENHA, NOME," +
+            "EMAIL, STATUS_ID) VALUES" +
+            "(" +
+            "'111', '123', 'Rafael', 'rafael@email.com', 1" +
+            ")";
+    public static final String USUARIO_INSERT_DEBORA = "INSERT INTO " + USUARIO_TB_NAME + "(RA, SENHA, NOME," +
+            "EMAIL, STATUS_ID) VALUES" +
+            "(" +
+            "'123', '123', 'Débora', 'debora@email.com', 1" +
+            ")";
     public static final String USUARIO_INSERT_PB = "INSERT INTO " + USUARIO_TB_NAME + "(RA, SENHA, NOME," +
             "EMAIL, STATUS_ID) VALUES" +
             "(" +
             "'11', '123', 'Pb (Saiyajin)', 'pb_nogueira@hotmail.com', 1" +
             ")";
-    public static final String USUARIO_INSERT_CHAVES = "INSERT INTO " + USUARIO_TB_NAME + "(RA, SENHA, NOME," +
-            "EMAIL, STATUS_ID) VALUES" +
-            "(" +
-            "'123', '123', 'Turma do Chaves', 'chavinho_nao_tem_biscoito@email.com', 1" +
-            ")";
-
 }

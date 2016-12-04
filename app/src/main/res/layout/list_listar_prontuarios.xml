@@ -54,37 +54,50 @@
 
                 <Button
                     android:text="Ver"
+                    android:drawableTop="@drawable/ver"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/bt_lista_ver"
                     android:layout_weight="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="5dp"
                     android:background="@drawable/button02"
                     android:textAllCaps="false" />
 
                 <Button
                     android:text="Editar"
+                    android:drawableTop="@drawable/edit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/bt_lista_editar"
                     android:layout_weight="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="5dp"
                     android:background="@drawable/button02"
                     android:textAllCaps="false" />
 
                 <Button
+                    android:text="Histórico"
+                    android:drawableTop="@drawable/historico"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bt_lista_log"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/button02"
+                    android:textAllCaps="false"
+                    android:textSize="12sp" />
+
+                <Button
                     android:text="Excluir"
+                    android:drawableTop="@drawable/trash"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/bt_lista_excluir"
                     android:layout_weight="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="5dp"
                     android:background="@drawable/button02"
                     android:textAllCaps="false" />
 
@@ -94,28 +107,6 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
-                <Button
-                    android:text="Histórico"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/bt_lista_log"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/button02"
-                    android:textAllCaps="false" />
-
-                <Button
-                    android:text="Gerar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/bt_lista_gerar"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/button02"
-                    android:textAllCaps="false" />
 
             </LinearLayout>
 

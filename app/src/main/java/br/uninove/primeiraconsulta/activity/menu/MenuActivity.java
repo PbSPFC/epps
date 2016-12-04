@@ -1,10 +1,12 @@
 package br.uninove.primeiraconsulta.activity.menu;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +30,9 @@ public class MenuActivity extends AppCompatActivity{
 
     TabHost tabHost;
 
+    @Bind(R.id.tv_primeira_consulta)
+    TextView tvPrimeiraConsulta;
+
     @Bind(R.id.tv_menu_ra)
     TextView tvRA;
 
@@ -40,6 +45,13 @@ public class MenuActivity extends AppCompatActivity{
     @Bind(R.id.tv_menu_email)
     TextView tvEmail;
 
+    @Bind(R.id.tv_colaboradores)
+    TextView tvColaboradores;
+    @Bind(R.id.tv_desenvolvedores)
+    TextView tvDesenvolvedores;
+
+    @Bind(R.id.edFocus)
+    EditText edFocus;
 
     Usuario usuarioSessao = SessaoUsuario.getUsuarioSessao();
 
@@ -73,6 +85,17 @@ public class MenuActivity extends AppCompatActivity{
             tvStatus.setText(usuarioSessao.getStatus().getStatus());
             tvNome.setText(usuarioSessao.getNome());
             tvEmail.setText(usuarioSessao.getEmail());
+
+            try {
+                Typeface font = Typeface.createFromAsset(getAssets(), "fonts/blacksword.otf");
+                tvPrimeiraConsulta.setTypeface(font);
+                tvColaboradores.setTypeface(font);
+                tvDesenvolvedores.setTypeface(font);
+
+            }catch (Exception e){
+
+            }
+            edFocus.requestFocus();
         }catch (Exception e){
             Log.e("menu", e.getMessage());
             Toast.makeText(this, "Ocorreu um erro!", Toast.LENGTH_SHORT).show();

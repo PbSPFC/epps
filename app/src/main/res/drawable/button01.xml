@@ -6,19 +6,19 @@
     <gradient
         android:angle="45"
         android:centerX="35%"
-        android:centerColor="@color/branco"
+        android:centerColor="@color/branco_bk"
         android:startColor="@color/button_1"
         android:endColor="@color/button_2"
         android:type="linear"
         />
     <padding
-        android:left="0dp"
-        android:top="0dp"
-        android:right="0dp"
-        android:bottom="0dp"
+        android:left="10dp"
+        android:top="10dp"
+        android:right="10dp"
+        android:bottom="10dp"
         />
     <size
-        android:width="270dp"
+        android:width="180dp"
         android:height="30dp"
         />
     <stroke

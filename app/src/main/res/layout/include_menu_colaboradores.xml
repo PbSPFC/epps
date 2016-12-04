@@ -27,7 +27,7 @@
                 android:text="Colaboradores"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView102"
+                android:id="@+id/tv_colaboradores"
                 android:gravity="center"
                 android:textSize="24sp"
                 android:layout_marginBottom="18dp"

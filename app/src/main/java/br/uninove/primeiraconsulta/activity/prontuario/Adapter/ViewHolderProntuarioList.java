@@ -5,6 +5,10 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.opencsv.CSVWriter;
+
+import java.io.File;
+import java.io.FileWriter;
 import java.io.Serializable;
 import java.util.List;
 
@@ -99,11 +103,6 @@ public class ViewHolderProntuarioList {
         }
     }
 
-    @OnClick(R.id.bt_lista_gerar)
-    public void btGerar(){
-        Toast.makeText(ListarProntuariosActivity.getContext(), "Tela não foi implementada ainda, tente novamente no futuro."
-                , Toast.LENGTH_SHORT).show();
-    }
 
     @OnClick(R.id.bt_lista_log)
     public void btLog(){

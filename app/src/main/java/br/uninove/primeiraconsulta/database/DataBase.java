@@ -1,20 +1,14 @@
 package br.uninove.primeiraconsulta.database;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import br.uninove.primeiraconsulta.database.log.DbLogAnamnese;
 import br.uninove.primeiraconsulta.database.log.DbLogEstiloDeVida;
 import br.uninove.primeiraconsulta.database.log.DbLogExameFisico;
 import br.uninove.primeiraconsulta.database.log.DbLogListaProblemas;
 import br.uninove.primeiraconsulta.database.log.DbLogProntuario;
-import br.uninove.primeiraconsulta.entidade.Status;
-import br.uninove.primeiraconsulta.entidade.Usuario;
 
 /**
  * Created by PB on 09/11/2016.
@@ -24,7 +18,7 @@ public class DataBase extends SQLiteOpenHelper {
 
 
     private static final String NOME_DB = "PRIMEIRA_CONSULTA_DB";
-    private static final int VERSAO_DB = 37;
+    private static final int VERSAO_DB = 38;
 
     public DataBase(Context context) {
         super(context, NOME_DB, null, VERSAO_DB
@@ -54,8 +48,10 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL(DbUsuario.USUARIO_INSERT_GANSO);
         db.execSQL(DbUsuario.USUARIO_INSERT_LINEU);
         db.execSQL(DbUsuario.USUARIO_INSERT_BARBA_MAN);
+        db.execSQL(DbUsuario.USUARIO_INSERT_DEBORA);
+        db.execSQL(DbUsuario.USUARIO_INSERT_RAFAEL);
         db.execSQL(DbUsuario.USUARIO_INSERT_PB);
-        db.execSQL(DbUsuario.USUARIO_INSERT_CHAVES);
+
     }
 
     @Override

@@ -15,6 +15,10 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.opencsv.CSVWriter;
+
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -470,6 +474,40 @@ public class VerProntuarioActivity extends AppCompatActivity{
     @OnClick(R.id.bt_ver_voltar)
     public void voltar(){
         finish();
+    }
+
+    @OnClick(R.id.bt_ver_exportar)
+    public void exportar(){
+        try{
+            String baseDir = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
+            String fileName = "Prontuario_" + prontuario.getNumProntuario() + ".csv";
+            String filePath = baseDir + File.separator + fileName;
+            File f = new File(filePath);
+            CSVWriter writer;
+            // File exist
+            if(f.exists() && !f.isDirectory()){
+                FileWriter mFileWriter = new FileWriter(filePath , true);
+                writer = new CSVWriter(mFileWriter);
+            }
+            else {
+                writer = new CSVWriter(new FileWriter(filePath));
+            }
+
+            List<String[]> data = new ArrayList<String[]>();
+            data.add(new String[] {"Numero do Prontuario", prontuario.getNumProntuario()});
+            data.add(new String[] {"Data de Criação", prontuario.getData()});
+            data.add(new String[] {"Data da Ultima Edição", prontuario.getDataEdicao()});
+
+            writer.writeAll(data);
+            writer.close();
+            System.out.println(filePath);
+            Toast.makeText(this, "Arquivo exportado com sucesso!", Toast.LENGTH_SHORT).show();
+
+        }catch (Exception e){
+            Log.e("Exportar", e.toString());
+            e.printStackTrace();
+            Toast.makeText(this, "Ocorreu um erro!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @OnClick(R.id.bt_ver_email)
